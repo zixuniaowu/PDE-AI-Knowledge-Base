@@ -1,0 +1,10 @@
+{
+  "name": "PDE Knowledge Base",
+  "short_name": "PDE",
+  "description": "あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース",
+  "lang": "ja",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a"
+}

@@ -1,0 +1,65 @@
+import Link from "next/link";
+import { listDomains, listPhases } from "@pde/content-core";
+
+export const metadata = { title: "マトリクス" };
+
+export default function MatrixPage() {
+  const domains = listDomains();
+  const phases = listPhases();
+  const methods = [...new Set(phases.map((p) => p.data.method))];
+
+  return (
+    <div>
+      <h1>領域 × 工程マトリクス</h1>
+      <p className="lead">
+        縦軸が領域、横軸が開発工程。各セルは「その領域をその工程で進めるとき、人と AI
+        がどう動くか」への入り口です。
+      </p>
+
+      <div className="matrix-wrap">
+        <table className="matrix">
+          <thead>
+            <tr>
+              <th>領域 ＼ 工程</th>
+              {methods.map((m) => (
+                <th key={m} colSpan={phases.filter((p) => p.data.method === m).length}>
+                  <span className="method-group">{m}</span>
+                  {m}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {domains.map((d) => (
+              <tr key={d.id}>
+                <td className="row-head">
+                  <Link href={`/domains/${d.id}`}>
+                    {d.icon ?? "📦"} {d.name}
+                  </Link>
+                </td>
+                {phases.map((p) => (
+                  <td key={`${d.id}/${p.data.method}/${p.data.id}`}>
+                    <Link href={`/process/${p.data.method}/${p.data.id}`}>
+                      {p.data.title}
+                    </Link>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="section-label">このマトリクスを埋めるには</p>
+      <div className="notice">
+        現在のセルは工程ページへのリンクです。v0.3 で「領域 ×
+        工程」専用の交差コンテンツ（各セルに専用ページ）を予定しています。提案は
+        <Link href="https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/blob/main/docs/rfc/README.md">
+          {" "}
+          RFC{" "}
+        </Link>
+        でどうぞ。
+      </div>
+    </div>
+  );
+}

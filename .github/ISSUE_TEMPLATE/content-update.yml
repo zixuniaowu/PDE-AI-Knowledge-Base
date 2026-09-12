@@ -1,0 +1,21 @@
+name: "✍️ コンテンツの改善・修正"
+description: "既存コンテンツの誤り・改善提案"
+labels: ["content", "triage"]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: 対象ファイル / ページ
+      placeholder: "content/ja/domains/education/use-cases/grading-assistant.md"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 問題・改善したい点
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案する修正内容

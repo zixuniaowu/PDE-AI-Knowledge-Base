@@ -1,0 +1,16 @@
+# デフォルト: 全体をメンテナーがカバー
+* @zixuniaowu
+
+# 基盤コードはメンテナー管理
+/apps/ @zixuniaowu
+/packages/ @zixuniaowu
+/scripts/ @zixuniaowu
+/schemas/ @zixuniaowu
+
+# ── 領域ごとのオーナー（専門家が自分の領域を守る）──────────────
+# 新しい領域を追加したら、ここに 1 行追加してください
+/content/ja/domains/education/ @zixuniaowu
+
+# 工程軸・パターンは当面メンテナーが管理
+/content/ja/process/ @zixuniaowu
+/content/ja/patterns/ @zixuniaowu

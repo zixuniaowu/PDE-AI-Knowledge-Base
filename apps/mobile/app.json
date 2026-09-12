@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "PDE Knowledge",
+    "slug": "pde-knowledge",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#0f172a",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.pde.knowledge"
+    },
+    "android": {
+      "package": "dev.pde.knowledge"
+    },
+    "platforms": ["ios", "android"]
+  }
+}

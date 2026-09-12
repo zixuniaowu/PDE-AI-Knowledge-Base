@@ -1,0 +1,341 @@
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-sub: #475569;
+  --text-faint: #94a3b8;
+  --accent: #2563eb;
+  --accent-soft: #dbeafe;
+  --ai: #7c3aed;
+  --ai-soft: #ede9fe;
+  --human: #0891b2;
+  --human-soft: #cffafe;
+  --warn: #d97706;
+  --radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1120;
+    --surface: #111a2e;
+    --border: #23304a;
+    --text: #e2e8f0;
+    --text-sub: #94a3b8;
+    --text-faint: #64748b;
+    --accent: #60a5fa;
+    --accent-soft: #1e3a5f;
+    --ai: #a78bfa;
+    --ai-soft: #2e2447;
+    --human: #22d3ee;
+    --human-soft: #164e5a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP",
+    system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── layout ─────────────────────────────── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.brand {
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--text);
+  margin-right: 8px;
+}
+.brand:hover {
+  text-decoration: none;
+}
+.nav-link {
+  color: var(--text-sub);
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.nav-link:hover {
+  color: var(--text);
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 64px;
+  padding: 28px 0 40px;
+  color: var(--text-faint);
+  font-size: 13px;
+}
+
+main.container {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+/* ── typography ─────────────────────────── */
+h1 {
+  font-size: 30px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+h2 {
+  font-size: 21px;
+  margin: 40px 0 12px;
+  padding-top: 8px;
+}
+h3 {
+  font-size: 17px;
+  margin: 28px 0 8px;
+}
+.lead {
+  color: var(--text-sub);
+  font-size: 16px;
+  margin: 0 0 24px;
+}
+
+/* ── components ─────────────────────────── */
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  color: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+a.card:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.12);
+}
+.card h3 {
+  margin: 6px 0 4px;
+}
+.card p {
+  margin: 0;
+  color: var(--text-sub);
+  font-size: 14px;
+}
+.card .icon {
+  font-size: 26px;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+}
+.grid-2 {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+.grid-3 {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-sub);
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.badge-draft {
+  background: var(--accent-soft);
+  border-color: transparent;
+  color: var(--accent);
+}
+.badge-reviewed {
+  background: var(--human-soft);
+  border-color: transparent;
+  color: var(--human);
+}
+.badge-approved {
+  background: var(--ai-soft);
+  border-color: transparent;
+  color: var(--ai);
+}
+.badge-ai {
+  background: var(--ai-soft);
+  border-color: transparent;
+  color: var(--ai);
+}
+.badge-human {
+  background: var(--human-soft);
+  border-color: transparent;
+  color: var(--human);
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 32px 0 10px;
+}
+
+.hero {
+  padding: 28px 0 8px;
+}
+.hero h1 {
+  font-size: 34px;
+}
+
+.notice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+/* ── markdown (prose) ───────────────────── */
+.prose {
+  font-size: 15.5px;
+}
+.prose code {
+  background: var(--accent-soft);
+  border-radius: 5px;
+  padding: 1px 6px;
+  font-size: 0.88em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+.prose pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+.prose blockquote {
+  margin: 16px 0;
+  padding: 4px 18px;
+  border-left: 4px solid var(--accent-soft);
+  color: var(--text-sub);
+}
+.prose table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  margin: 16px 0;
+  display: block;
+  overflow-x: auto;
+}
+.prose th,
+.prose td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+}
+.prose th {
+  background: var(--surface);
+}
+.prose li {
+  margin: 4px 0;
+}
+
+/* ── matrix ─────────────────────────────── */
+.matrix-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.matrix {
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 640px;
+  width: 100%;
+}
+.matrix th,
+.matrix td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.matrix thead th {
+  background: var(--bg);
+  white-space: nowrap;
+}
+.matrix .row-head {
+  white-space: nowrap;
+  font-weight: 600;
+}
+.matrix .method-group {
+  color: var(--text-faint);
+  font-size: 11px;
+  display: block;
+  letter-spacing: 0.05em;
+}
+.matrix .dash {
+  color: var(--text-faint);
+}
+
+/* ── mobile ─────────────────────────────── */
+@media (max-width: 640px) {
+  h1,
+  .hero h1 {
+    font-size: 25px;
+  }
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  main.container {
+    padding-top: 20px;
+  }
+}

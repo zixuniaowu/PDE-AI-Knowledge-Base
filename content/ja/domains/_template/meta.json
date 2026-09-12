@@ -1,0 +1,10 @@
+{
+  "id": "template",
+  "name": "（領域名）",
+  "description": "この領域の 1 行説明をここに書きます",
+  "icon": "📦",
+  "tags": [],
+  "owners": ["@your-github-id"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

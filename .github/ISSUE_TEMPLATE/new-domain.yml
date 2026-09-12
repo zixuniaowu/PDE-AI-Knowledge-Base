@@ -1,0 +1,33 @@
+name: "🗂 新しい領域の提案"
+description: "新しい業務領域を PDE に追加したい"
+labels: ["new-domain", "triage"]
+body:
+  - type: input
+    id: domain-name
+    attributes:
+      label: 領域名
+      description: 例: 医療 / 物流 / 法務…
+      placeholder: "例: logistics（物流）"
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: この領域で AI が活躍できそうな場面
+      description: 3 つ以上書けるのが理想です
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: あなたの専門性・領域との関係
+      description: 領域オーナーになれる方の自己紹介
+    validations:
+      required: true
+  - type: checkboxes
+    id: will-write
+    attributes:
+      label: 本人がコンテンツを書く意志
+      options:
+        - label: はい、テンプレートから自分で書いて PR します
+          required: true

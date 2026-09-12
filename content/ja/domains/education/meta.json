@@ -1,0 +1,10 @@
+{
+  "id": "education",
+  "name": "教育",
+  "description": "学校教育・企業研修における学習設計と AI の協働",
+  "icon": "🎓",
+  "tags": ["教育", "研修", "学習"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

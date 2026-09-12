@@ -6,6 +6,7 @@ import {
   listPatterns,
   listPhases,
   listMethods,
+  listGuides,
   getDomain,
   resolveContentRoot,
 } from "../packages/content-core/src/index";
@@ -31,6 +32,7 @@ const requiredTemplates = [
   "domains/_template/use-cases/_template.md",
   "process/_template.md",
   "patterns/_template.md",
+  "guide/_template.md",
 ];
 for (const t of requiredTemplates) {
   if (!fs.existsSync(path.join(root, t))) {
@@ -49,6 +51,7 @@ for (const d of domains) {
 step("process/phases", () => listPhases(undefined, root));
 step("process/methods", () => listMethods(root));
 step("patterns", () => listPatterns(root));
+step("guide", () => listGuides(root));
 
 // 参照整合チェック
 const patterns = safe(() => listPatterns(root), []);

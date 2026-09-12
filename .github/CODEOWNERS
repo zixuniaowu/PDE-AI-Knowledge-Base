@@ -10,7 +10,12 @@
 # ── 領域ごとのオーナー（専門家が自分の領域を守る）──────────────
 # 新しい領域を追加したら、ここに 1 行追加してください
 /content/ja/domains/education/ @zixuniaowu
+/content/ja/domains/software-development/ @zixuniaowu
+/content/ja/domains/marketing/ @zixuniaowu
+/content/ja/domains/manufacturing/ @zixuniaowu
+/content/ja/domains/legal/ @zixuniaowu
 
-# 工程軸・パターンは当面メンテナーが管理
+# 工程軸・パターン・ガイドは当面メンテナーが管理
 /content/ja/process/ @zixuniaowu
 /content/ja/patterns/ @zixuniaowu
+/content/ja/guide/ @zixuniaowu

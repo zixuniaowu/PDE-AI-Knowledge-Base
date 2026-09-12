@@ -111,6 +111,23 @@ updated: 2026-09-12
 
 本文の推奨構成: 概要 / 仕組み / 適している場面 / 各領域での応用 / 落とし穴。
 
+## guide: guide/<id>.md
+
+「PDE の始め方」などの順序付きガイド。`order` で並び順を制御する。
+
+```yaml
+---
+id: step-1-pick-a-task
+type: guide
+order: 1
+title: STEP 1 — 小さく始める
+summary: 最初の 1 業務を選ぶ
+owners: ["@zixuniaowu"]
+status: draft
+updated: 2026-09-12
+---
+```
+
 ## 検証
 
 ```bash

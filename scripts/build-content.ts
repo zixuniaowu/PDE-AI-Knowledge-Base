@@ -10,6 +10,7 @@ import {
   listPatterns,
   listPhases,
   listMethods,
+  listGuides,
   resolveContentRoot,
 } from "../packages/content-core/src/index";
 
@@ -26,6 +27,7 @@ const data = {
     phases: listPhases(undefined, root).map((p) => ({ ...p.data, body: p.content })),
   },
   patterns: listPatterns(root).map((p) => ({ ...p.data, body: p.content })),
+  guides: listGuides(root).map((g) => ({ ...g.data, body: g.content })),
 };
 
 const outDir = path.resolve("apps/mobile/src/data");
@@ -34,5 +36,5 @@ const outFile = path.join(outDir, "content.json");
 fs.writeFileSync(outFile, JSON.stringify(data, null, 2) + "\n");
 
 console.log(
-  `✅ ${outFile} を生成しました (domains: ${data.domains.length}, phases: ${data.process.phases.length}, patterns: ${data.patterns.length})`
+  `✅ ${outFile} を生成しました (domains: ${data.domains.length}, phases: ${data.process.phases.length}, patterns: ${data.patterns.length}, guides: ${data.guides.length})`
 );

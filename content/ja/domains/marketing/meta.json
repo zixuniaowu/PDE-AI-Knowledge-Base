@@ -1,0 +1,10 @@
+{
+  "id": "marketing",
+  "name": "マーケティング",
+  "description": "コンテンツ制作・分析・顧客理解における AI 協働",
+  "icon": "📣",
+  "tags": ["マーケティング", "コンテンツ", "分析"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

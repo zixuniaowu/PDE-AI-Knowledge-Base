@@ -19,6 +19,7 @@ export const viewport: Viewport = {
 };
 
 const nav = [
+  { href: "/guide", label: "始め方" },
   { href: "/domains", label: "領域" },
   { href: "/process", label: "工程" },
   { href: "/patterns", label: "パターン" },

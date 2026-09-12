@@ -1,0 +1,10 @@
+{
+  "id": "legal",
+  "name": "法務",
+  "description": "契約レビュー・調査・文書管理における AI 協働",
+  "icon": "⚖️",
+  "tags": ["法務", "契約", "コンプライアンス"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

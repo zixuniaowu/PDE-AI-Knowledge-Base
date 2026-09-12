@@ -74,8 +74,20 @@ export const patternDocSchema = z.object({
   updated: dateSchema,
 });
 
+export const guideDocSchema = z.object({
+  id: idSchema,
+  type: z.literal("guide"),
+  order: z.number().int().min(0),
+  title: z.string().min(1),
+  summary: z.string().min(1),
+  owners: ownersSchema,
+  status: statusSchema,
+  updated: dateSchema,
+});
+
 export type DomainMeta = z.infer<typeof domainMetaSchema>;
 export type DomainDoc = z.infer<typeof domainDocSchema>;
 export type UseCaseDoc = z.infer<typeof useCaseDocSchema>;
 export type PhaseDoc = z.infer<typeof phaseDocSchema>;
 export type PatternDoc = z.infer<typeof patternDocSchema>;
+export type GuideDoc = z.infer<typeof guideDocSchema>;

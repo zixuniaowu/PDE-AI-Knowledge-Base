@@ -5,11 +5,13 @@ import type { ZodType, ZodTypeDef } from "zod";
 import {
   domainDocSchema,
   domainMetaSchema,
+  guideDocSchema,
   patternDocSchema,
   phaseDocSchema,
   useCaseDocSchema,
   type DomainDoc,
   type DomainMeta,
+  type GuideDoc,
   type PatternDoc,
   type PhaseDoc,
   type UseCaseDoc,
@@ -167,4 +169,17 @@ export function listPatterns(root = resolveContentRoot()): ParsedDoc<PatternDoc>
 
 export function getPattern(id: string, root = resolveContentRoot()): ParsedDoc<PatternDoc> {
   return parseMarkdown(path.join(root, "patterns", `${id}.md`), patternDocSchema);
+}
+
+// ── guide ──────────────────────────────────────────────────────
+
+export function listGuides(root = resolveContentRoot()): ParsedDoc<GuideDoc>[] {
+  const dir = path.join(root, "guide");
+  return listMd(dir)
+    .map((f) => parseMarkdown(path.join(dir, f), guideDocSchema))
+    .sort((a, b) => a.data.order - b.data.order);
+}
+
+export function getGuide(id: string, root = resolveContentRoot()): ParsedDoc<GuideDoc> {
+  return parseMarkdown(path.join(root, "guide", `${id}.md`), guideDocSchema);
 }

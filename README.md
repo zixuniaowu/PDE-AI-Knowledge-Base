@@ -30,6 +30,7 @@ PDE の情報は「**領域 × 工程**」のマトリクスで整理されま�
 ```
 .
 ├── content/{locale}/        # ★ コンテンツ本体（Markdown + frontmatter）
+│   ├── guide/               #    PDE の始め方（ステップバイステップガイド）
 │   ├── domains/<id>/        #    領域ごとのディレクトリ（meta.json + index.md + use-cases/）
 │   ├── process/             #    工程（waterfall/ agile/ の各フェーズ md）
 │   └── patterns/            #    横断AIパターン

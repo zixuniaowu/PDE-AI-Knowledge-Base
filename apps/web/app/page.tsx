@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { listDomains, listPatterns, listPhases } from "@pde/content-core";
+import { listDomains, listGuides, listPatterns, listPhases } from "@pde/content-core";
 
 export default function Home() {
   const domains = listDomains();
   const phases = listPhases();
   const patterns = listPatterns();
+  const guides = listGuides();
 
   return (
     <div>
@@ -31,6 +32,11 @@ export default function Home() {
 
       <p className="section-label">ざっと見る</p>
       <div className="grid grid-3">
+        <Link href="/guide" className="card">
+          <span className="icon">🧭</span>
+          <h3>始め方 {guides.length} ステップ</h3>
+          <p>「AI を使う」から「AI と協働する」へ。6 ステップで PDE になる道しるべ。</p>
+        </Link>
         <Link href="/domains" className="card">
           <span className="icon">🗂</span>
           <h3>領域 {domains.length} 件</h3>

@@ -37,8 +37,18 @@ type Phase = {
   body: string;
 };
 
+type Guide = {
+  id: string;
+  order: number;
+  title: string;
+  summary: string;
+  status: string;
+  body: string;
+};
+
 const domain = content.domains as Domain[];
 const phases = content.process.phases as Phase[];
+const guides = (content as { guides?: Guide[] }).guides ?? [];
 
 const statusLabel: Record<string, string> = {
   draft: "ドラフト",
@@ -51,7 +61,9 @@ type Screen =
   | { name: "domain"; item: Domain }
   | { name: "usecase"; item: UseCase; domain: Domain }
   | { name: "process" }
-  | { name: "phase"; item: Phase };
+  | { name: "phase"; item: Phase }
+  | { name: "guide" }
+  | { name: "guideStep"; item: Guide };
 
 export default function App() {
   const [stack, setStack] = useState<Screen[]>([{ name: "home" }]);
@@ -74,10 +86,37 @@ export default function App() {
           {screen.name === "usecase" && screen.item.title}
           {screen.name === "process" && "工程"}
           {screen.name === "phase" && `${screen.item.method} · ${screen.item.title}`}
+          {screen.name === "guide" && "PDE の始め方"}
+          {screen.name === "guideStep" && screen.item.title}
         </Text>
       </View>
 
       {screen.name === "home" && <HomeScreen push={push} />}
+
+      {screen.name === "guide" && (
+        <FlatList
+          style={styles.body}
+          contentContainerStyle={styles.bodyInner}
+          data={guides}
+          keyExtractor={(g) => g.id}
+          renderItem={({ item }) => (
+            <Card
+              title={item.order === 0 ? `📖 ${item.title}` : `STEP ${item.order} — ${item.title}`}
+              subtitle={item.summary}
+              badge={statusLabel[item.status] ?? item.status}
+              onPress={() => push({ name: "guideStep", item })}
+            />
+          )}
+        />
+      )}
+
+      {screen.name === "guideStep" && (
+        <ScrollView style={styles.body} contentContainerStyle={styles.bodyInner}>
+          <Text style={styles.badge}>{statusLabel[screen.item.status]}</Text>
+          <Text style={styles.desc}>{screen.item.summary}</Text>
+          <Body text={screen.item.body} />
+        </ScrollView>
+      )}
 
       {screen.name === "domain" && (
         <ScrollView style={styles.body} contentContainerStyle={styles.bodyInner}>
@@ -130,6 +169,9 @@ export default function App() {
 
       {screen.name === "home" && (
         <View style={styles.footer}>
+          <TouchableOpacity onPress={() => push({ name: "guide" })}>
+            <Text style={styles.footerLink}>🧭 始め方</Text>
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => push({ name: "process" })}>
             <Text style={styles.footerLink}>🔁 工程一覧を見る</Text>
           </TouchableOpacity>

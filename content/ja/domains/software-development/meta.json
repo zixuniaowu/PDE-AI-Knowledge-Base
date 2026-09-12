@@ -1,0 +1,10 @@
+{
+  "id": "software-development",
+  "name": "ソフトウェア開発",
+  "description": "設計・実装・レビュー・テストにおける AI 協働の実践",
+  "icon": "🖥️",
+  "tags": ["開発", "コード", "レビュー"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

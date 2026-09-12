@@ -1,0 +1,10 @@
+{
+  "id": "manufacturing",
+  "name": "製造",
+  "description": "設計・手順書・品質管理における現場の AI 協働",
+  "icon": "🏭",
+  "tags": ["製造", "品質", "現場"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

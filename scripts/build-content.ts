@@ -99,6 +99,93 @@ const searchIndex = [
 const searchFile = path.resolve("apps/web/public/search-index.json");
 fs.writeFileSync(searchFile, JSON.stringify(searchIndex) + "\n");
 
+// ── 3. RSS feed ────────────────────────────────────────────────
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://zixuniaowu.github.io/PDE-AI-Knowledge-Base"
+).replace(/\/$/, "");
+
+const feedItems = [
+  ...listGuides(root).map((g) => ({
+    title: `[ガイド] ${g.data.title}`,
+    url: `/guide/${g.data.id}/`,
+    summary: g.data.summary,
+    updated: g.data.updated,
+  })),
+  ...listDomains(root).flatMap((d) =>
+    listUseCases(d.id, root).map((uc) => ({
+      title: `[${d.name}] ${uc.data.title}`,
+      url: `/domains/${d.id}/${uc.data.id}/`,
+      summary: uc.data.summary,
+      updated: uc.data.updated,
+    }))
+  ),
+  ...listPatterns(root).map((p) => ({
+    title: `[パターン] ${p.data.title}`,
+    url: `/patterns/${p.data.id}/`,
+    summary: p.data.summary,
+    updated: p.data.updated,
+  })),
+].sort((a, b) => b.updated.localeCompare(a.updated));
+
+const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>PDE Knowledge Base</title>
+<link>${siteUrl}/</link>
+<description>あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース</description>
+<language>ja</language>
+<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+${feedItems
+  .map(
+    (it) => `<item>
+<title>${it.title.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</title>
+<link>${siteUrl}${it.url}</link>
+<description>${it.summary.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</description>
+<pubDate>${new Date(it.updated + "T00:00:00Z").toUTCString()}</pubDate>
+<guid>${siteUrl}${it.url}</guid>
+</item>`
+  )
+  .join("\n")}
+</channel></rss>
+`;
+const feedFile = path.resolve("apps/web/public/feed.xml");
+fs.writeFileSync(feedFile, feedXml);
+
+// ── 4. llms.txt (AI可読インデックス) ───────────────────────────
+const llms = [
+  "# PDE — Prompt-Driven Engineering Knowledge Base",
+  "",
+  "> あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。領域×工程のマトリクスで「人間とAIの役割分担」を整理する。",
+  "",
+  "## Guide (start here)",
+  ...listGuides(root).map((g) => `- [${g.data.title}](${siteUrl}/guide/${g.data.id}/): ${g.data.summary}`),
+  "",
+  "## Domains",
+  ...listDomains(root).map((d) => `- [${d.name}](${siteUrl}/domains/${d.id}/): ${d.description}`),
+  "",
+  "## Use cases",
+  ...listDomains(root).flatMap((d) =>
+    listUseCases(d.id, root).map(
+      (uc) => `- [${d.name} / ${uc.data.title}](${siteUrl}/domains/${d.id}/${uc.data.id}/): ${uc.data.summary}`
+    )
+  ),
+  "",
+  "## Process phases",
+  ...listPhases(undefined, root).map(
+    (p) => `- [${p.data.method} / ${p.data.title}](${siteUrl}/process/${p.data.method}/${p.data.id}/): 人間とAIの役割分担と受け入れ基準`
+  ),
+  "",
+  "## Patterns",
+  ...listPatterns(root).map((p) => `- [${p.data.title}](${siteUrl}/patterns/${p.data.id}/): ${p.data.summary}`),
+  "",
+  "## Intersection notes (domain x process)",
+  ...listIntersections(root).map(
+    (ix) => `- [${ix.data.title}](${siteUrl}/matrix/${ix.data.domain}/${ix.data.method}/${ix.data.phase}/)`
+  ),
+  "",
+].join("\n");
+const llmsFile = path.resolve("apps/web/public/llms.txt");
+fs.writeFileSync(llmsFile, llms);
+
 console.log(
-  `✅ ${outFile} (domains: ${data.domains.length}, phases: ${data.process.phases.length}, patterns: ${data.patterns.length}, guides: ${data.guides.length})\n✅ ${searchFile} (${searchIndex.length} entries)`
+  `✅ ${outFile} (domains: ${data.domains.length}, phases: ${data.process.phases.length}, patterns: ${data.patterns.length}, guides: ${data.guides.length})\n✅ ${searchFile} (${searchIndex.length} entries)\n✅ ${feedFile} (${feedItems.length} items)\n✅ ${llmsFile}`
 );

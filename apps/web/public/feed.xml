@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+<title>PDE Knowledge Base</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/</link>
+<description>あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース</description>
+<language>ja</language>
+<lastBuildDate>Sat, 12 Sep 2026 14:06:35 GMT</lastBuildDate>
+<item>
+<title>[ガイド] PDE とは・このガイドの使い方</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</link>
+<description>「AI を使う」から「AI と協働する」へ。PDE の考え方と、6 ステップの進み方</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 1 — 小さく始める: 最初の 1 業務を選ぶ</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/</link>
+<description>「全部やる」は失敗のもと。検証しやすく、失敗コストの低い業務を 1 つ選ぶ</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 2 — 人と AI の役割を書き出す</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/</link>
+<description>「何を AI に任せ、何を人間が残すか」。判断権の所在を先に決める</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 3 — 協働の型を作る</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/</link>
+<description>プロンプトを資産にする。入力・指示・出力の型を決め、受け渡しを設計する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 4 — 受け入れ基準と測定を決める</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/</link>
+<description>「良くなった」を証明する。検収条件と、導入前後で比べる指標を先に決める</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 5 — チームへ展開する</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/</link>
+<description>個人の技からチームの資産へ。テンプレート化し、ルールを決め、人を育てる</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 6 — 知見を PDE に還元する</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</link>
+<description>あなたの型を、他の人が育てられる形で公開する。それが PDE コミュニティの正体</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</guid>
+</item>
+<item>
+<title>[教育] 採点・フィードバック支援</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</link>
+<description>ルーブリックに基づく採点下書きを AI が生成し、教師が最終判定する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</guid>
+</item>
+<item>
+<title>[教育] 個別学習プランの設計</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/</link>
+<description>つまずきデータから学習者ごとのプラン案を AI が生成し、教師が方針を決める</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/</guid>
+</item>
+<item>
+<title>[教育] 授業教材のドラフト作成</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/</link>
+<description>学習目標から構成・本文・演習問題まで段階的に生成し、教師が教育観点で検収する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/</guid>
+</item>
+<item>
+<title>[金融・経理] 月次レポートのドラフトと数値突合</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/monthly-report/</link>
+<description>数値はシステムから渡し、AI は解説文と差異の整理のみ行う。人間が突合して確定する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/monthly-report/</guid>
+</item>
+<item>
+<title>[金融・経理] 社内規程・制度のQ&amp;A応答</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/policy-qa/</link>
+<description>規程を検索して引用付きで回答する社内Q&amp;Aを作り、経理・人事の定型問い合わせを減らす</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/policy-qa/</guid>
+</item>
+<item>
+<title>[医療・看護] 看護記録の下書き支援</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/nursing-record/</link>
+<description>メモ・音声ダイジェストから記録ドラフトを構造化し、記録者本人が全文確認して確定する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/nursing-record/</guid>
+</item>
+<item>
+<title>[医療・看護] 患者説明資料の作成</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/patient-explainer/</link>
+<description>検査・処置の説明資料を読みやすさ別に生成し、担当者が医学的内容に責任を持つ</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/patient-explainer/</guid>
+</item>
+<item>
+<title>[人事・採用] 面接メモの事実抽出</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/hr/interview-notes/</link>
+<description>面接メモから「事実の発言」と「評価」を分離して整理し、面接官の判断材料をそろえる</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/hr/interview-notes/</guid>
+</item>
+<item>
+<title>[人事・採用] オンボーディング資料の作成</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/hr/onboarding-materials/</link>
+<description>配属先・役職に合わせた初期学習資料を AI が段階的に生成し、人事と現場が分担確認する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/hr/onboarding-materials/</guid>
+</item>
+<item>
+<title>[法務] 契約レビューの一次整理</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/legal/contract-review/</link>
+<description>雛形との差分やリスク条項の抽出を AI が行い、人はリスク判断と修正案の確定を担う</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/legal/contract-review/</guid>
+</item>
+<item>
+<title>[法務] 法改正・規程の調査整理</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/legal/regulation-update/</link>
+<description>法改正の影響範囲を AI が洗い出し、社内規程との差分整理まで行い、判断は法務が担う</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/legal/regulation-update/</guid>
+</item>
+<item>
+<title>[物流・サプライチェーン] 遅延・トラブル時の顧客連絡文</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/logistics/customer-notice/</link>
+<description>異常情報から状況別の連絡文ドラフトを即座に作り、担当者が事実確認して送信する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/logistics/customer-notice/</guid>
+</item>
+<item>
+<title>[物流・サプライチェーン] 配送異常報告の整理と傾向分析</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/logistics/delivery-anomaly/</link>
+<description>ドライバー・現場の自由記述を構造化し、再発する異常の傾向を管理側が掴めるようにする</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/logistics/delivery-anomaly/</guid>
+</item>
+<item>
+<title>[製造] 不具合報告の整理と傾向分析</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/manufacturing/defect-report/</link>
+<description>現場の自由記述報告を AI が構造化し、品質会議の傾向分析に人間が判断を加える</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/manufacturing/defect-report/</guid>
+</item>
+<item>
+<title>[製造] 作業手順書の作成・改訂支援</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/manufacturing/work-instruction/</link>
+<description>既存手順書と作業メモからドラフトを生成し、安全確認と現場検証を人が担う</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/manufacturing/work-instruction/</guid>
+</item>
+<item>
+<title>[マーケティング] コンテンツ制作支援</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/marketing/content-drafting/</link>
+<description>構成案と初稿を AI が生成し、人はトーン調整・事実確認・規制チェックを担う</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/marketing/content-drafting/</guid>
+</item>
+<item>
+<title>[マーケティング] アンケート自由回答の分類とインサイト抽出</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/marketing/survey-classification/</link>
+<description>数百件の自由記述を AI が分類・集計し、施策の判断材料として人が解釈する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/marketing/survey-classification/</guid>
+</item>
+<item>
+<title>[営業・カスタマーサクセス] 商談メモの CRM 記録化</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/sales/meeting-notes-crm/</link>
+<description>商談メモを CRM 項目に構造化して登録漏れを防ぎ、チームで顧客状況を共有できる形にする</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/sales/meeting-notes-crm/</guid>
+</item>
+<item>
+<title>[営業・カスタマーサクセス] 提案書ドラフトの作成</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/sales/proposal-drafting/</link>
+<description>商談メモから顧客課題を構造化し、社内実績を引用して提案書の骨子まで段階的に作る</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/sales/proposal-drafting/</guid>
+</item>
+<item>
+<title>[ソフトウェア開発] 実装下書き・テストコード生成</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/implementation-draft/</link>
+<description>設計に基づく実装とテストのたたき台を AI が生成し、開発者が理解して採用する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/implementation-draft/</guid>
+</item>
+<item>
+<title>[ソフトウェア開発] 障害対応と報告書作成</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/incident-report/</link>
+<description>対応中はログ解析を AI が補助し、事後はタイムラインから報告書をドラフト化する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/incident-report/</guid>
+</item>
+<item>
+<title>[ソフトウェア開発] プルリクエストレビュー支援</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/pr-review-assistant/</link>
+<description>AI が規約チェックと影響範囲の一次指摘を行い、レビューアーは設計判断に集中する</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/pr-review-assistant/</guid>
+</item>
+<item>
+<title>[パターン] Agent（エージェント）</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/agent/</link>
+<description>目標を渡すと AI 自らが計画・ツール実行・反復を行うパターン。管理コストとセット</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/agent/</guid>
+</item>
+<item>
+<title>[パターン] Confidential Inputs（機密情報の持ち込みルール）</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/confidential-inputs/</link>
+<description>「何を AI に入れてよいか」を入力時に分類する。全領域の安全設計の土台</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/confidential-inputs/</guid>
+</item>
+<item>
+<title>[パターン] Evaluation（評価とガードレール）</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/evaluation/</link>
+<description>AI の出力品質を「検証可能な形」で測り、自動チェックと下限値で守る</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/evaluation/</guid>
+</item>
+<item>
+<title>[パターン] Few-shot（例示による誘導）</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/few-shot/</link>
+<description>良い出力例をいくつか見せるだけで、形式・トーン・粒度を揃える最も手軽なパターン</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/few-shot/</guid>
+</item>
+<item>
+<title>[パターン] Human-in-the-loop（人間の関与点の設計）</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/human-in-the-loop/</link>
+<description>AI の自動処理のどの地点で人間が判断するかを明示的に設計する、PDE の基本パターン</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/human-in-the-loop/</guid>
+</item>
+<item>
+<title>[パターン] Prompt Chaining（プロンプト連鎖）</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/prompt-chaining/</link>
+<description>大きなタスクを複数の小さな AI 呼び出しに分割し、出力を入力として渡す</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/prompt-chaining/</guid>
+</item>
+<item>
+<title>[パターン] RAG（検索拡張生成）</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/rag/</link>
+<description>社内文書や専門知識を検索してから回答を生成させる基本パターン</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/rag/</guid>
+</item>
+<item>
+<title>[パターン] 構造化出力</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/structured-output/</link>
+<description>自由文ではなく JSON 等の構造で出力させる。下流処理・検証・集計が可能になる</description>
+<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/structured-output/</guid>
+</item>
+</channel></rss>

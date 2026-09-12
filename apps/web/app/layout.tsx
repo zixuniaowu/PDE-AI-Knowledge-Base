@@ -60,7 +60,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             PDE — Prompt-Driven Engineering Knowledge Base · Code: MIT / Content: CC BY 4.0 ·
             <Link href="https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/blob/main/CONTRIBUTING.md">
               貢献する
-            </Link>
+            </Link>{" "}
+            ·{" "}
+            <a href="/feed.xml" target="_blank" rel="noopener noreferrer">
+              RSS
+            </a>{" "}
+            ·{" "}
+            <a href="/llms.txt" target="_blank" rel="noopener noreferrer">
+              llms.txt
+            </a>
           </div>
         </footer>
       </body>

@@ -240,6 +240,10 @@ a.card:hover {
 .prose {
   font-size: 15.5px;
 }
+.prose h2,
+.prose h3 {
+  scroll-margin-top: 72px;
+}
 .prose code {
   background: var(--accent-soft);
   border-radius: 5px;

@@ -1,0 +1,54 @@
+---
+id: meeting-notes-crm
+type: use-case
+domain: sales
+title: 商談メモの CRM 記録化
+summary: 商談メモを CRM 項目に構造化して登録漏れを防ぎ、チームで顧客状況を共有できる形にする
+aiPatterns: ["structured-output", "few-shot"]
+phaseLinks:
+  - method: agile
+    phase: daily-scrum
+owners: ["@zixuniaowu"]
+status: draft
+updated: 2026-09-12
+---
+
+## 背景
+
+商談の記録は営業の忙しさに敗けて CRM に残らない。記録が残らないと、異動・休職・退職で顧客の文脈が消える。
+
+## 人間の役割
+
+- 登録内容の確認と確定（**顧客情報の正確性への責任**）
+- 機微情報・競合情報など CRM に入れないものの判断
+- 次回アクションと期日の最終決定
+
+## AI の役割
+
+- メモを CRM 項目（案件状況・課題・競合・次回アクション）に構造化
+- 「次回アクションが未定」の検出と、候補の提示
+- 商談ごとの要約（3 行）の生成、チーム共有用
+
+## プロンプト例
+
+```text
+あなたは CRM 登録の補助です。商談メモを次の JSON に整理してください。
+{account_code, stage, facts: [], concerns: [], competitors_mentioned: [], next_action_candidates: [], summary_3lines}
+ルール:
+・顧客名はコードに変換（対応表は手元で管理。AI に渡さない）
+・事実（発言の引用）と営業の推測を混ぜない。推測は concerns に [推測] 付き
+・next_action は「決定」ではなく candidates として複数出す
+CRM 項目定義: （添付） メモ: （貼付）
+```
+
+## 失敗パターン
+
+- 顧客名をそのまま外部 AI に渡す → コード変換ルールを徹底（[機密情報の持ち込みルール](/patterns/confidential-inputs)）
+- AI の「要約」だけが残り原文が消える → メモ原文の添付を必須にする
+- 次回アクションが候補のまま確定されない → 確定は営業が 1 行で書く。週次会議（[パイプライン会議](/matrix/sales/agile/sprint-planning)）で未確定案件を点検
+
+## 効果の測り方
+
+- 商談から CRM 登録までのリードタイム（当日登録率）
+- 登録項目の完填率（次回アクションの記載率）
+- 引継ぎ・共有のスムーズさ（他メンバーが商談を追えるかの社内評価）

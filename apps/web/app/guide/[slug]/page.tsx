@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getGuide, listGuides } from "@pde/content-core";
 import { Prose } from "@/components/Prose";
+import { Toc } from "@/components/Toc";
 import { Meta, StatusBadge } from "@/components/Badges";
 
 export function generateStaticParams() {
@@ -31,6 +32,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
         <StatusBadge status={doc.data.status} />
       </p>
 
+      <Toc markdown={doc.content} />
       <Prose>{doc.content}</Prose>
       <Meta updated={doc.data.updated} owners={doc.data.owners} />
 

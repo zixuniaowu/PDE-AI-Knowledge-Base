@@ -1,0 +1,96 @@
+# PDE — Prompt-Driven Engineering Knowledge Base
+
+> あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。領域×工程のマトリクスで「人間とAIの役割分担」を整理する。
+
+## Guide (start here)
+- [PDE とは・このガイドの使い方](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/): 「AI を使う」から「AI と協働する」へ。PDE の考え方と、6 ステップの進み方
+- [STEP 1 — 小さく始める: 最初の 1 業務を選ぶ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/): 「全部やる」は失敗のもと。検証しやすく、失敗コストの低い業務を 1 つ選ぶ
+- [STEP 2 — 人と AI の役割を書き出す](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/): 「何を AI に任せ、何を人間が残すか」。判断権の所在を先に決める
+- [STEP 3 — 協働の型を作る](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/): プロンプトを資産にする。入力・指示・出力の型を決め、受け渡しを設計する
+- [STEP 4 — 受け入れ基準と測定を決める](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/): 「良くなった」を証明する。検収条件と、導入前後で比べる指標を先に決める
+- [STEP 5 — チームへ展開する](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/): 個人の技からチームの資産へ。テンプレート化し、ルールを決め、人を育てる
+- [STEP 6 — 知見を PDE に還元する](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/): あなたの型を、他の人が育てられる形で公開する。それが PDE コミュニティの正体
+
+## Domains
+- [教育](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/): 学校教育・企業研修における学習設計と AI の協働
+- [金融・経理](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/): レポート作成・データ突合・規程対応における正確性第一の AI 協働
+- [医療・看護](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/): 記録作成・患者説明・チーム連携における AI 協働（判断は必ず人間）
+- [人事・採用](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/hr/): 採用・育成・労務手続きにおける公平性を守る AI 協働
+- [法務](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/legal/): 契約レビュー・調査・文書管理における AI 協働
+- [物流・サプライチェーン](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/logistics/): 配送・倉庫・在庫運用における報告整理と指示書作成の AI 協働
+- [製造](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/manufacturing/): 設計・手順書・品質管理における現場の AI 協働
+- [マーケティング](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/marketing/): コンテンツ制作・分析・顧客理解における AI 協働
+- [営業・カスタマーサクセス](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/sales/): 提案書作成・商談記録・顧客対応における AI 協働（約束は人間が管理）
+- [ソフトウェア開発](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/): 設計・実装・レビュー・テストにおける AI 協働の実践
+
+## Use cases
+- [教育 / 採点・フィードバック支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/): ルーブリックに基づく採点下書きを AI が生成し、教師が最終判定する
+- [教育 / 個別学習プランの設計](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/): つまずきデータから学習者ごとのプラン案を AI が生成し、教師が方針を決める
+- [教育 / 授業教材のドラフト作成](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/): 学習目標から構成・本文・演習問題まで段階的に生成し、教師が教育観点で検収する
+- [金融・経理 / 月次レポートのドラフトと数値突合](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/monthly-report/): 数値はシステムから渡し、AI は解説文と差異の整理のみ行う。人間が突合して確定する
+- [金融・経理 / 社内規程・制度のQ&A応答](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/policy-qa/): 規程を検索して引用付きで回答する社内Q&Aを作り、経理・人事の定型問い合わせを減らす
+- [医療・看護 / 看護記録の下書き支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/nursing-record/): メモ・音声ダイジェストから記録ドラフトを構造化し、記録者本人が全文確認して確定する
+- [医療・看護 / 患者説明資料の作成](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/patient-explainer/): 検査・処置の説明資料を読みやすさ別に生成し、担当者が医学的内容に責任を持つ
+- [人事・採用 / 面接メモの事実抽出](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/hr/interview-notes/): 面接メモから「事実の発言」と「評価」を分離して整理し、面接官の判断材料をそろえる
+- [人事・採用 / オンボーディング資料の作成](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/hr/onboarding-materials/): 配属先・役職に合わせた初期学習資料を AI が段階的に生成し、人事と現場が分担確認する
+- [法務 / 契約レビューの一次整理](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/legal/contract-review/): 雛形との差分やリスク条項の抽出を AI が行い、人はリスク判断と修正案の確定を担う
+- [法務 / 法改正・規程の調査整理](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/legal/regulation-update/): 法改正の影響範囲を AI が洗い出し、社内規程との差分整理まで行い、判断は法務が担う
+- [物流・サプライチェーン / 遅延・トラブル時の顧客連絡文](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/logistics/customer-notice/): 異常情報から状況別の連絡文ドラフトを即座に作り、担当者が事実確認して送信する
+- [物流・サプライチェーン / 配送異常報告の整理と傾向分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/logistics/delivery-anomaly/): ドライバー・現場の自由記述を構造化し、再発する異常の傾向を管理側が掴めるようにする
+- [製造 / 不具合報告の整理と傾向分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/manufacturing/defect-report/): 現場の自由記述報告を AI が構造化し、品質会議の傾向分析に人間が判断を加える
+- [製造 / 作業手順書の作成・改訂支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/manufacturing/work-instruction/): 既存手順書と作業メモからドラフトを生成し、安全確認と現場検証を人が担う
+- [マーケティング / コンテンツ制作支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/marketing/content-drafting/): 構成案と初稿を AI が生成し、人はトーン調整・事実確認・規制チェックを担う
+- [マーケティング / アンケート自由回答の分類とインサイト抽出](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/marketing/survey-classification/): 数百件の自由記述を AI が分類・集計し、施策の判断材料として人が解釈する
+- [営業・カスタマーサクセス / 商談メモの CRM 記録化](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/sales/meeting-notes-crm/): 商談メモを CRM 項目に構造化して登録漏れを防ぎ、チームで顧客状況を共有できる形にする
+- [営業・カスタマーサクセス / 提案書ドラフトの作成](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/sales/proposal-drafting/): 商談メモから顧客課題を構造化し、社内実績を引用して提案書の骨子まで段階的に作る
+- [ソフトウェア開発 / 実装下書き・テストコード生成](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/implementation-draft/): 設計に基づく実装とテストのたたき台を AI が生成し、開発者が理解して採用する
+- [ソフトウェア開発 / 障害対応と報告書作成](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/incident-report/): 対応中はログ解析を AI が補助し、事後はタイムラインから報告書をドラフト化する
+- [ソフトウェア開発 / プルリクエストレビュー支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/pr-review-assistant/): AI が規約チェックと影響範囲の一次指摘を行い、レビューアーは設計判断に集中する
+
+## Process phases
+- [agile / スプリントプランニング](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/sprint-planning/): 人間とAIの役割分担と受け入れ基準
+- [agile / バックログリファインメント](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/backlog-refinement/): 人間とAIの役割分担と受け入れ基準
+- [agile / デイリースクラム](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/daily-scrum/): 人間とAIの役割分担と受け入れ基準
+- [agile / レビュー](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/review/): 人間とAIの役割分担と受け入れ基準
+- [agile / レトロスペクティブ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/retrospective/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / 要件定義](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/requirements/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / 設計](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/design/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / 実装](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/implementation/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / テスト](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/testing/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / リリース・デプロイ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/deployment/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / 運用・保守](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/maintenance/): 人間とAIの役割分担と受け入れ基準
+
+## Patterns
+- [Agent（エージェント）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/agent/): 目標を渡すと AI 自らが計画・ツール実行・反復を行うパターン。管理コストとセット
+- [Confidential Inputs（機密情報の持ち込みルール）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/confidential-inputs/): 「何を AI に入れてよいか」を入力時に分類する。全領域の安全設計の土台
+- [Evaluation（評価とガードレール）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/evaluation/): AI の出力品質を「検証可能な形」で測り、自動チェックと下限値で守る
+- [Few-shot（例示による誘導）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/few-shot/): 良い出力例をいくつか見せるだけで、形式・トーン・粒度を揃える最も手軽なパターン
+- [Human-in-the-loop（人間の関与点の設計）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/human-in-the-loop/): AI の自動処理のどの地点で人間が判断するかを明示的に設計する、PDE の基本パターン
+- [Prompt Chaining（プロンプト連鎖）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/prompt-chaining/): 大きなタスクを複数の小さな AI 呼び出しに分割し、出力を入力として渡す
+- [RAG（検索拡張生成）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/rag/): 社内文書や専門知識を検索してから回答を生成させる基本パターン
+- [構造化出力](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/structured-output/): 自由文ではなく JSON 等の構造で出力させる。下流処理・検証・集計が可能になる
+
+## Intersection notes (domain x process)
+- [教育 × レビュー（採点とフィードバック）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/education/agile/review/)
+- [教育 × 設計（カリキュラム・教材設計）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/education/waterfall/design/)
+- [教育 × テスト（試験・到達度評価）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/education/waterfall/testing/)
+- [金融・経理 × 運用（規程・制度の運用）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/finance/waterfall/maintenance/)
+- [金融・経理 × テスト（数値検証・突合）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/finance/waterfall/testing/)
+- [医療・看護 × レビュー（カンファレンス・引き継ぎ）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/healthcare/agile/review/)
+- [医療・看護 × 設計（患者教育・説明計画）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/healthcare/waterfall/design/)
+- [医療・看護 × 運用（記録と報告の運用）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/healthcare/waterfall/maintenance/)
+- [人事 × レビュー（選考合議・評価レビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/hr/agile/review/)
+- [人事 × 要件定義（採用要件・職務定義）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/hr/waterfall/requirements/)
+- [法務 × 運用（法改正・規程の運用）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/legal/waterfall/maintenance/)
+- [法務 × 要件定義（契約要件の整理）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/legal/waterfall/requirements/)
+- [物流 × デイリー（朝礼・運行会議）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/logistics/agile/daily-scrum/)
+- [物流 × リリース（新ルート・拠点の立ち上げ）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/logistics/waterfall/deployment/)
+- [製造 × リリース（生産立ち上げ・設備導入）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/manufacturing/waterfall/deployment/)
+- [製造 × テスト（検査工程）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/manufacturing/waterfall/testing/)
+- [マーケティング × レビュー（公開レビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/marketing/agile/review/)
+- [マーケティング × テスト（公開前チェック）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/marketing/waterfall/testing/)
+- [営業 × レビュー（商談振り返り・パイプライン点検）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/sales/agile/review/)
+- [営業 × スプリントプランニング（パイプライン会議）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/sales/agile/sprint-planning/)
+- [ソフトウェア開発 × レビュー（PR レビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/agile/review/)
+- [ソフトウェア開発 × スプリントプランニング](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/agile/sprint-planning/)
+- [ソフトウェア開発 × 実装](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/implementation/)

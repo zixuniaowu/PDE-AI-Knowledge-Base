@@ -3,7 +3,10 @@ import Link from "next/link";
 import { PwaRegister } from "@/components/PwaRegister";
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "PDE — Prompt-Driven Engineering Knowledge Base",
     template: "%s | PDE",
@@ -11,6 +14,20 @@ export const metadata: Metadata = {
   description:
     "あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。領域×工程のマトリクスで人とAIの協働を整理します。",
   manifest: "/manifest.json",
+  openGraph: {
+    type: "website",
+    siteName: "PDE Knowledge Base",
+    title: "PDE — Prompt-Driven Engineering Knowledge Base",
+    description:
+      "あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。",
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  alternates: {
+    types: { "application/rss+xml": `${siteUrl}/feed.xml` },
+  },
 };
 
 export const viewport: Viewport = {

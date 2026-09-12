@@ -46,6 +46,17 @@ export default async function UseCasePage({
       <Toc markdown={doc.content} />
       <Prose>{doc.content}</Prose>
       <Meta updated={doc.data.updated} owners={doc.data.owners} />
+
+      <p className="section-label">{domain} の他のユースケース</p>
+      <p>
+        {listUseCases(domain)
+          .filter((other) => other.data.id !== caseId)
+          .map((other) => (
+            <Link key={other.data.id} href={`/domains/${domain}/${other.data.id}`} className="badge">
+              {other.data.title}
+            </Link>
+          ))}
+      </p>
     </article>
   );
 }

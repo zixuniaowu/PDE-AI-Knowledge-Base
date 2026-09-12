@@ -1,0 +1,10 @@
+{
+  "id": "finance",
+  "name": "金融・経理",
+  "description": "レポート作成・データ突合・規程対応における正確性第一の AI 協働",
+  "icon": "💹",
+  "tags": ["金融", "経理", "レポート"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

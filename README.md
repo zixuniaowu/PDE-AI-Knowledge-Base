@@ -1,5 +1,9 @@
 # PDE — Prompt-Driven Engineering Knowledge Base
 
+[![CI](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/ci.yml/badge.svg)](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/ci.yml)
+[![Deploy](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/deploy.yml/badge.svg)](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/deploy.yml)
+![License](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY%204.0-blue)
+
 **PDE（Prompt-Driven Engineering / プロンプト駆動エンジニアリング）** は、あらゆる業務領域・開発プロセスに AI をどう組み込むかを体系的にまとめる、オープンな実践ナレッジベースです。
 
 > 中国語での概要（作者の備忘）: 各領域のビジネスと AI の融合、ウォーターフォール/アジャイル各工程における「人 × AI」の協働方法を、ドメイン専門家が共同で育てていくリソース集。
@@ -78,9 +82,9 @@ pnpm build:mobile-content  # モバイル用JSON と検索インデックスを�
 ## ロードマップ
 
 - [x] v0.1 基盤: monorepo / コンテンツモデル / Web / Mobile 骨子 / CI / コントリビューション体制
-- [x] v0.2 ガイド（PDE の始め方 6 ステップ）/ 領域 5 件 / 工程 11 件 / パターン 6 件 / 全文検索 / 交点ページ
-- [ ] v0.3 各交点（領域 × 工程）専用コンテンツの充実、領域の追加（医療・物流・人事…）
-- [ ] v0.4 多言語（en / zh）、モバイルアプリの正式リリース（EAS ビルド）
+- [x] v0.2 ガイド（PDE の始め方 6 ステップ）/ 全文検索 / 交点ページ / GitHub Pages 自動デプロイ / ユニットテスト
+- [x] v0.3 領域 10 件・用例 18 件・工程 11 件・パターン 6 件・交点ノート 15 件
+- [ ] v0.4 交点ノートの充実（領域 × 工程の全組み合わせ）、多言語（en / zh）、モバイル正式リリース
 
 ## ライブデモ
 

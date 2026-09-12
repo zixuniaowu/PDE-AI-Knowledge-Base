@@ -1,10 +1,13 @@
 import { describe, expect, it } from "vitest";
 import {
   getGuide,
+  getIntersection,
   getPhase,
   getUseCase,
+  intersectionKey,
   listDomains,
   listGuides,
+  listIntersections,
   listMethods,
   listPatterns,
   listPhases,
@@ -76,6 +79,27 @@ describe("listGuides", () => {
   });
 });
 
+describe("listIntersections", () => {
+  it("returns intersection notes with valid keys", () => {
+    const notes = listIntersections();
+    expect(notes.length).toBeGreaterThanOrEqual(15);
+    for (const n of notes) {
+      expect(n.data.id).toBe(intersectionKey(n.data.domain, n.data.method, n.data.phase));
+      expect(n.content).toContain("## この交点の要点");
+    }
+  });
+
+  it("getIntersection returns null for missing notes", () => {
+    expect(getIntersection("education", "waterfall", "deployment")).toBeNull();
+  });
+
+  it("getIntersection returns the note for a written cell", () => {
+    const note = getIntersection("education", "agile", "review");
+    expect(note).not.toBeNull();
+    expect(note!.data.title).toContain("教育");
+  });
+});
+
 describe("referential integrity of seed content", () => {
   it("every aiPatterns / phaseLinks reference resolves", () => {
     const patternIds = new Set(listPatterns().map((p) => p.data.id));
@@ -94,6 +118,20 @@ describe("referential integrity of seed content", () => {
           ).toBe(true);
         }
       }
+    }
+  });
+
+  it("intersection notes reference existing domains and phases", () => {
+    const domainIds = new Set(listDomains().map((d) => d.id));
+    const phaseKeys = new Set(
+      listPhases().map((p) => `${p.data.method}/${p.data.id}`)
+    );
+    for (const ix of listIntersections()) {
+      expect(domainIds.has(ix.data.domain), ix.file).toBe(true);
+      expect(
+        phaseKeys.has(`${ix.data.method}/${ix.data.phase}`),
+        ix.file
+      ).toBe(true);
     }
   });
 

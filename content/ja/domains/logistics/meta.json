@@ -1,0 +1,10 @@
+{
+  "id": "logistics",
+  "name": "物流・サプライチェーン",
+  "description": "配送・倉庫・在庫運用における報告整理と指示書作成の AI 協働",
+  "icon": "🚚",
+  "tags": ["物流", "倉庫", "配送"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

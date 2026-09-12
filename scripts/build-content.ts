@@ -13,6 +13,7 @@ import {
   listPhases,
   listMethods,
   listGuides,
+  listIntersections,
   resolveContentRoot,
 } from "../packages/content-core/src/index";
 
@@ -85,6 +86,13 @@ const searchIndex = [
     title: g.data.title,
     summary: g.data.summary,
     body: excerpt(g.content),
+  })),
+  ...listIntersections(root).map((ix) => ({
+    url: `/matrix/${ix.data.domain}/${ix.data.method}/${ix.data.phase}`,
+    section: "交点ノート",
+    title: ix.data.title,
+    summary: `${ix.data.domain} × ${ix.data.method}/${ix.data.phase}`,
+    body: excerpt(ix.content),
   })),
 ];
 

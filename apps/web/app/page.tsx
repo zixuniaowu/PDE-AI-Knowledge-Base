@@ -52,6 +52,13 @@ export default function Home() {
           <h3>パターン {patterns.length} 件</h3>
           <p>RAG、Agent、Human-in-the-loop など領域横断の AI 活用パターン。</p>
         </Link>
+        <Link href="/matrix" className="card">
+          <span className="icon">🧭</span>
+          <h3>
+            マトリクス {domains.length}×{phases.length}
+          </h3>
+          <p>領域 × 工程の交点ページ。白紙のマス = 新しく書くチャンス。</p>
+        </Link>
       </div>
 
       <p className="section-label">参加する</p>
@@ -64,10 +71,10 @@ export default function Home() {
           <h3>専門家として書く</h3>
           <p>コード不要。テンプレートをコピーして Markdown を書くだけ。</p>
         </a>
-        <Link href="/matrix" className="card">
-          <span className="icon">🧭</span>
-          <h3>マトリクスを見る</h3>
-          <p>領域 × 工程の全体地図。まだ白紙のマス = 新しく書くチャンス。</p>
+        <Link href="/search" className="card">
+          <span className="icon">🔍</span>
+          <h3>知見を探す</h3>
+          <p>領域・工程・パターン・交点を横断検索。</p>
         </Link>
       </div>
     </div>

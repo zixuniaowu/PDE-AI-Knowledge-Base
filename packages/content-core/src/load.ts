@@ -6,12 +6,14 @@ import {
   domainDocSchema,
   domainMetaSchema,
   guideDocSchema,
+  intersectionDocSchema,
   patternDocSchema,
   phaseDocSchema,
   useCaseDocSchema,
   type DomainDoc,
   type DomainMeta,
   type GuideDoc,
+  type IntersectionDoc,
   type PatternDoc,
   type PhaseDoc,
   type UseCaseDoc,
@@ -182,4 +184,40 @@ export function listGuides(root = resolveContentRoot()): ParsedDoc<GuideDoc>[] {
 
 export function getGuide(id: string, root = resolveContentRoot()): ParsedDoc<GuideDoc> {
   return parseMarkdown(path.join(root, "guide", `${id}.md`), guideDocSchema);
+}
+
+// ── intersections (領域 × 工程 の交点ノート) ───────────────────
+
+export function intersectionKey(domain: string, method: string, phase: string): string {
+  return `${domain}--${method}--${phase}`;
+}
+
+export function listIntersections(root = resolveContentRoot()): ParsedDoc<IntersectionDoc>[] {
+  const dir = path.join(root, "intersections");
+  const docs = listMd(dir).map((f) => {
+    const doc = parseMarkdown(path.join(dir, f), intersectionDocSchema);
+    const expected = `${doc.data.domain}--${doc.data.method}--${doc.data.phase}`;
+    if (doc.data.id !== expected || f !== `${expected}.md`) {
+      throw new Error(
+        `[intersections error] ${f}: ファイル名 / id は "{domain}--{method}--{phase}" 形式で一致させてください (期待値: ${expected})`
+      );
+    }
+    return doc;
+  });
+  return docs.sort((a, b) => a.data.id.localeCompare(b.data.id));
+}
+
+export function getIntersection(
+  domain: string,
+  method: string,
+  phase: string,
+  root = resolveContentRoot()
+): ParsedDoc<IntersectionDoc> | null {
+  const file = path.join(
+    root,
+    "intersections",
+    `${intersectionKey(domain, method, phase)}.md`
+  );
+  if (!fs.existsSync(file)) return null;
+  return parseMarkdown(file, intersectionDocSchema);
 }

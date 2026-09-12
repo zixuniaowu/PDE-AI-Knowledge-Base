@@ -1,0 +1,10 @@
+{
+  "id": "hr",
+  "name": "人事・採用",
+  "description": "採用・育成・労務手続きにおける公平性を守る AI 協働",
+  "icon": "🤝",
+  "tags": ["人事", "採用", "育成"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

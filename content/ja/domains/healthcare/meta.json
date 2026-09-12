@@ -1,0 +1,10 @@
+{
+  "id": "healthcare",
+  "name": "医療・看護",
+  "description": "記録作成・患者説明・チーム連携における AI 協働（判断は必ず人間）",
+  "icon": "🏥",
+  "tags": ["医療", "看護", "記録"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

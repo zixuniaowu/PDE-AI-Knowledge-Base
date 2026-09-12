@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDomain, getPhase, listDomains, listPhases, listUseCases } from "@pde/content-core";
+import {
+  getDomain,
+  getIntersection,
+  getPhase,
+  listDomains,
+  listPhases,
+  listUseCases,
+} from "@pde/content-core";
 import { Prose } from "@/components/Prose";
+import { StatusBadge } from "@/components/Badges";
 import { extractSections } from "@/lib/markdown";
 
 export function generateStaticParams() {
@@ -27,6 +35,7 @@ export default async function IntersectionPage({
   const dom = getDomain(domain);
   const ph = getPhase(method, phase);
   const sections = extractSections(ph.content);
+  const note = getIntersection(domain, method, phase);
 
   // この交点に関連するユースケース（phaseLinks で紐づくもの）
   const related = listUseCases(domain).filter((uc) =>
@@ -46,6 +55,20 @@ export default async function IntersectionPage({
         「{dom.meta.name}」を「{ph.data.title}」で進めるときの、人と AI
         の協働の入り口です。
       </p>
+
+      {note && (
+        <section style={{ marginBottom: 24 }}>
+          <p style={{ margin: "0 0 8px" }}>
+            <span className="badge badge-reviewed">📝 交点ノート</span>
+            <StatusBadge status={note.data.status} />
+            <span style={{ color: "var(--text-faint)", fontSize: 13 }}>
+              {" "}
+              · {note.data.title}
+            </span>
+          </p>
+          <Prose>{note.content}</Prose>
+        </section>
+      )}
 
       <h2>
         <span className="badge badge-human">人間</span> 人間の役割

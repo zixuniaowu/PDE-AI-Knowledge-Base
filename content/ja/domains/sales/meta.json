@@ -1,0 +1,10 @@
+{
+  "id": "sales",
+  "name": "営業・カスタマーサクセス",
+  "description": "提案書作成・商談記録・顧客対応における AI 協働（約束は人間が管理）",
+  "icon": "💼",
+  "tags": ["営業", "提案", "商談"],
+  "owners": ["@zixuniaowu"],
+  "status": "draft",
+  "updated": "2026-09-12"
+}

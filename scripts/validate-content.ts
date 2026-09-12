@@ -7,6 +7,7 @@ import {
   listPhases,
   listMethods,
   listGuides,
+  listIntersections,
   getDomain,
   resolveContentRoot,
 } from "../packages/content-core/src/index";
@@ -52,6 +53,7 @@ step("process/phases", () => listPhases(undefined, root));
 step("process/methods", () => listMethods(root));
 step("patterns", () => listPatterns(root));
 step("guide", () => listGuides(root));
+step("intersections", () => listIntersections(root));
 
 // 参照整合チェック
 const patterns = safe(() => listPatterns(root), []);
@@ -59,8 +61,12 @@ const patternIds = new Set(patterns.map((p) => p.data.id));
 const phaseIds = new Set(
   safe(() => listPhases(undefined, root), []).map((p) => `${p.data.method}/${p.data.id}`)
 );
+const domainIds = new Set(domains.map((d) => d.id));
 const useCases = domains.flatMap((d) => safe(() => listUseCases(d.id, root), []));
 for (const uc of useCases) {
+  if (!domainIds.has(uc.data.domain)) {
+    errors.push(`- ${uc.file}: domain "${uc.data.domain}" が domains/ に存在しません`);
+  }
   for (const pid of uc.data.aiPatterns) {
     if (!patternIds.has(pid)) {
       errors.push(`- ${uc.file}: aiPatterns "${pid}" が patterns/ に存在しません`);
@@ -72,6 +78,19 @@ for (const uc of useCases) {
         `- ${uc.file}: phaseLinks ${link.method}/${link.phase} が process/ に存在しません`
       );
     }
+  }
+}
+
+// 交点ノートの参照整合
+const intersections = safe(() => listIntersections(root), []);
+for (const ix of intersections) {
+  if (!domainIds.has(ix.data.domain)) {
+    errors.push(`- intersections/${ix.file}: domain "${ix.data.domain}" が存在しません`);
+  }
+  if (!phaseIds.has(`${ix.data.method}/${ix.data.phase}`)) {
+    errors.push(
+      `- intersections/${ix.file}: 工程 ${ix.data.method}/${ix.data.phase} が存在しません`
+    );
   }
 }
 

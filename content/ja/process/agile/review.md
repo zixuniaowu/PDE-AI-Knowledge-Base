@@ -2,7 +2,7 @@
 id: review
 type: phase
 method: agile
-order: 3
+order: 4
 title: レビュー
 owners: ["@zixuniaowu"]
 status: draft

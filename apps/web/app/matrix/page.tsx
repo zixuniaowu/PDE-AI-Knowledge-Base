@@ -39,7 +39,7 @@ export default function MatrixPage() {
                 </td>
                 {phases.map((p) => (
                   <td key={`${d.id}/${p.data.method}/${p.data.id}`}>
-                    <Link href={`/process/${p.data.method}/${p.data.id}`}>
+                    <Link href={`/matrix/${d.id}/${p.data.method}/${p.data.id}`}>
                       {p.data.title}
                     </Link>
                   </td>
@@ -52,8 +52,8 @@ export default function MatrixPage() {
 
       <p className="section-label">このマトリクスを埋めるには</p>
       <div className="notice">
-        現在のセルは工程ページへのリンクです。v0.3 で「領域 ×
-        工程」専用の交差コンテンツ（各セルに専用ページ）を予定しています。提案は
+        各セルは「領域 × 工程」の交点ページです。工程の役割分担に加え、その交点に紐づくユースケースが表示されます。交点専用の知見が無いセルは、あなたが最初の 1
+        ページを書くチャンス。提案は
         <Link href="https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/blob/main/docs/rfc/README.md">
           {" "}
           RFC{" "}

@@ -49,7 +49,8 @@ PDE の情報は「**領域 × 工程**」のマトリクスで整理されま�
 pnpm install
 pnpm dev                 # Webサイト起動 (http://localhost:3000)
 pnpm validate:content    # コンテンツのスキーマ検証
-pnpm build:mobile-content  # モバイルアプリ用 JSON を生成
+pnpm test                # content-core のユニットテスト
+pnpm build:mobile-content  # モバイル用JSON と検索インデックスを生成
 ```
 
 ## 領域の専門家として参加するには
@@ -69,15 +70,22 @@ pnpm build:mobile-content  # モバイルアプリ用 JSON を生成
 
 - **Content as Data**: コンテンツは Markdown + frontmatter で、スキーマ検証されます。Web も Mobile も同じデータを読む「レンダラー」にすぎません
 - **追加はコピーで**: 領域/工程/パターンの追加はテンプレートコピー + PR だけ。コード変更は不要
+- **静的ファースト**: Web は静的エクスポート（SSG）で GitHub Pages にデプロイ。検索はクライアントサイド（Fuse.js）、PWA でオフライン閲覧可
 - **多言語ready**: `content/ja/` の sibling として `content/en/` `content/zh/` を追加するだけで多言語化できます
 - **スケールするレビュー**: 領域ごとの CODEOWNERS で、各専門家が自分の領域の品質を守ります
+- **テストで守る**: スキーマと参照整合（aiPatterns / phaseLinks の先が存在するか）はユニットテストでも担保
 
 ## ロードマップ
 
 - [x] v0.1 基盤: monorepo / コンテンツモデル / Web / Mobile 骨子 / CI / コントリビューション体制
-- [ ] v0.2 領域 10 件・工程 10 件のコンテンツ充実、全文検索
-- [ ] v0.3 領域×工程の交差ページ（マトリクスの各セルに専用コンテンツ）
-- [ ] v0.4 多言語（en / zh）、モバイルアプリ正式リリース
+- [x] v0.2 ガイド（PDE の始め方 6 ステップ）/ 領域 5 件 / 工程 11 件 / パターン 6 件 / 全文検索 / 交点ページ
+- [ ] v0.3 各交点（領域 × 工程）専用コンテンツの充実、領域の追加（医療・物流・人事…）
+- [ ] v0.4 多言語（en / zh）、モバイルアプリの正式リリース（EAS ビルド）
+
+## ライブデモ
+
+`main` への push で GitHub Pages に自動デプロイされます:
+**https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/**
 
 ## ライセンス
 

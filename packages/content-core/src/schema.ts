@@ -12,7 +12,7 @@ export const ownersSchema = z
 export const statusSchema = z.enum(["draft", "reviewed", "approved"]);
 
 /** YAML の日付は Date としてパースされることがあるため文字列へ正規化 */
-const dateSchema = z.preprocess(
+export const dateSchema = z.preprocess(
   (v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v),
   z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "updated は YYYY-MM-DD")
 );

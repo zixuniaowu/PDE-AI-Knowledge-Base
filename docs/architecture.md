@@ -52,18 +52,21 @@ content/{locale}/
 
 ## 4. マトリクスモデル
 
-- **領域軸**: domains、**工程軸**: process、**交点**: 将来の v0.3 でセル専用コンテンツ（`domainNotes`）を追加予定
-- 現在の交差は、ユースケースの frontmatter `phaseLinks`（任意）と、マトリクス画面からの導線で表現
-- 新しい工程や領域を追加すると、マトリクス画面はデータから自動生成される
+- **領域軸**: domains、**工程軸**: process
+- 各セルは「交点ページ」(`/matrix/{domain}/{method}/{phase}`) にリンクされる。交点ページは工程の「人間の役割 / AIの役割」+ `phaseLinks` で紐づくその領域のユースケースを合成して表示する
+- 専用コンテンツが無い交点には「あなたが最初の 1 ページを書く」導線を出す（投稿の入口）
+- 新しい工程や領域を追加すると、交点ページは自動生成される
 
 ## 5. アプリ側
 
 | アプリ | 技術 | データ取得 |
 |---|---|---|
-| apps/web | Next.js 14 (App Router, SSG) | ビルド時に content-core で直読み → 静的生成 |
+| apps/web | Next.js 14 (App Router, 静的エクスポート) | ビルド時に content-core で直読み → 静的生成。GitHub Pages に自動デプロイ |
 | apps/mobile | Expo | `pnpm build:mobile-content` が生成する JSON をバンドル |
 
-- Web は SSG（静的生成）なのでホスティングは静的 CDN でよく、PWA でスマホ対応
+- Web は静的エクスポートなのでホスティングは任意の静的 CDN。basePath は `PDE_BASE_PATH` で制御
+- 検索: ビルド時に `search-index.json` を生成し、クライアントサイド（Fuse.js）で横断検索
+- PWA: service worker によるオフライン閲覧（ページは network-first、静的アセットは cache-first）
 - モバイルは JSON 経由にすることで、コードからコンテンツを完全に分離
 
 ## 6. 品質とスケールの仕組み

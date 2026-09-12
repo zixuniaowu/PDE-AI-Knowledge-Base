@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { PwaRegister } from "@/components/PwaRegister";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,12 +25,14 @@ const nav = [
   { href: "/process", label: "工程" },
   { href: "/patterns", label: "パターン" },
   { href: "/matrix", label: "マトリクス" },
+  { href: "/search", label: "検索" },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
       <body>
+        <PwaRegister />
         <header className="site-header">
           <div className="container">
             <Link href="/" className="brand">

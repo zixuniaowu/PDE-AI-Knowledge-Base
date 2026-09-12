@@ -40,7 +40,7 @@ jobs:
           NEXT_PUBLIC_BASE_PATH: /PDE-AI-Knowledge-Base
           NEXT_PUBLIC_SITE_URL: https://zixuniaowu.github.io/PDE-AI-Knowledge-Base
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: apps/web/out
 

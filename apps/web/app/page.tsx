@@ -50,11 +50,18 @@ export default function Home() {
 
       <section>
         <p className="section-label">今日から使う</p>
-        <Link href="/references/prompt-tips" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
-          <span className="icon">⚡</span>
-          <h3>プロンプト小技集 20 選</h3>
-          <p>コピペで今日から使える具体的テクニック。「まず確認させてから作業させる」「根拠の引用を必須にする」など。</p>
-        </Link>
+        <div className="grid grid-2">
+          <Link href="/references/prompt-tips" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
+            <span className="icon">⚡</span>
+            <h3>プロンプト小技集 20 選</h3>
+            <p>コピペで今日から使える具体的テクニック。「まず確認させてから作業させる」「根拠の引用を必須にする」など。</p>
+          </Link>
+          <Link href="/references/market-demand" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
+            <span className="icon">📈</span>
+            <h3>PDE の市場需要分析</h3>
+            <p>海外 $120–220k の採用事例、日本の AI/ML 単価、探し方のキーワード。2026-09 時点の調査。</p>
+          </Link>
+        </div>
       </section>
 
       <p className="section-label">ざっと見る</p>

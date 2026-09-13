@@ -1,7 +1,7 @@
 {
   "name": "PDE Knowledge Base",
   "short_name": "PDE",
-  "description": "あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース",
+  "description": "PDE（Product Design Engineer）のための実践ナレッジベース",
   "lang": "ja",
   "start_url": "/",
   "display": "standalone",

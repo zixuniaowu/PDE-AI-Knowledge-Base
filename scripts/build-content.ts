@@ -160,9 +160,9 @@ fs.writeFileSync(feedFile, feedXml);
 
 // ── 4. llms.txt (AI可読インデックス) ───────────────────────────
 const llms = [
-  "# PDE — Prompt-Driven Engineering Knowledge Base",
+  "# PDE — Product Design Engineer Knowledge Base",
   "",
-  "> あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。領域×工程のマトリクスで「人間とAIの役割分担」を整理する。",
+  "> PDE（Product Design Engineer）は、製品の課題を考え、インタラクションを設計し、プロダクションコードを自分で書ける人。このナレッジベースは、領域×工程のマトリクスで PDE の実践知を整理する。",
   "",
   "## Guide (start here)",
   ...listGuides(root).map((g) => `- [${g.data.title}](${siteUrl}/guide/${g.data.id}/): ${g.data.summary}`),

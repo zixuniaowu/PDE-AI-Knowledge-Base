@@ -1,6 +1,6 @@
-# PDE — Prompt-Driven Engineering Knowledge Base
+# PDE — Product Design Engineer Knowledge Base
 
-> あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。領域×工程のマトリクスで「人間とAIの役割分担」を整理する。
+> PDE（Product Design Engineer）は、製品の課題を考え、インタラクションを設計し、プロダクションコードを自分で書ける人。このナレッジベースは、領域×工程のマトリクスで PDE の実践知を整理する。
 
 ## Guide (start here)
 - [PDE とは・このガイドの使い方](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/): Product Design Engineer（PDE）という新しい仕事の定義と、このナレッジベースの使い方
@@ -24,9 +24,9 @@
 - [ソフトウェア開発](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/): 設計・実装・レビュー・テストにおける AI 協働の実践
 
 ## Use cases
-- [教育 / 採点・フィードバック支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/): ルーブリックと答案の突き合わせを AI が行い、根拠引用付きの達成度判定の下書きを作る。点数の確定と対人的なフォローは教師が担う
-- [教育 / 個別学習プランの設計](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/): つまずきデータから学習者ごとのプラン案を AI が生成し、教師が方針を決める
-- [教育 / 授業教材のドラフト作成](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/): 学習目標から構成・本文・演習問題まで段階的に生成し、教師が教育観点で検収する
+- [教育 / 採点支援ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/): 教師の答案採点を「根拠照合 2〜3 分/人」に短縮するツール。PDE はルーブリック突合・根拠引用・教師の最終判定を通す設計に責任を持つ
+- [教育 / 個別学習プラン生成ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/): 誤答データから学習者ごとのプラン案を作るツール。PDE は教材マスタへの限定参照と「根拠付きプラン」を設計の中心に置く
+- [教育 / 教材ドラフト生成ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/): 学習目標から構成・本文・演習問題を段階生成するツール。PDE は「段階確定フロー」と用語・断定表現のガードレールを実装する
 - [金融・経理 / 月次レポートのドラフトと数値突合](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/monthly-report/): 数値はシステムから渡し、AI は解説文と差異の整理のみ行う。人間が突合して確定する
 - [金融・経理 / 社内規程・制度のQ&A応答](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/policy-qa/): 規程を検索して引用付きで回答する社内Q&Aを作り、経理・人事の定型問い合わせを減らす
 - [医療・看護 / 看護記録の下書き支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/nursing-record/): メモ・音声ダイジェストから記録ドラフトを構造化し、記録者本人が全文確認して確定する
@@ -106,5 +106,6 @@
 - [ソフトウェア開発 × 実装](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/implementation/)
 
 ## References
+- [PDE の市場需要分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/market-demand/): 海外・日本の採用市場で PDE（Product Design Engineer）がどう求められているか。2026-09 時点の調査メモ
 - [すぐ使えるプロンプト小技集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/prompt-tips/): 今日からコピペで使える 20 の具体的テクニック。理論ではなく、貼って動く形で書いています
 - [用語集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/glossary/): PDE で使う用語の最小セット。初めての人はここから

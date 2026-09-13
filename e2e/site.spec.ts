@@ -124,6 +124,14 @@ test.describe("リファレンス", () => {
     await expect(page.getByRole("heading", { name: "すぐ使えるプロンプト小技集" })).toBeVisible();
     expect(await page.locator(".prose pre").count()).toBeGreaterThanOrEqual(15);
   });
+
+  test("市場需要分析ページが表示され、旧称 Prompt-Driven は存在しない", async ({ page }) => {
+    await page.goto(p("/references/market-demand/"));
+    await expect(page.getByRole("heading", { name: "PDE の市場需要分析" })).toBeVisible();
+    await expect(page.getByText("フリーランススタート").first()).toBeVisible();
+    const oldTerm = await page.content().then((c) => c.includes("Prompt-Driven"));
+    expect(oldTerm).toBe(false);
+  });
 });
 
 test.describe("404 とアセット", () => {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listDomains, listGuides, listPatterns, listPhases } from "@pde/content-core";
+import { JobCountChart, RateHistogram, StatChips } from "@/components/charts";
 
 export default function Home() {
   const domains = listDomains();
@@ -68,6 +69,73 @@ export default function Home() {
             <p>工程 11・領域 10・パターン 9・クラウド連携・業務プロセスの型。</p>
           </Link>
         </div>
+      </section>
+
+      <section>
+        <p className="section-label">FDE の市場（2026-09-13 時点の調査）</p>
+        <StatChips
+          items={[
+            { value: "253 件", label: "FDE 案件（2 サイト合計）" },
+            { value: "108.1 万円", label: "平均月額単価（フリーランスボード公表）" },
+            { value: "200 万円", label: "最高月額単価（フリーランススタート）" },
+            { value: "73 件", label: "フルリモート案件（フリーランススタート）" },
+          ]}
+        />
+        <h3 style={{ margin: "20px 0 8px", fontSize: 16 }}>サイト別 FDE 案件数</h3>
+        <JobCountChart
+          data={[
+            {
+              label: "フリーランススタート",
+              url: "https://freelance-start.com/jobs/job_category-47",
+              count: 147,
+              maxLabel: "（51〜200 万円/月）",
+            },
+            {
+              label: "フリーランスボード",
+              url: "https://freelance-board.com/jobs/fde",
+              count: 106,
+              maxLabel: "（平均 108.1 万円/月）",
+            },
+          ]}
+        />
+        <p style={{ fontSize: 13, color: "var(--text-faint)", margin: "4px 0 20px" }}>
+          ※ レバテックフリーランス等も FDE 案件を掲載（要認証のため件数未計上）。数値は日々変動します。
+        </p>
+        <h3 style={{ margin: "0 0 8px", fontSize: 16 }}>FDE 案件の月額単価分布</h3>
+        <RateHistogram
+          rates={[
+            92.5, 105, 120, 88, 110, 90, 90, 100, 100, 120, 65, 110, 85, 145, 115, 135, 85, 95,
+            95, 80, 155, 125, 85, 135, 100, 165, 165, 165, 155, 80,
+          ]}
+          buckets={[
+            { label: "〜80 万", min: 0, max: 80 },
+            { label: "80〜100 万", min: 80, max: 100 },
+            { label: "100〜120 万", min: 100, max: 120 },
+            { label: "120〜150 万", min: 120, max: 150 },
+            { label: "150 万〜", min: 150, max: Infinity },
+          ]}
+          sampleNote="※ フリーランスボードの FDE 案件 30 件のサンプル（表示額の中央値、2026-09-13 取得）。分布の山は 80〜120 万円帯。"
+        />
+        <p style={{ fontSize: 13, margin: "12px 0 0" }}>
+          詳細な分析・スキル頻度は
+          <Link href="/references/market-demand">FDE の市場需要分析</Link>
+          へ。データ出所:{" "}
+          <a
+            href="https://freelance-start.com/jobs/job_category-47"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            フリーランススタート
+          </a>{" "}
+          /{" "}
+          <a
+            href="https://freelance-board.com/jobs/fde"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            フリーランスボード
+          </a>
+        </p>
       </section>
 
       <section>

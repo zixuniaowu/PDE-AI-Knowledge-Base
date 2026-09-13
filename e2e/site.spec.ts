@@ -35,6 +35,16 @@ test.describe("ガイド", () => {
     await expect(page.getByRole("link", { name: /STEP 2/ }).first()).toBeVisible();
   });
 
+  test("ホームに市場分析の統計グラフと出所リンクがある", async ({ page }) => {
+    await page.goto(p("/"));
+    await expect(page.getByText("FDE の市場（2026-09-13 時点の調査）")).toBeVisible();
+    expect(await page.locator(".chart-bar").count()).toBeGreaterThanOrEqual(7);
+    await expect(
+      page.getByRole("link", { name: "フリーランススタート" }).first()
+    ).toBeVisible();
+    await expect(page.getByText("108.1 万円").first()).toBeVisible();
+  });
+
   test("FDE とはページに概念図（mermaid SVG）が描画される", async ({ page }) => {
     await page.goto(p("/guide/what-is-pde/"));
     await expect(page.locator(".mermaid-figure svg").first()).toBeVisible({ timeout: 15000 });

@@ -127,6 +127,99 @@ main.container {
   padding-bottom: 32px;
 }
 
+/* ── charts ─────────────────────────────── */
+.chart {
+  display: grid;
+  gap: 10px;
+  margin: 8px 0 16px;
+}
+.chart-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+.chart-label {
+  font-size: 13px;
+  color: var(--text-sub);
+  text-align: right;
+}
+a.chart-label:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.chart-track {
+  position: relative;
+  background: var(--accent-soft);
+  border-radius: 6px;
+  height: 26px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.chart-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--accent);
+  border-radius: 6px;
+  min-width: 6px;
+}
+.chart-value {
+  position: relative;
+  z-index: 1;
+  padding-left: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+.chart-sub {
+  font-weight: 400;
+  color: var(--text-sub);
+  margin-left: 6px;
+  font-size: 12px;
+}
+.chart-note {
+  font-size: 12.5px;
+  color: var(--text-faint);
+  margin: 0;
+}
+.stat-chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin: 8px 0 16px;
+}
+.stat-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stat-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+@media (max-width: 640px) {
+  .chart-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .chart-label {
+    text-align: left;
+  }
+}
+
 /* ── typography ─────────────────────────── */
 h1 {
   font-size: 30px;

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "PDE — Product Design Engineer Knowledge Base";
+export const alt = "FDE — Forward Deployed Engineer Knowledge Base";
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -20,13 +20,13 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", fontSize: 84, fontWeight: 800, letterSpacing: -2 }}>
-          PDE
+          FDE
         </div>
-        <div style={{ display: "flex", fontSize: 38, marginTop: 12, color: "#7dd3fc" }}>
-          Product Design Engineer Knowledge Base
+        <div style={{ display: "flex", fontSize: 36, marginTop: 12, color: "#7dd3fc" }}>
+          Forward Deployed Engineer Knowledge Base
         </div>
         <div style={{ display: "flex", fontSize: 27, marginTop: 36, color: "#94a3b8" }}>
-          課題を考え、設計し、AI と一緒にコードを書く — 領域 × 工程の実践知
+          顧客の現場に入り、AI を業務に組み込み、成果に変える — 領域 × 工程の実践知
         </div>
         <div style={{ display: "flex", fontSize: 24, marginTop: 44, color: "#64748b" }}>
           zixuniaowu/PDE-AI-Knowledge-Base

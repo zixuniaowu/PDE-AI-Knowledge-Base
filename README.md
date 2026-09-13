@@ -1,19 +1,19 @@
-# PDE — Product Design Engineer Knowledge Base
+# FDE — Forward Deployed Engineer Knowledge Base
 
 [![CI](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/ci.yml/badge.svg)](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/ci.yml)
 [![Deploy](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/deploy.yml/badge.svg)](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/deploy.yml)
 ![License](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY%204.0-blue)
 
-> **PDE（Product Design Engineer）** は、製品の課題を考え、インタラクションを設計し、プロダクションコードを自分で書ける人。Claude Code / Cursor / v0 / Figma Make といった AI ツールの進化で、伝統的な「PM → デザイナー → エンジニア」の分業を一人で担えるようになった、いま最も需要が伸びている職種です。
+> **FDE（Forward Deployed Engineer／前沿部署エンジニア）** は、顧客・事業部の現場に入り、AI を実際の業務に組み込み、**成果指標が動く状態まで責任を持つエンジニア**。アルゴリズムエンジニアは業務を知らず、業務の専門家は AI を知らない——この断絶を埋める、企業の AI 導入で最も不足している役割です（国内フリーランス案件 147 件・単価 51〜200 万円/月、2026-09 時点）。
 
-> 中国語での概要（作者の備忘）: 这是一个让人胜任 **PDE（Product Design Engineer，产品设计工程师）** 的实践知识库——用 AI 工具链独立完成「找问题 → 画流程 → 做交互 → 写代码 → 上线 → 看反馈」的完整产品体验。两个轴：行业落地打法 × 开发工程流程。
+> 中国語での概要（作者の備忘）: 这是一个让人胜任 **FDE（Forward Deployed Engineer，前沿部署工程师）** 的实践知识库——驻入客户/业务现场，把 AI 真正组合进业务流程，对"成果指标动起来"负责。两个轴：行业 AI 落地打法 × 开发工程流程（每阶段人与 AI 工具的配合）。仓库名 PDE 是历史遗留，站点身份以 FDE 为准。
 
-このナレッジベースは、PDE として働く人・なろうとする人・チームで採用する組織のために、実践知を 2 つの軸で整理します:
+このナレッジベースは、FDE として働く人・なろうとする人・FDE を採用する組織のために、実践知を 2 つの軸で整理します:
 
-- **[工程（process）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/)**: ウォーターフォール / アジャイルの各工程を、PDE が AI ツールとどう回すか（実プロンプト・実ツール構成付き）
-- **[領域（domain）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/)**: 業界（教育・医療・製造・法務…）ごとの AI プロダクト実戦知識
+- **[工程（process）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/)**: ウォーターフォール / アジャイルの各工程を、FDE が AI ツールとどう回すか（実プロンプト・実ツール構成付き）
+- **[領域（domain）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/)**: 業界（教育・医療・製造・法務…）ごとの AI 導入実戦知識
 
-さらに [パターン](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/)（RAG・Agent・Few-shot などの実装型）、[始め方ガイド](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/)、[プロンプト小技集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/prompt-tips/)を収録しています。
+さらに [パターン](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/)（RAG・Agent・Few-shot などの実装型）、[始め方ガイド](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/)、[プロンプト小技集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/prompt-tips/)、[市場需要分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/market-demand/)を収録しています。
 
 ## ライブデモ
 
@@ -25,7 +25,7 @@
 ```
 .
 ├── content/{locale}/        # ★ コンテンツ本体（Markdown + frontmatter）
-│   ├── guide/               #    PDE の始め方（ステップガイド）
+│   ├── guide/               #    FDE の始め方（ステップガイド）
 │   ├── domains/<id>/        #    領域ごとの実戦知識（meta.json + index.md + use-cases/）
 │   ├── process/             #    工程（waterfall/ agile/ の各フェーズ）
 │   ├── patterns/            #    実装パターン（RAG, Agent, Few-shot…）
@@ -59,7 +59,7 @@ pnpm build:mobile-content  # モバイル用JSON / 検索インデックス / RS
 2. **ユニットテスト**: スキーマの挙動と、実際のコンテンツに対する整合チェック
 3. **E2E（Playwright）**: ビルド済みサイトを実ブラウザで操作し、全ページ種別の描画・ナビゲーション・検索・404・RSS/llms.txt を検証。主要ページからの内部リンクを全件クロールします。`E2E_BASE_URL` で本番環境への実行も可能
 
-## PDE・領域の専門家として参加するには
+## FDE・領域の専門家として参加するには
 
 コードは書けなくて大丈夫。すべてのコンテンツは Markdown です。
 
@@ -84,8 +84,8 @@ pnpm build:mobile-content  # モバイル用JSON / 検索インデックス / RS
 - [x] v0.1 基盤: monorepo / コンテンツモデル / Web / Mobile 骨子 / CI / コントリビューション体制
 - [x] v0.2 コンテンツ拡充 / 全文検索 / 交点ページ / 自動デプロイ / ユニットテスト
 - [x] v0.3 領域 10 件・パターン 9 件・RSS・llms.txt・E2E
-- [x] v0.4 **PDE（Product Design Engineer）視点への全面刷新**: 定義・工程 11 フェーズ・ガイド・用語集
-- [ ] v0.5 領域ユースケースの PDE 視点化（実ツール構成の追記）、交点ノートの拡充
+- [x] v0.4 **FDE（Forward Deployed Engineer）視点への全面刷新**: 定義・工程 11 フェーズ・ガイド・用語集
+- [ ] v0.5 領域ユースケースの FDE 視点化（実ツール構成の追記）、交点ノートの拡充
 - [ ] v0.6 多言語（en / zh）、モバイルアプリの正式リリース（EAS）
 
 ## ライセンス
@@ -93,4 +93,4 @@ pnpm build:mobile-content  # モバイル用JSON / 検索インデックス / RS
 - コード: MIT
 - コンテンツ（`content/`, `docs/`）: CC BY 4.0
 
-あなたの PDE 実践の知見を、ぜひここに残してください。
+あなたの FDE 実践の知見を、ぜひここに残してください。

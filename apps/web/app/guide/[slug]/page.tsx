@@ -22,7 +22,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
   return (
     <article>
       <p style={{ margin: 0 }}>
-        <Link href="/guide">← PDE の始め方</Link>
+        <Link href="/guide">← FDE の始め方</Link>
       </p>
       <h1>
         {doc.data.order === 0 ? "📖" : `STEP ${doc.data.order}`} — {doc.data.title}

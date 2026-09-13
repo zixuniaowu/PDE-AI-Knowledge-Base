@@ -8,18 +8,18 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "PDE — Product Design Engineer Knowledge Base",
-    template: "%s | PDE",
+    default: "FDE — Forward Deployed Engineer Knowledge Base",
+    template: "%s | FDE",
   },
   description:
-    "PDE（Product Design Engineer）のための実践ナレッジベース。製品の課題を考え、インタラクションを設計し、AI と一緒にプロダクションコードを書く。領域×工程のマトリクスで整理します。",
+    "FDE（Forward Deployed Engineer／前沿部署エンジニア）のための実践ナレッジベース。顧客の現場に入り、AI を業務に組み込み、成果指標が動くまで責任を持つ。領域×工程のマトリクスで整理します。",
   manifest: "/manifest.json",
   openGraph: {
     type: "website",
-    siteName: "PDE Knowledge Base",
-    title: "PDE — Product Design Engineer Knowledge Base",
+    siteName: "FDE Knowledge Base",
+    title: "FDE — Forward Deployed Engineer Knowledge Base",
     description:
-      "PDE（Product Design Engineer）のための実践ナレッジベース。一人で課題発見から設計・実装・リリースまで。",
+      "顧客の現場に入り、AI を業務に組み込み、成果に変える。FDE の実践知を領域×工程で整理。",
     url: siteUrl,
   },
   twitter: {
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="site-header">
           <div className="container">
             <Link href="/" className="brand">
-              PDE
+              FDE
             </Link>
             {nav.map((n) => (
               <Link key={n.href} href={n.href} className="nav-link">
@@ -81,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <footer className="site-footer">
           <div className="container">
-            PDE — Product Design Engineer Knowledge Base · Code: MIT / Content: CC BY 4.0 ·
+            FDE — Forward Deployed Engineer Knowledge Base · Code: MIT / Content: CC BY 4.0 ·
             <Link href="https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/blob/main/CONTRIBUTING.md">
               貢献する
             </Link>{" "}

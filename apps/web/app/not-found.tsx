@@ -12,7 +12,7 @@ export default function NotFound() {
       <div className="grid grid-3" style={{ textAlign: "left", marginTop: 24 }}>
         <Link href="/" className="card">
           <h3>ホーム</h3>
-          <p>PDE の全体像へ</p>
+          <p>FDE の全体像へ</p>
         </Link>
         <Link href="/guide" className="card">
           <h3>始め方</h3>

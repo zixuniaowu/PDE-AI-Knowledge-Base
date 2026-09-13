@@ -3,13 +3,13 @@
 > PDE（Product Design Engineer）は、製品の課題を考え、インタラクションを設計し、プロダクションコードを自分で書ける人。このナレッジベースは、領域×工程のマトリクスで PDE の実践知を整理する。
 
 ## Guide (start here)
-- [PDE とは・このガイドの使い方](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/): Product Design Engineer（PDE）という新しい仕事の定義と、このナレッジベースの使い方
-- [STEP 1 — 最初の 1 プロダクトを選ぶ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/): PDE の第一歩は「毎日使っているものを、作り直す」こと。検証可能で小さい題材の選び方
-- [STEP 2 — 自分と AI の線引きを決める](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/): PDE は AI に「作らせる」が、判断は自分で残す。ツールごとの任せ方の設計
-- [STEP 3 — AI との作業ループを作る](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/): 「依頼 → 検証 → 修正」の型を持ち、プロンプトを資産にする。PDE の日々の基本形
-- [STEP 4 — 完成の基準と測定を決める](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/): 「動いた」は完成ではない。PDE が出荷判断に使う基準の作り方
-- [STEP 5 — チーム・組織の中で PDE として働く](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/): PDE は「二合一の安い人材」ではない。判断権とコードの権利を守って働くための実際
-- [STEP 6 — 知見をこの KB に還元する](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/): あなたの PDE 実践を、他の人が育てられる形で公開する。それがこのプロジェクトの正体
+- [FDE とは・このガイドの使い方](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/): Forward Deployed Engineer（FDE／前沿部署エンジニア）という新しい仕事の定義と、このナレッジベースの使い方
+- [STEP 1 — 最初の 1 プロダクトを選ぶ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/): FDE の第一歩は「毎日使っているものを、作り直す」こと。検証可能で小さい題材の選び方
+- [STEP 2 — 自分と AI の線引きを決める](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/): FDE は AI に「作らせる」が、判断は自分で残す。ツールごとの任せ方の設計
+- [STEP 3 — AI との作業ループを作る](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/): 「依頼 → 検証 → 修正」の型を持ち、プロンプトを資産にする。FDE の日々の基本形
+- [STEP 4 — 完成の基準と測定を決める](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/): 「動いた」は完成ではない。FDE が出荷判断に使う基準の作り方
+- [STEP 5 — チーム・組織の中で FDE として働く](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/): FDE は「二合一の安い人材」ではない。判断権とコードの権利を守って働くための実際
+- [STEP 6 — 知見をこの KB に還元する](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/): あなたの FDE 実践を、他の人が育てられる形で公開する。それがこのプロジェクトの正体
 
 ## Domains
 - [教育](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/): 学校教育・企業研修における学習設計と AI の協働
@@ -24,9 +24,9 @@
 - [ソフトウェア開発](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/): 設計・実装・レビュー・テストにおける AI 協働の実践
 
 ## Use cases
-- [教育 / 採点支援ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/): 教師の答案採点を「根拠照合 2〜3 分/人」に短縮するツール。PDE はルーブリック突合・根拠引用・教師の最終判定を通す設計に責任を持つ
-- [教育 / 個別学習プラン生成ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/): 誤答データから学習者ごとのプラン案を作るツール。PDE は教材マスタへの限定参照と「根拠付きプラン」を設計の中心に置く
-- [教育 / 教材ドラフト生成ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/): 学習目標から構成・本文・演習問題を段階生成するツール。PDE は「段階確定フロー」と用語・断定表現のガードレールを実装する
+- [教育 / 採点支援ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/): 教師の答案採点を「根拠照合 2〜3 分/人」に短縮するツール。FDE はルーブリック突合・根拠引用・教師の最終判定を通す設計に責任を持つ
+- [教育 / 個別学習プラン生成ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/): 誤答データから学習者ごとのプラン案を作るツール。FDE は教材マスタへの限定参照と「根拠付きプラン」を設計の中心に置く
+- [教育 / 教材ドラフト生成ツール（教育）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/): 学習目標から構成・本文・演習問題を段階生成するツール。FDE は「段階確定フロー」と用語・断定表現のガードレールを実装する
 - [金融・経理 / 月次レポートのドラフトと数値突合](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/monthly-report/): 数値はシステムから渡し、AI は解説文と差異の整理のみ行う。人間が突合して確定する
 - [金融・経理 / 社内規程・制度のQ&A応答](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/policy-qa/): 規程を検索して引用付きで回答する社内Q&Aを作り、経理・人事の定型問い合わせを減らす
 - [医療・看護 / 看護記録の下書き支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/healthcare/nursing-record/): メモ・音声ダイジェストから記録ドラフトを構造化し、記録者本人が全文確認して確定する
@@ -65,7 +65,7 @@
 - [Confidential Inputs（機密情報の持ち込みルール）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/confidential-inputs/): 「何を AI に入れてよいか」を入力時に分類する。全領域の安全設計の土台
 - [Evaluation（評価とガードレール）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/evaluation/): AI の出力品質を「検証可能な形」で測り、自動チェックと下限値で守る
 - [Few-shot（例示による誘導）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/few-shot/): 良い出力例をいくつか見せるだけで、形式・トーン・粒度を揃える最も手軽なパターン
-- [Human-in-the-loop（人間の関与点の設計）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/human-in-the-loop/): AI の自動処理のどの地点で人間が判断するかを明示的に設計する、PDE の基本パターン
+- [Human-in-the-loop（人間の関与点の設計）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/human-in-the-loop/): AI の自動処理のどの地点で人間が判断するかを明示的に設計する、FDE の基本パターン
 - [Prompt Chaining（プロンプト連鎖）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/prompt-chaining/): 大きなタスクを複数の小さな AI 呼び出しに分割し、出力を入力として渡す
 - [RAG（検索拡張生成）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/rag/): 社内文書や専門知識を検索してから回答を生成させる基本パターン
 - [Self-check（自己検証サイクル）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/self-check/): 人間のレビュー前に、AI 自身に受け入れ基準で自己点検させる。手戻りを減らす基本ループ
@@ -106,6 +106,6 @@
 - [ソフトウェア開発 × 実装](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/implementation/)
 
 ## References
-- [PDE の市場需要分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/market-demand/): 海外・日本の採用市場で PDE（Product Design Engineer）がどう求められているか。2026-09 時点の調査メモ
+- [FDE の市場需要分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/market-demand/): 企業の AI 導入を担う FDE（Forward Deployed Engineer）が、市場でどう求められているか。2026-09 時点の調査メモ
 - [すぐ使えるプロンプト小技集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/prompt-tips/): 今日からコピペで使える 20 の具体的テクニック。理論ではなく、貼って動く形で書いています
-- [用語集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/glossary/): PDE で使う用語の最小セット。初めての人はここから
+- [用語集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/glossary/): FDE で使う用語の最小セット。初めての人はここから

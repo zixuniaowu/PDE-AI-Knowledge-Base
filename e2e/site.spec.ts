@@ -4,8 +4,8 @@ import { p } from "./helpers";
 test.describe("ホームとグローバルナビ", () => {
   test("ホームにタイトルと主要カードが表示される", async ({ page }) => {
     await page.goto(p("/"));
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("Product Design Engineer");
-    await expect(page.getByText(/課題発見/)).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Forward Deployed Engineer");
+    await expect(page.getByText(/課題ヒアリング/)).toBeVisible();
     await expect(page.getByRole("link", { name: /領域 \d+ 件/ })).toBeVisible();
     await expect(page.getByRole("link", { name: /工程 \d+ 件/ })).toBeVisible();
     await expect(page.getByRole("link", { name: /パターン \d+ 件/ })).toBeVisible();
@@ -14,7 +14,7 @@ test.describe("ホームとグローバルナビ", () => {
   test("全ページでヘッダーとフッターが表示される", async ({ page }) => {
     for (const path of ["/guide/", "/domains/", "/process/", "/patterns/", "/matrix/", "/search/"]) {
       await page.goto(p(path));
-      await expect(page.getByRole("link", { name: "PDE", exact: true })).toBeVisible();
+      await expect(page.getByRole("link", { name: "FDE", exact: true })).toBeVisible();
       await expect(page.getByText("Code: MIT / Content: CC BY 4.0")).toBeVisible();
     }
   });
@@ -77,7 +77,7 @@ test.describe("工程と交点", () => {
     await page.goto(p("/matrix/healthcare/agile/review/"));
     await expect(page.getByText("交点ノート")).toBeVisible();
     await expect(page.getByText("多職種カンファレンス")).toBeVisible();
-    await expect(page.getByText("PDEの仕事").first()).toBeVisible();
+    await expect(page.getByText("FDEの仕事").first()).toBeVisible();
     await expect(page.getByText("AIツールの使いどころ").first()).toBeVisible();
   });
 
@@ -127,7 +127,7 @@ test.describe("リファレンス", () => {
 
   test("市場需要分析ページが表示され、旧称 Prompt-Driven は存在しない", async ({ page }) => {
     await page.goto(p("/references/market-demand/"));
-    await expect(page.getByRole("heading", { name: "PDE の市場需要分析" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "FDE の市場需要分析" })).toBeVisible();
     await expect(page.getByText("フリーランススタート").first()).toBeVisible();
     const oldTerm = await page.content().then((c) => c.includes("Prompt-Driven"));
     expect(oldTerm).toBe(false);

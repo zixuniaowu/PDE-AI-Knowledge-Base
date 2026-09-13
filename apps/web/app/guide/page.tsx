@@ -2,14 +2,14 @@ import Link from "next/link";
 import { listGuides } from "@pde/content-core";
 import { StatusBadge } from "@/components/Badges";
 
-export const metadata = { title: "PDE の始め方" };
+export const metadata = { title: "FDE の始め方" };
 
 export default function GuidePage() {
   const guides = listGuides();
 
   return (
     <div>
-      <h1>PDE の始め方</h1>
+      <h1>FDE の始め方</h1>
       <p className="lead">
         「AI を使う」から「AI と協働する」へ。6 ステップで、個人 → チーム →
         コミュニティへ進むための道しるべです。

@@ -8,34 +8,33 @@ export default function Home() {
   const guides = listGuides();
 
   const flow = [
-    "課題発見",
-    "フロー設計",
-    "インタラクション",
+    "課題ヒアリング",
+    "業務の要件化",
+    "プロトタイプ",
     "実装",
-    "リリース",
-    "フィードバック",
+    "本番導入",
+    "現場定着",
   ];
 
   return (
     <div>
       <section className="hero">
         <h1>
-          PDE — Product Design Engineer
+          FDE — Forward Deployed Engineer
           <br />
           Knowledge Base
         </h1>
         <p className="lead">
-          PDE（Product Design Engineer）は、<strong>製品の課題を考え、インタラクションを設計し、
-          プロダクションコードを自分で書ける人</strong>。AI ツールの進化で、伝統的な
-          「PM → デザイナー → エンジニア」の分業が一個人の中に収まる時代になりました。
-          このナレッジベースは、PDE として働くために必要な実践知を
-          <strong>領域 × 工程</strong>のマトリクスで整理します。
+          FDE（Forward Deployed Engineer／前沿部署エンジニア）は、
+          <strong>顧客・事業部の現場に入り、AI を実際の業務に組み込み、成果指標が動く状態まで責任を持つエンジニア</strong>。
+          企業の AI 導入で最も不足している役割です（フリーランス案件だけでも 147 件・単価 51〜200 万円/月）。
+          このナレッジベースは、FDE の実践知を<strong>領域 × 工程</strong>のマトリクスで整理します。
         </p>
       </section>
 
       <section>
         <p className="section-label" style={{ marginTop: 8 }}>
-          PDE の仕事はこの 6 ステップ
+          FDE の仕事はこの 6 ステップ
         </p>
         <div className="notice" style={{ display: "flex", flexWrap: "wrap", gap: "4px 10px", alignItems: "center" }}>
           {flow.map((f, i) => (
@@ -58,8 +57,8 @@ export default function Home() {
           </Link>
           <Link href="/references/market-demand" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
             <span className="icon">📈</span>
-            <h3>PDE の市場需要分析</h3>
-            <p>海外 $120–220k の採用事例、日本の AI/ML 単価、探し方のキーワード。2026-09 時点の調査。</p>
+            <h3>FDE の市場需要分析</h3>
+            <p>フリーランススタートに 147 件・単価 51〜200 万円/月。業界別の実案件データ。2026-09 時点の調査。</p>
           </Link>
         </div>
       </section>
@@ -69,17 +68,17 @@ export default function Home() {
         <Link href="/guide" className="card">
           <span className="icon">🧭</span>
           <h3>始め方 {guides.length} ステップ</h3>
-          <p>デザイナーから、フロントエンドから、PDE への転身ルートと仕事の進め方。</p>
+          <p>デザイナーから、フロントエンドから、FDE への転身ルートと仕事の進め方。</p>
         </Link>
         <Link href="/domains" className="card">
           <span className="icon">🗂</span>
           <h3>領域 {domains.length} 件</h3>
-          <p>業界ごとの AI プロダクト実戦知識。PDE が領域に入るときの地図。</p>
+          <p>業界ごとの AI プロダクト実戦知識。FDE が領域に入るときの地図。</p>
         </Link>
         <Link href="/process" className="card">
           <span className="icon">🔁</span>
           <h3>工程 {phases.length} 件</h3>
-          <p>ウォーターフォール・アジャイルの各工程を、PDE が AI ツールとどう回すか。</p>
+          <p>ウォーターフォール・アジャイルの各工程を、FDE が AI ツールとどう回すか。</p>
         </Link>
         <Link href="/patterns" className="card">
           <span className="icon">✨</span>

@@ -1,6 +1,6 @@
 # アーキテクチャと拡張モデル
 
-PDE を「巨大でも維持できる」プロジェクトにするための基盤設計です。
+FDE を「巨大でも維持できる」プロジェクトにするための基盤設計です。
 
 ## 1. 基本原則: Content as Data
 
@@ -53,7 +53,7 @@ content/{locale}/
 ## 4. マトリクスモデル
 
 - **領域軸**: domains、**工程軸**: process
-- 各セルは「交点ページ」(`/matrix/{domain}/{method}/{phase}`) にリンクされる。交点ページは工程の「PDEの仕事 / AIツールの使いどころ」+ `phaseLinks` で紐づくその領域のユースケースを合成して表示する
+- 各セルは「交点ページ」(`/matrix/{domain}/{method}/{phase}`) にリンクされる。交点ページは工程の「FDEの仕事 / AIツールの使いどころ」+ `phaseLinks` で紐づくその領域のユースケースを合成して表示する
 - 専用コンテンツが無い交点には「あなたが最初の 1 ページを書く」導線を出す（投稿の入口）
 - 新しい工程や領域を追加すると、交点ページは自動生成される
 
@@ -64,7 +64,7 @@ content/{locale}/
 | apps/web | Next.js 14 (App Router, 静的エクスポート) | ビルド時に content-core で直読み → 静的生成。GitHub Pages に自動デプロイ |
 | apps/mobile | Expo | `pnpm build:mobile-content` が生成する JSON をバンドル |
 
-- Web は静的エクスポートなのでホスティングは任意の静的 CDN。basePath は `PDE_BASE_PATH` で制御
+- Web は静的エクスポートなのでホスティングは任意の静的 CDN。basePath は `FDE_BASE_PATH` で制御
 - 検索: ビルド時に `search-index.json` を生成し、クライアントサイド（Fuse.js）で横断検索
 - PWA: service worker によるオフライン閲覧（ページは network-first、静的アセットは cache-first）
 - モバイルは JSON 経由にすることで、コードからコンテンツを完全に分離

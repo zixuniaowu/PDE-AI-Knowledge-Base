@@ -4,74 +4,74 @@
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/</link>
 <description>あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース</description>
 <language>ja</language>
-<lastBuildDate>Sun, 13 Sep 2026 12:39:56 GMT</lastBuildDate>
+<lastBuildDate>Sun, 13 Sep 2026 13:03:46 GMT</lastBuildDate>
 <item>
-<title>[ガイド] PDE とは・このガイドの使い方</title>
+<title>[ガイド] FDE とは・このガイドの使い方</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</link>
-<description>Product Design Engineer（PDE）という新しい仕事の定義と、このナレッジベースの使い方</description>
+<description>Forward Deployed Engineer（FDE／前沿部署エンジニア）という新しい仕事の定義と、このナレッジベースの使い方</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</guid>
 </item>
 <item>
 <title>[ガイド] STEP 1 — 最初の 1 プロダクトを選ぶ</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/</link>
-<description>PDE の第一歩は「毎日使っているものを、作り直す」こと。検証可能で小さい題材の選び方</description>
+<description>FDE の第一歩は「毎日使っているものを、作り直す」こと。検証可能で小さい題材の選び方</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/</guid>
 </item>
 <item>
 <title>[ガイド] STEP 2 — 自分と AI の線引きを決める</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/</link>
-<description>PDE は AI に「作らせる」が、判断は自分で残す。ツールごとの任せ方の設計</description>
+<description>FDE は AI に「作らせる」が、判断は自分で残す。ツールごとの任せ方の設計</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/</guid>
 </item>
 <item>
 <title>[ガイド] STEP 3 — AI との作業ループを作る</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/</link>
-<description>「依頼 → 検証 → 修正」の型を持ち、プロンプトを資産にする。PDE の日々の基本形</description>
+<description>「依頼 → 検証 → 修正」の型を持ち、プロンプトを資産にする。FDE の日々の基本形</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/</guid>
 </item>
 <item>
 <title>[ガイド] STEP 4 — 完成の基準と測定を決める</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/</link>
-<description>「動いた」は完成ではない。PDE が出荷判断に使う基準の作り方</description>
+<description>「動いた」は完成ではない。FDE が出荷判断に使う基準の作り方</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/</guid>
 </item>
 <item>
-<title>[ガイド] STEP 5 — チーム・組織の中で PDE として働く</title>
+<title>[ガイド] STEP 5 — チーム・組織の中で FDE として働く</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/</link>
-<description>PDE は「二合一の安い人材」ではない。判断権とコードの権利を守って働くための実際</description>
+<description>FDE は「二合一の安い人材」ではない。判断権とコードの権利を守って働くための実際</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/</guid>
 </item>
 <item>
 <title>[ガイド] STEP 6 — 知見をこの KB に還元する</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</link>
-<description>あなたの PDE 実践を、他の人が育てられる形で公開する。それがこのプロジェクトの正体</description>
+<description>あなたの FDE 実践を、他の人が育てられる形で公開する。それがこのプロジェクトの正体</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</guid>
 </item>
 <item>
 <title>[教育] 採点支援ツール（教育）</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</link>
-<description>教師の答案採点を「根拠照合 2〜3 分/人」に短縮するツール。PDE はルーブリック突合・根拠引用・教師の最終判定を通す設計に責任を持つ</description>
+<description>教師の答案採点を「根拠照合 2〜3 分/人」に短縮するツール。FDE はルーブリック突合・根拠引用・教師の最終判定を通す設計に責任を持つ</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</guid>
 </item>
 <item>
 <title>[教育] 個別学習プラン生成ツール（教育）</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/</link>
-<description>誤答データから学習者ごとのプラン案を作るツール。PDE は教材マスタへの限定参照と「根拠付きプラン」を設計の中心に置く</description>
+<description>誤答データから学習者ごとのプラン案を作るツール。FDE は教材マスタへの限定参照と「根拠付きプラン」を設計の中心に置く</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/</guid>
 </item>
 <item>
 <title>[教育] 教材ドラフト生成ツール（教育）</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/</link>
-<description>学習目標から構成・本文・演習問題を段階生成するツール。PDE は「段階確定フロー」と用語・断定表現のガードレールを実装する</description>
+<description>学習目標から構成・本文・演習問題を段階生成するツール。FDE は「段階確定フロー」と用語・断定表現のガードレールを実装する</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/</guid>
 </item>
@@ -239,7 +239,7 @@
 <item>
 <title>[パターン] Human-in-the-loop（人間の関与点の設計）</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/human-in-the-loop/</link>
-<description>AI の自動処理のどの地点で人間が判断するかを明示的に設計する、PDE の基本パターン</description>
+<description>AI の自動処理のどの地点で人間が判断するかを明示的に設計する、FDE の基本パターン</description>
 <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/human-in-the-loop/</guid>
 </item>

@@ -74,10 +74,10 @@ export default async function IntersectionPage({
       )}
 
       <h2>
-        <span className="badge badge-human">PDE</span> PDEの仕事
+        <span className="badge badge-human">FDE</span> FDEの仕事
       </h2>
       <Prose
-        markdown={sections["PDEの仕事"] ?? "（この工程の定義を待っています）"}
+        markdown={sections["FDEの仕事"] ?? "（この工程の定義を待っています）"}
         linkBase={`/process/${method}`}
       />
 

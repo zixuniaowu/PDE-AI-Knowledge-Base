@@ -14,6 +14,7 @@ import {
   listMethods,
   listGuides,
   listIntersections,
+  listReferences,
   resolveContentRoot,
 } from "../packages/content-core/src/index";
 
@@ -93,6 +94,13 @@ const searchIndex = [
     title: ix.data.title,
     summary: `${ix.data.domain} × ${ix.data.method}/${ix.data.phase}`,
     body: excerpt(ix.content),
+  })),
+  ...listReferences(root).map((r) => ({
+    url: `/references/${r.data.id}`,
+    section: "リファレンス",
+    title: r.data.title,
+    summary: r.data.summary,
+    body: excerpt(r.content),
   })),
 ];
 
@@ -180,6 +188,11 @@ const llms = [
   "## Intersection notes (domain x process)",
   ...listIntersections(root).map(
     (ix) => `- [${ix.data.title}](${siteUrl}/matrix/${ix.data.domain}/${ix.data.method}/${ix.data.phase}/)`
+  ),
+  "",
+  "## References",
+  ...listReferences(root).map(
+    (r) => `- [${r.data.title}](${siteUrl}/references/${r.data.id}/): ${r.data.summary}`
   ),
   "",
 ].join("\n");

@@ -32,7 +32,7 @@ export default async function PatternPage({ params }: { params: { slug: string }
         <StatusBadge status={doc.data.status} />
       </p>
       <Toc markdown={doc.content} />
-      <Prose>{doc.content}</Prose>
+      <Prose markdown={doc.content} linkBase="/patterns" />
       <Meta updated={doc.data.updated} owners={doc.data.owners} />
 
       <h2>このパターンを使っているユースケース</h2>

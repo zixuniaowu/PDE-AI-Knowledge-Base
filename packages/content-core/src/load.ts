@@ -9,6 +9,7 @@ import {
   intersectionDocSchema,
   patternDocSchema,
   phaseDocSchema,
+  referenceDocSchema,
   useCaseDocSchema,
   type DomainDoc,
   type DomainMeta,
@@ -16,6 +17,7 @@ import {
   type IntersectionDoc,
   type PatternDoc,
   type PhaseDoc,
+  type ReferenceDoc,
   type UseCaseDoc,
 } from "./schema";
 
@@ -220,4 +222,17 @@ export function getIntersection(
   );
   if (!fs.existsSync(file)) return null;
   return parseMarkdown(file, intersectionDocSchema);
+}
+
+// ── references（用語集など）───────────────────────────────────
+
+export function listReferences(root = resolveContentRoot()): ParsedDoc<ReferenceDoc>[] {
+  const dir = path.join(root, "references");
+  return listMd(dir)
+    .map((f) => parseMarkdown(path.join(dir, f), referenceDocSchema))
+    .sort((a, b) => a.data.title.localeCompare(b.data.title, "ja"));
+}
+
+export function getReference(id: string, root = resolveContentRoot()): ParsedDoc<ReferenceDoc> {
+  return parseMarkdown(path.join(root, "references", `${id}.md`), referenceDocSchema);
 }

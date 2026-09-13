@@ -34,7 +34,7 @@ export default async function DomainPage({ params }: { params: { domain: string 
         ))}
       </p>
 
-      <Prose>{doc.content}</Prose>
+      <Prose markdown={doc.content} linkBase={`/domains/${domain}`} />
 
       <h2>ユースケース</h2>
       <div className="grid grid-2">

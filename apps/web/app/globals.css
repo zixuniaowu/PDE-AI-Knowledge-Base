@@ -57,6 +57,20 @@ a:hover {
   text-decoration: underline;
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 0 0 8px 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+}
+
 /* ── layout ─────────────────────────────── */
 .container {
   max-width: 960px;

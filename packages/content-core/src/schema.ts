@@ -98,6 +98,17 @@ export const intersectionDocSchema = z.object({
   updated: dateSchema,
 });
 
+/** リファレンス（用語集・FAQ など） */
+export const referenceDocSchema = z.object({
+  id: idSchema,
+  type: z.literal("reference"),
+  title: z.string().min(1),
+  summary: z.string().min(1),
+  owners: ownersSchema,
+  status: statusSchema,
+  updated: dateSchema,
+});
+
 export type DomainMeta = z.infer<typeof domainMetaSchema>;
 export type DomainDoc = z.infer<typeof domainDocSchema>;
 export type UseCaseDoc = z.infer<typeof useCaseDocSchema>;
@@ -105,3 +116,4 @@ export type PhaseDoc = z.infer<typeof phaseDocSchema>;
 export type PatternDoc = z.infer<typeof patternDocSchema>;
 export type GuideDoc = z.infer<typeof guideDocSchema>;
 export type IntersectionDoc = z.infer<typeof intersectionDocSchema>;
+export type ReferenceDoc = z.infer<typeof referenceDocSchema>;

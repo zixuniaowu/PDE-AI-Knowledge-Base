@@ -42,6 +42,7 @@ const nav = [
   { href: "/process", label: "工程" },
   { href: "/patterns", label: "パターン" },
   { href: "/matrix", label: "マトリクス" },
+  { href: "/references/glossary", label: "用語集" },
   { href: "/search", label: "検索" },
 ];
 
@@ -50,6 +51,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ja">
       <body>
         <PwaRegister />
+        <a href="#main" className="skip-link">
+          本文へスキップ
+        </a>
         <header className="site-header">
           <div className="container">
             <Link href="/" className="brand">
@@ -71,7 +75,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
           </div>
         </header>
-        <main className="container">{children}</main>
+        <main className="container" id="main">
+          {children}
+        </main>
         <footer className="site-footer">
           <div className="container">
             PDE — Prompt-Driven Engineering Knowledge Base · Code: MIT / Content: CC BY 4.0 ·

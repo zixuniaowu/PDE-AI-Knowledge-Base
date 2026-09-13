@@ -40,7 +40,7 @@ export default async function PhasePage({
       </p>
 
       <Toc markdown={doc.content} />
-      <Prose>{doc.content}</Prose>
+      <Prose markdown={doc.content} linkBase={`/process/${method}`} />
       <Meta updated={doc.data.updated} owners={doc.data.owners} />
 
       {notes.length > 0 && (

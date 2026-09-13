@@ -66,19 +66,28 @@ export default async function IntersectionPage({
               · {note.data.title}
             </span>
           </p>
-          <Prose>{note.content}</Prose>
+          <Prose
+            markdown={note.content}
+            linkBase={`/matrix/${domain}/${method}/${phase}`}
+          />
         </section>
       )}
 
       <h2>
         <span className="badge badge-human">人間</span> 人間の役割
       </h2>
-      <Prose>{sections["人間の役割"] ?? "（この工程の定義を待っています）"}</Prose>
+      <Prose
+        markdown={sections["人間の役割"] ?? "（この工程の定義を待っています）"}
+        linkBase={`/process/${method}`}
+      />
 
       <h2>
         <span className="badge badge-ai">AI</span> AIの役割
       </h2>
-      <Prose>{sections["AIの役割"] ?? "（この工程の定義を待っています）"}</Prose>
+      <Prose
+        markdown={sections["AIの役割"] ?? "（この工程の定義を待っています）"}
+        linkBase={`/process/${method}`}
+      />
 
       <p>
         <Link href={`/process/${method}/${phase}`}>

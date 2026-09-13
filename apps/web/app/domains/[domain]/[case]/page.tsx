@@ -44,7 +44,7 @@ export default async function UseCasePage({
       </p>
 
       <Toc markdown={doc.content} />
-      <Prose>{doc.content}</Prose>
+      <Prose markdown={doc.content} linkBase={`/domains/${domain}`} />
       <Meta updated={doc.data.updated} owners={doc.data.owners} />
 
       <p className="section-label">{domain} の他のユースケース</p>

@@ -33,7 +33,7 @@ export default async function GuideDetailPage({ params }: { params: { slug: stri
       </p>
 
       <Toc markdown={doc.content} />
-      <Prose>{doc.content}</Prose>
+      <Prose markdown={doc.content} linkBase="/guide" />
       <Meta updated={doc.data.updated} owners={doc.data.owners} />
 
       <div style={{ display: "flex", gap: 8, marginTop: 40, flexWrap: "wrap" }}>

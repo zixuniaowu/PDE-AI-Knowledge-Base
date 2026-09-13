@@ -8,6 +8,7 @@ import {
   listMethods,
   listGuides,
   listIntersections,
+  listReferences,
   getDomain,
   resolveContentRoot,
 } from "../packages/content-core/src/index";
@@ -54,6 +55,7 @@ step("process/methods", () => listMethods(root));
 step("patterns", () => listPatterns(root));
 step("guide", () => listGuides(root));
 step("intersections", () => listIntersections(root));
+step("references", () => listReferences(root));
 
 // 参照整合チェック
 const patterns = safe(() => listPatterns(root), []);

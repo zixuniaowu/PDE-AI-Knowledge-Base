@@ -249,6 +249,29 @@ a.card:hover {
   color: var(--text-sub);
 }
 
+.prose .mermaid-figure {
+  margin: 20px 0;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  text-align: center;
+}
+.prose .mermaid-figure svg {
+  max-width: 100%;
+  height: auto;
+}
+.prose .mermaid-fallback {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 13.5px;
+  white-space: pre-wrap;
+}
+
 /* ── markdown (prose) ───────────────────── */
 .prose {
   font-size: 15.5px;

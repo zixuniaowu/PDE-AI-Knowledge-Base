@@ -36,25 +36,33 @@ FDE の現場で最初にぶつかる壁が「顧客は AWS / Azure / GCP のど
 
 ### 例 1: 議事録システム（AWS）
 
-```
-会議音声 → S3 → Transcribe（文字起こし）
-        → Bedrock（要約・アクション抽出、構造化出力）
-        → DynamoDB（議事録保存）→ Lambda（Slack/Notion 連携）
-監視: CloudWatch（エラー率・コスト） / コスト: Transcribe 約 $0.024/分 + Bedrock トークン課金
+```mermaid
+flowchart LR
+    A["会議音声"] --> B["S3"]
+    B --> C["Transcribe<br/>文字起こし"]
+    C --> D["Bedrock<br/>要約・アクション抽出<br/>(構造化出力)"]
+    D --> E["DynamoDB<br/>議事録保存"]
+    E --> F["Lambda<br/>Slack / Notion 連携"]
+    W["CloudWatch<br/>エラー率・コスト監視"] -.-> C
+    W -.-> D
 ```
 
-FDE の設計ポイント: 文字起こしの話者分離が荒い前提で UI を作る / Bedrock の出力は JSON モード + スキーマ検証 / 月額上限を Budgets で設定
+- コスト目安: Transcribe 約 $0.024/分 + Bedrock トークン課金。月額上限は Budgets で設定
+- FDE の設計ポイント: 文字起こしの話者分離が荒い前提で UI を作る / Bedrock の出力は JSON モード + スキーマ検証
 
 ### 例 2: 契約レビュー支援（Azure）
 
-```
-契約 PDF → Blob Storage → Document Intelligence（条項の構造化抽出）
-        → AI Search（インデックス化、雛形・過去契約も）
-        → Azure OpenAI（雛形との差分整理、引用付き回答）
-権限: Entra ID で部門ごとに閲覧範囲制御 / 監査: 誰が何を質問したかのログ
+```mermaid
+flowchart LR
+    A["契約 PDF"] --> B["Blob Storage"]
+    B --> C["Document Intelligence<br/>条項の構造化抽出"]
+    C --> D["AI Search<br/>インデックス化<br/>(雛形・過去契約)"]
+    D --> E["Azure OpenAI<br/>引用付き回答"]
+    I["Entra ID<br/>部門ごとの閲覧権限"] -.-> E
+    L["監査ログ<br/>誰が何を質問したか"] -.-> E
 ```
 
-FDE の設計ポイント: PDF のスキャン品質に応じて OCR 前処理 / 引用（条項番号）の実在突合をパイプラインに組み込む / 機密契約は VNet 内完結構成
+- FDE の設計ポイント: PDF のスキャン品質に応じて OCR 前処理 / 引用（条項番号）の実在突合をパイプラインに組み込む / 機密契約は VNet 内完結構成
 
 ## SAP 環境との連携
 

@@ -34,6 +34,12 @@ test.describe("ガイド", () => {
     await expect(page.getByRole("heading", { name: "やることリスト" })).toBeVisible();
     await expect(page.getByRole("link", { name: /STEP 2/ }).first()).toBeVisible();
   });
+
+  test("FDE とはページに概念図（mermaid SVG）が描画される", async ({ page }) => {
+    await page.goto(p("/guide/what-is-pde/"));
+    await expect(page.locator(".mermaid-figure svg").first()).toBeVisible({ timeout: 15000 });
+    expect(await page.locator(".mermaid-figure svg").count()).toBeGreaterThanOrEqual(2);
+  });
 });
 
 test.describe("領域とユースケース", () => {

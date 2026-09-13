@@ -48,6 +48,29 @@ export default function Home() {
       </section>
 
       <section>
+        <p className="section-label" style={{ marginTop: 8 }}>
+          この KB の 3 つの使い方
+        </p>
+        <div className="grid grid-3">
+          <Link href="/guide" className="card" style={{ borderTop: "3px solid var(--accent)" }}>
+            <span className="icon">🎓</span>
+            <h3>学ぶ — FDE になる</h3>
+            <p>6 ステップのガイドと小技集で、出発点別の転身ルートを歩く。</p>
+          </Link>
+          <Link href="/references/market-demand" className="card" style={{ borderTop: "3px solid var(--human)" }}>
+            <span className="icon">💼</span>
+            <h3>働く — 市場とキャリア</h3>
+            <p>案件 147 件・単価 51〜200 万円/月の実データ。就業形態と必要スキル。</p>
+          </Link>
+          <Link href="/process" className="card" style={{ borderTop: "3px solid var(--ai)" }}>
+            <span className="icon">📚</span>
+            <h3>参照する — 実践知識</h3>
+            <p>工程 11・領域 10・パターン 9・クラウド連携・業務プロセスの型。</p>
+          </Link>
+        </div>
+      </section>
+
+      <section>
         <p className="section-label">今日から使う</p>
         <div className="grid grid-2">
           <Link href="/references/prompt-tips" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>

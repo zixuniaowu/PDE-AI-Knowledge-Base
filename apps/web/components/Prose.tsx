@@ -2,6 +2,7 @@ import path from "node:path";
 import ReactMarkdown from "react-markdown";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import { Mermaid } from "@/components/Mermaid";
 
 /**
  * コンテンツ内 Markdown リンクをサイトのルート URL に書き換える。
@@ -27,6 +28,17 @@ export function rewriteHref(href: string, linkBase?: string): string {
   return h.endsWith("/") ? h : `${h}/`;
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+function isMermaidBlock(children: any): boolean {
+  const child = Array.isArray(children) ? children[0] : children;
+  return String(child?.props?.className ?? "").includes("language-mermaid");
+}
+
+function mermaidSource(children: any): string {
+  const child = Array.isArray(children) ? children[0] : children;
+  return String(child?.props?.children ?? "").trim();
+}
+
 export function Prose({ markdown, linkBase }: { markdown: string; linkBase?: string }) {
   return (
     <div className="prose">
@@ -45,6 +57,12 @@ export function Prose({ markdown, linkBase }: { markdown: string; linkBase?: str
                 {inner}
               </a>
             );
+          },
+          pre: ({ children }) => {
+            if (isMermaidBlock(children)) {
+              return <Mermaid chart={mermaidSource(children)} />;
+            }
+            return <pre>{children}</pre>;
           },
         }}
       >

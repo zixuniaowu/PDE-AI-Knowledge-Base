@@ -132,6 +132,21 @@ test.describe("リファレンス", () => {
     const oldTerm = await page.content().then((c) => c.includes("Prompt-Driven"));
     expect(oldTerm).toBe(false);
   });
+
+  test("クラウド別サービスマップが表示される（AWS/Azure/GCP/SAP）", async ({ page }) => {
+    await page.goto(p("/references/cloud-ai-services/"));
+    await expect(page.getByRole("heading", { name: "クラウド別 AI 導入サービスマップ" })).toBeVisible();
+    await expect(page.getByText("Bedrock").first()).toBeVisible();
+    await expect(page.getByText("SAP").first()).toBeVisible();
+  });
+
+  test("業務プロセスページが ERP 流の 6 プロセスを含む", async ({ page }) => {
+    await page.goto(p("/references/business-processes/"));
+    await expect(page.getByRole("heading", { name: "業務プロセスと AI の接点" })).toBeVisible();
+    for (const term of ["O2C", "購買（P2P", "S/4HANA", "freee"]) {
+      await expect(page.getByText(term).first()).toBeVisible();
+    }
+  });
 });
 
 test.describe("404 とアセット", () => {

@@ -60,6 +60,16 @@ export default function Home() {
             <h3>FDE の市場需要分析</h3>
             <p>フリーランススタートに 147 件・単価 51〜200 万円/月。業界別の実案件データ。2026-09 時点の調査。</p>
           </Link>
+          <Link href="/references/cloud-ai-services" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
+            <span className="icon">☁️</span>
+            <h3>クラウド別 AI サービスマップ</h3>
+            <p>顧客が AWS / Azure / GCP / SAP でも対応できる、シナリオ別サービス対応表と参照アーキテクチャ。</p>
+          </Link>
+          <Link href="/references/business-processes" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
+            <span className="icon">🗂️</span>
+            <h3>業務プロセスと AI の接点</h3>
+            <p>販売・購買・在庫・生産・経理・人事。ERP 流の業務分解で、AI の入り方と成果指標を整理。</p>
+          </Link>
         </div>
       </section>
 

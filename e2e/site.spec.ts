@@ -44,10 +44,10 @@ test.describe("領域とユースケース", () => {
 
   test("教育領域からユースケースを開き、プロンプト例と目次を確認", async ({ page }) => {
     await page.goto(p("/domains/education/"));
-    await expect(page.getByRole("heading", { name: /教育/ })).toBeVisible();
-    await page.locator("a.card", { hasText: "採点・フィードバック支援" }).click();
+    await expect(page.getByRole("heading", { level: 1, name: /教育/ })).toBeVisible();
+    await page.locator("a.card", { hasText: "採点支援ツール（教育）" }).click();
     await expect(page).toHaveURL(/\/domains\/education\/grading-assistant\/?$/);
-    await expect(page.getByRole("heading", { name: /プロンプト（初版/ })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "製品の中核機能とプロンプト" })).toBeVisible();
     await expect(page.locator("pre").first()).toBeVisible();
     await expect(page.getByRole("navigation", { name: "目次" })).toBeVisible();
   });
@@ -55,7 +55,7 @@ test.describe("領域とユースケース", () => {
   test("本文中の .md 相対リンクはルート URL に書き換えられる（回帰テスト）", async ({ page }) => {
     await page.goto(p("/domains/education/"));
     // index.md 内の ./use-cases/grading-assistant.md リンク
-    const link = page.locator(".prose a", { hasText: "採点・フィードバック支援" });
+    const link = page.locator(".prose a", { hasText: "採点支援ツール（教育）" });
     await expect(link).toBeVisible();
     await link.click();
     await expect(page).toHaveURL(/\/domains\/education\/grading-assistant\//);
@@ -97,7 +97,7 @@ test.describe("パターン", () => {
   test("RAG パターンに適用ユースケースの逆リンクがある", async ({ page }) => {
     await page.goto(p("/patterns/rag/"));
     await expect(page.getByRole("heading", { name: "このパターンを使っているユースケース" })).toBeVisible();
-    await expect(page.getByRole("link", { name: /採点・フィードバック支援/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: /採点支援ツール（教育）/ })).toBeVisible();
   });
 });
 
@@ -107,7 +107,7 @@ test.describe("検索", () => {
     const input = page.getByPlaceholder(/キーワードで検索/);
     await expect(input).toBeVisible();
     await input.fill("採点");
-    await expect(page.getByRole("link", { name: /採点・フィードバック支援/ }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /採点支援ツール（教育）/ }).first()).toBeVisible();
   });
 });
 

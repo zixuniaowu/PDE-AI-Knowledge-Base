@@ -31,4 +31,4 @@ updated: 2026-09-12
 
 ## ユースケース
 
-- [採点・フィードバック支援](./use-cases/grading-assistant.md)
+- [採点支援ツール（教育）](./use-cases/grading-assistant.md)

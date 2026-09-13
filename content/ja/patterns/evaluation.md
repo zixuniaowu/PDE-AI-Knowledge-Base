@@ -44,3 +44,46 @@ AI 出力 ─▶ 自動ガードレール（形式・禁止語・出典突合）
 - 評価基準がないまま導入する → まず [STEP 4](/guide/step-4-acceptance) の受け入れ基準を書く
 - サンプル評価の偏り: 失敗しそうなケースを意図的に混ぜる（ただしいくつかのケースだけでなく全体の分布も見る）
 - ガードレールの誤検知が増えると形骸化する: 誤検知率も測って調整する
+
+## 実装の型（ゴールデンデータ + 判定 + 閾値）
+
+### 1. ゴールデンデータの形式（20 件から始める）
+
+```json
+[
+  { "id": "g-001", "input": "（会議メモ）", "expected": { "actions": [{ "assignee": "A", "task": "議事録配布", "due": "10/15" }] } }
+]
+```
+
+### 2. LLM-as-judge のルーブリック（判定用プロンプトの骨子）
+
+```text
+AI 出力と正解を比較し、各項目を 1〜5 で採点してください。
+・アクション抽出の再現: 正解のアクションを漏れなく拾っているか（漏れ 1 件ごとに -1）
+・引用の実在: 引用された箇所が入力文書に実在するか（実在しない引用は 1 にする）
+・形式: 指定 JSON 形式に従っているか
+減点理由には入力文書の該当箇所を引用すること。
+```
+
+### 3. 合格閾値の例（例として明示して調整する）
+
+- judge スコア 4.0 以上 かつ アクション抽出再現率 80% 以上 → 合格
+- 未達ならリリース中止（自動テストが落ちるのと同じ扱い）
+
+### 4. promptfoo での自動化（設定の骨子）
+
+```yaml
+# promptfooconfig.yaml
+prompts: [prompts/grading_v2.txt]
+providers: [anthropic:messages:claude-sonnet]
+tests: file://tests/golden20.yaml
+assert:
+  - type: llm-rubric
+    value: 引用はすべて入力文書に実在し、アクション抽出の漏れがない
+  - type: javascript
+    value: output.includes('"判定"')
+thresholdScore: 0.8
+# CI: npx promptfoo eval --config promptfooconfig.yaml
+```
+
+プロンプトやモデルを変更したら必ずこの評価を再実行する（[Self-check](./self-check.md) や[月次サンプリング](./human-in-the-loop.md)と組み合わせる）。

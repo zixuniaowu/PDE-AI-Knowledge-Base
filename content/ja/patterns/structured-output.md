@@ -39,3 +39,39 @@ AI に文章で答えさせる代わりに、**あらかじめ決めた形式（
 - 形式違反（JSON の外に文章が出る、項目の欠落）→ スキーマ検証 + 再試行を必ず入れる
 - **構造は正しいが中身が間違い**の見逃し: 構造化は検証を楽にするだけで、正しさは保証しない。根拠（引用）項目を持たせて突き合わせる
 - 項目設計が悪いと集計できない: 先に「集計して何を知りたいか」を決めてから項目を設計する
+
+## 実装の型（スキーマ → 検証 → 再試行）
+
+### 1. JSON Schema の例
+
+```json
+{
+  "type": "object",
+  "required": ["判定", "根拠", "確信度"],
+  "properties": {
+    "判定": { "type": "string", "enum": ["A", "B", "C", "検討中"] },
+    "根拠": { "type": "string", "minLength": 5 },
+    "確信度": { "type": "string", "enum": ["high", "medium", "low"] }
+  },
+  "additionalProperties": false
+}
+```
+
+### 2. API 側の指定（例: Anthropic / OpenAI）
+
+```text
+・Anthropic: messages API でツール（input_schema）として上記スキーマを渡す
+・OpenAI: response_format: { type: "json_schema", strict: true }
+```
+
+### 3. 検証と再試行（TypeScript + Zod）
+
+```ts
+const parsed = schema.safeParse(JSON.parse(output));
+if (!parsed.success) {
+  if (retryCount < 2) return generateAgain(`${output}\n\n上記は次のエラーで不正: ${parsed.error.message}。スキーマどおりに修正`);
+  notifyHuman(output); // 2 回失敗したら人間へ
+}
+```
+
+**構造の合格 ≠ 中身の正しい**: 根拠（引用）の突合は別途 [評価](./evaluation.md) で行う。

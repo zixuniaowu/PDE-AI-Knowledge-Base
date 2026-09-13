@@ -26,7 +26,7 @@ FDE の現場で最初にぶつかる壁が「顧客は AWS / Azure / GCP のど
 | 音声 → テキスト | Amazon Transcribe | Azure AI Speech | Cloud Speech-to-Text |
 | 帳票・OCR・文書抽出 | Amazon Textract | Azure AI Document Intelligence | Document AI |
 | AI エージェント | Bedrock Agents / Amazon Q Business | Copilot Studio / Azure AI Agent Service | Vertex AI Agent Builder |
-| 画像認識 | Rekognition | Azure AI Vision | Vision AI |
+| 画像認識 | Rekognition | Azure AI Vision | Cloud Vision API |
 | ワークフロー / 連携 | Lambda + Step Functions / EventBridge | Logic Apps / Functions | Workflows / Cloud Run |
 | 認証・権限 | IAM / IAM Identity Center | Entra ID | IAM / Cloud Identity |
 | 監視・運用 | CloudWatch | Azure Monitor | Cloud Monitoring |
@@ -70,7 +70,7 @@ flowchart LR
 |---|---|
 | SAP Business AI / Joule | S/4HANA 組み込みの AI アシスタント。まず顧客の契約範囲を確認（すでに使える機能がある） |
 | 業務モジュール | SD（販売）/ MM（購買在庫）/ FI・CO（経理）/ PP（生産）——AI の入り方は [業務プロセスの接点](/references/business-processes) と対応づく |
-| 連携方式 | BTP Integration Suite / OData API / ABAP SDK for Cloud。レガシーは IDoc・CSV・RPA |
+| 連携方式 | BTP Integration Suite / OData API / ABAP SDK。レガシーは IDoc・CSV・RPA |
 | カスタム AI | SAP AI Core / AI Launchpad で BTP 上に AI をデプロイし、S/4HANA の業務データと接続 |
 
 FDE の注意: SAP の案件では「AI を新規で作る」より **SAP が提供する AI 機能の有効化 + 足りない部分の BTP 拡張**が正解になることが多い。

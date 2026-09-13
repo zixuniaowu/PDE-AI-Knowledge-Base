@@ -30,6 +30,17 @@ export default function Home() {
         </div>
       </section>
 
+      <section>
+        <p className="section-label" style={{ marginTop: 8 }}>
+          今日から使う
+        </p>
+        <Link href="/references/prompt-tips" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
+          <span className="icon">⚡</span>
+          <h3>プロンプト小技集 20 選</h3>
+          <p>コピペで今日から使える具体的テクニック。「まず確認させてから作業させる」「根拠の引用を必須にする」など。</p>
+        </Link>
+      </section>
+
       <p className="section-label">ざっと見る</p>
       <div className="grid grid-3">
         <Link href="/guide" className="card">

@@ -118,6 +118,12 @@ test.describe("リファレンス", () => {
     await expect(page.getByRole("navigation", { name: "目次" })).toBeVisible();
     await expect(page.getByText("ハルシネーション").first()).toBeVisible();
   });
+
+  test("プロンプト小技集は 15 以上のコピペ例（コードブロック）を含む", async ({ page }) => {
+    await page.goto(p("/references/prompt-tips/"));
+    await expect(page.getByRole("heading", { name: "すぐ使えるプロンプト小技集" })).toBeVisible();
+    expect(await page.locator(".prose pre").count()).toBeGreaterThanOrEqual(15);
+  });
 });
 
 test.describe("404 とアセット", () => {

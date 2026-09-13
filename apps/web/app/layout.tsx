@@ -41,6 +41,7 @@ const nav = [
   { href: "/domains", label: "領域" },
   { href: "/process", label: "工程" },
   { href: "/patterns", label: "パターン" },
+  { href: "/references/prompt-tips", label: "小技集" },
   { href: "/matrix", label: "マトリクス" },
   { href: "/references/glossary", label: "用語集" },
   { href: "/search", label: "検索" },

@@ -73,9 +73,8 @@ a:hover {
 
 /* ── layout ─────────────────────────────── */
 .container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: 100%;
+  padding: 0 clamp(16px, 4vw, 56px);
 }
 
 .site-header {
@@ -348,10 +347,6 @@ a.card:hover {
   h1,
   .hero h1 {
     font-size: 25px;
-  }
-  .grid-2,
-  .grid-3 {
-    grid-template-columns: 1fr;
   }
   main.container {
     padding-top: 20px;

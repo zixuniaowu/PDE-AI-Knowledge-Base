@@ -106,4 +106,5 @@
 - [ソフトウェア開発 × 実装](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/implementation/)
 
 ## References
+- [すぐ使えるプロンプト小技集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/prompt-tips/): 今日からコピペで使える 20 の具体的テクニック。理論ではなく、貼って動く形で書いています
 - [用語集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/glossary/): PDE で使う用語の最小セット。初めての人はここから

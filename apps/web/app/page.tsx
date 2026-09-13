@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { listDomains, listGuides, listPatterns, listPhases } from "@pde/content-core";
 import { JobCountChart, RateHistogram, StatChips } from "@/components/charts";
+import { HomeMap } from "@/components/HomeMap";
 
 export default function Home() {
   const domains = listDomains();
@@ -34,17 +35,8 @@ export default function Home() {
       </section>
 
       <section>
-        <p className="section-label" style={{ marginTop: 8 }}>
-          FDE の仕事はこの 6 ステップ
-        </p>
-        <div className="notice" style={{ display: "flex", flexWrap: "wrap", gap: "4px 10px", alignItems: "center" }}>
-          {flow.map((f, i) => (
-            <span key={f} style={{ fontWeight: 600 }}>
-              <span style={{ color: "var(--accent)", marginRight: 4 }}>{i + 1}.</span>
-              {f}
-              {i < flow.length - 1 && <span style={{ color: "var(--text-faint)", marginLeft: 10 }}>→</span>}
-            </span>
-          ))}
+        <div className="home-map-wrap">
+          <HomeMap />
         </div>
       </section>
 

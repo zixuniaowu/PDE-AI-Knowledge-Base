@@ -127,6 +127,15 @@ main.container {
   padding-bottom: 32px;
 }
 
+/* ── home map ───────────────────────────── */
+.home-map-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 12px 8px;
+}
+
 /* ── requirements map ───────────────────── */
 .req-list {
   display: grid;

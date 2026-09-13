@@ -108,3 +108,19 @@ FDE のテストは 2 層ある。**①コードが壊れていないこと（�
 
 - ✅ 合格例: テストケースに前提・操作・期待結果が揃い、境界値に実務の数値（請求書 200 件など）を使っている
 - ❌ 不合格例: 「正常に動作すること」だけで検証方法が書かれない → 期待結果は観察可能な事実で書くよう指示に追加
+
+### 自動テストの実コード断片（Playwright・状態一覧から生成）
+
+```ts
+test("アップロード失敗時に再試行できる", async ({ page }) => {
+  await page.route("**/transcribe", (r) => r.abort()); // ネットワーク失敗を再現
+  await page.goto("/upload/");
+  await page.setInputFiles('input[type="file"]', "test/meeting.m4a");
+  await expect(page.getByText("アップロードに失敗しました")).toBeVisible();
+  await page.getByRole("button", { name: "再試行" }).click();
+  await page.unroute("**/transcribe");
+  await expect(page.getByText("文字起こし中")).toBeVisible({ timeout: 10000 });
+});
+```
+
+- 状態一覧の 1 状態 = 1 テスト。AI 製品は「AI 出力のばらつき」もテスト対象: 同一入力 10 回で合格判定が 9 回以上一致することを回帰として回す

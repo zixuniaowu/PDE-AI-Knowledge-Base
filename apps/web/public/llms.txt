@@ -24,7 +24,7 @@
 - [ソフトウェア開発](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/): 設計・実装・レビュー・テストにおける AI 協働の実践
 
 ## Use cases
-- [教育 / 採点・フィードバック支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/): ルーブリックに基づく採点下書きを AI が生成し、教師が最終判定する
+- [教育 / 採点・フィードバック支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/): ルーブリックと答案の突き合わせを AI が行い、根拠引用付きの達成度判定の下書きを作る。点数の確定と対人的なフォローは教師が担う
 - [教育 / 個別学習プランの設計](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/individual-learning-plan/): つまずきデータから学習者ごとのプラン案を AI が生成し、教師が方針を決める
 - [教育 / 授業教材のドラフト作成](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/lesson-material-draft/): 学習目標から構成・本文・演習問題まで段階的に生成し、教師が教育観点で検収する
 - [金融・経理 / 月次レポートのドラフトと数値突合](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/finance/monthly-report/): 数値はシステムから渡し、AI は解説文と差異の整理のみ行う。人間が突合して確定する
@@ -51,7 +51,7 @@
 - [agile / スプリントプランニング](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/sprint-planning/): 人間とAIの役割分担と受け入れ基準
 - [agile / バックログリファインメント](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/backlog-refinement/): 人間とAIの役割分担と受け入れ基準
 - [agile / デイリースクラム](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/daily-scrum/): 人間とAIの役割分担と受け入れ基準
-- [agile / レビュー](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/review/): 人間とAIの役割分担と受け入れ基準
+- [agile / レビュー（スプリントレビュー / PR レビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/review/): 人間とAIの役割分担と受け入れ基準
 - [agile / レトロスペクティブ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/retrospective/): 人間とAIの役割分担と受け入れ基準
 - [waterfall / 要件定義](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/requirements/): 人間とAIの役割分担と受け入れ基準
 - [waterfall / 設計](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/design/): 人間とAIの役割分担と受け入れ基準

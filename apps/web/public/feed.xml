@@ -4,7 +4,14 @@
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/</link>
 <description>あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース</description>
 <language>ja</language>
-<lastBuildDate>Sun, 13 Sep 2026 10:56:22 GMT</lastBuildDate>
+<lastBuildDate>Sun, 13 Sep 2026 11:44:23 GMT</lastBuildDate>
+<item>
+<title>[教育] 採点・フィードバック支援</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</link>
+<description>ルーブリックと答案の突き合わせを AI が行い、根拠引用付きの達成度判定の下書きを作る。点数の確定と対人的なフォローは教師が担う</description>
+<pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</guid>
+</item>
 <item>
 <title>[ガイド] PDE とは・このガイドの使い方</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</link>
@@ -53,13 +60,6 @@
 <description>あなたの型を、他の人が育てられる形で公開する。それが PDE コミュニティの正体</description>
 <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</guid>
-</item>
-<item>
-<title>[教育] 採点・フィードバック支援</title>
-<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</link>
-<description>ルーブリックに基づく採点下書きを AI が生成し、教師が最終判定する</description>
-<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</guid>
 </item>
 <item>
 <title>[教育] 個別学習プランの設計</title>

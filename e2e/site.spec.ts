@@ -47,7 +47,7 @@ test.describe("領域とユースケース", () => {
     await expect(page.getByRole("heading", { name: /教育/ })).toBeVisible();
     await page.locator("a.card", { hasText: "採点・フィードバック支援" }).click();
     await expect(page).toHaveURL(/\/domains\/education\/grading-assistant\/?$/);
-    await expect(page.getByRole("heading", { name: "プロンプト例" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /プロンプト（初版/ })).toBeVisible();
     await expect(page.locator("pre").first()).toBeVisible();
     await expect(page.getByRole("navigation", { name: "目次" })).toBeVisible();
   });

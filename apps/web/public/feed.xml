@@ -4,62 +4,62 @@
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/</link>
 <description>あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース</description>
 <language>ja</language>
-<lastBuildDate>Sun, 13 Sep 2026 11:44:23 GMT</lastBuildDate>
+<lastBuildDate>Sun, 13 Sep 2026 12:24:44 GMT</lastBuildDate>
+<item>
+<title>[ガイド] PDE とは・このガイドの使い方</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</link>
+<description>Product Design Engineer（PDE）という新しい仕事の定義と、このナレッジベースの使い方</description>
+<pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 1 — 最初の 1 プロダクトを選ぶ</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/</link>
+<description>PDE の第一歩は「毎日使っているものを、作り直す」こと。検証可能で小さい題材の選び方</description>
+<pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 2 — 自分と AI の線引きを決める</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/</link>
+<description>PDE は AI に「作らせる」が、判断は自分で残す。ツールごとの任せ方の設計</description>
+<pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 3 — AI との作業ループを作る</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/</link>
+<description>「依頼 → 検証 → 修正」の型を持ち、プロンプトを資産にする。PDE の日々の基本形</description>
+<pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 4 — 完成の基準と測定を決める</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/</link>
+<description>「動いた」は完成ではない。PDE が出荷判断に使う基準の作り方</description>
+<pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 5 — チーム・組織の中で PDE として働く</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/</link>
+<description>PDE は「二合一の安い人材」ではない。判断権とコードの権利を守って働くための実際</description>
+<pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/</guid>
+</item>
+<item>
+<title>[ガイド] STEP 6 — 知見をこの KB に還元する</title>
+<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</link>
+<description>あなたの PDE 実践を、他の人が育てられる形で公開する。それがこのプロジェクトの正体</description>
+<pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</guid>
+</item>
 <item>
 <title>[教育] 採点・フィードバック支援</title>
 <link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</link>
 <description>ルーブリックと答案の突き合わせを AI が行い、根拠引用付きの達成度判定の下書きを作る。点数の確定と対人的なフォローは教師が担う</description>
 <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
 <guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/grading-assistant/</guid>
-</item>
-<item>
-<title>[ガイド] PDE とは・このガイドの使い方</title>
-<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</link>
-<description>「AI を使う」から「AI と協働する」へ。PDE の考え方と、6 ステップの進み方</description>
-<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/</guid>
-</item>
-<item>
-<title>[ガイド] STEP 1 — 小さく始める: 最初の 1 業務を選ぶ</title>
-<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/</link>
-<description>「全部やる」は失敗のもと。検証しやすく、失敗コストの低い業務を 1 つ選ぶ</description>
-<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/</guid>
-</item>
-<item>
-<title>[ガイド] STEP 2 — 人と AI の役割を書き出す</title>
-<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/</link>
-<description>「何を AI に任せ、何を人間が残すか」。判断権の所在を先に決める</description>
-<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/</guid>
-</item>
-<item>
-<title>[ガイド] STEP 3 — 協働の型を作る</title>
-<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/</link>
-<description>プロンプトを資産にする。入力・指示・出力の型を決め、受け渡しを設計する</description>
-<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/</guid>
-</item>
-<item>
-<title>[ガイド] STEP 4 — 受け入れ基準と測定を決める</title>
-<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/</link>
-<description>「良くなった」を証明する。検収条件と、導入前後で比べる指標を先に決める</description>
-<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/</guid>
-</item>
-<item>
-<title>[ガイド] STEP 5 — チームへ展開する</title>
-<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/</link>
-<description>個人の技からチームの資産へ。テンプレート化し、ルールを決め、人を育てる</description>
-<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/</guid>
-</item>
-<item>
-<title>[ガイド] STEP 6 — 知見を PDE に還元する</title>
-<link>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</link>
-<description>あなたの型を、他の人が育てられる形で公開する。それが PDE コミュニティの正体</description>
-<pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-<guid>https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/</guid>
 </item>
 <item>
 <title>[教育] 個別学習プランの設計</title>

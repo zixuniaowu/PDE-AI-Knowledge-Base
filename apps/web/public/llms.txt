@@ -3,13 +3,13 @@
 > あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。領域×工程のマトリクスで「人間とAIの役割分担」を整理する。
 
 ## Guide (start here)
-- [PDE とは・このガイドの使い方](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/): 「AI を使う」から「AI と協働する」へ。PDE の考え方と、6 ステップの進み方
-- [STEP 1 — 小さく始める: 最初の 1 業務を選ぶ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/): 「全部やる」は失敗のもと。検証しやすく、失敗コストの低い業務を 1 つ選ぶ
-- [STEP 2 — 人と AI の役割を書き出す](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/): 「何を AI に任せ、何を人間が残すか」。判断権の所在を先に決める
-- [STEP 3 — 協働の型を作る](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/): プロンプトを資産にする。入力・指示・出力の型を決め、受け渡しを設計する
-- [STEP 4 — 受け入れ基準と測定を決める](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/): 「良くなった」を証明する。検収条件と、導入前後で比べる指標を先に決める
-- [STEP 5 — チームへ展開する](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/): 個人の技からチームの資産へ。テンプレート化し、ルールを決め、人を育てる
-- [STEP 6 — 知見を PDE に還元する](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/): あなたの型を、他の人が育てられる形で公開する。それが PDE コミュニティの正体
+- [PDE とは・このガイドの使い方](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/what-is-pde/): Product Design Engineer（PDE）という新しい仕事の定義と、このナレッジベースの使い方
+- [STEP 1 — 最初の 1 プロダクトを選ぶ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-1-pick-a-task/): PDE の第一歩は「毎日使っているものを、作り直す」こと。検証可能で小さい題材の選び方
+- [STEP 2 — 自分と AI の線引きを決める](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-2-define-roles/): PDE は AI に「作らせる」が、判断は自分で残す。ツールごとの任せ方の設計
+- [STEP 3 — AI との作業ループを作る](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-3-build-the-loop/): 「依頼 → 検証 → 修正」の型を持ち、プロンプトを資産にする。PDE の日々の基本形
+- [STEP 4 — 完成の基準と測定を決める](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-4-acceptance/): 「動いた」は完成ではない。PDE が出荷判断に使う基準の作り方
+- [STEP 5 — チーム・組織の中で PDE として働く](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-5-team/): PDE は「二合一の安い人材」ではない。判断権とコードの権利を守って働くための実際
+- [STEP 6 — 知見をこの KB に還元する](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/step-6-contribute/): あなたの PDE 実践を、他の人が育てられる形で公開する。それがこのプロジェクトの正体
 
 ## Domains
 - [教育](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/education/): 学校教育・企業研修における学習設計と AI の協働
@@ -48,17 +48,17 @@
 - [ソフトウェア開発 / プルリクエストレビュー支援](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/software-development/pr-review-assistant/): AI が規約チェックと影響範囲の一次指摘を行い、レビューアーは設計判断に集中する
 
 ## Process phases
-- [agile / スプリントプランニング](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/sprint-planning/): 人間とAIの役割分担と受け入れ基準
-- [agile / バックログリファインメント](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/backlog-refinement/): 人間とAIの役割分担と受け入れ基準
-- [agile / デイリースクラム](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/daily-scrum/): 人間とAIの役割分担と受け入れ基準
-- [agile / レビュー（スプリントレビュー / PR レビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/review/): 人間とAIの役割分担と受け入れ基準
-- [agile / レトロスペクティブ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/retrospective/): 人間とAIの役割分担と受け入れ基準
+- [agile / スプリントプランニング（個人の計画）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/sprint-planning/): 人間とAIの役割分担と受け入れ基準
+- [agile / バックログリファインメント（アイデアと改善の整理）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/backlog-refinement/): 人間とAIの役割分担と受け入れ基準
+- [agile / デイリースクラム（個人朝会）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/daily-scrum/): 人間とAIの役割分担と受け入れ基準
+- [agile / レビュー（リリース内容と価値の確認）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/review/): 人間とAIの役割分担と受け入れ基準
+- [agile / レトロスペクティブ（個人の振り返り）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/agile/retrospective/): 人間とAIの役割分担と受け入れ基準
 - [waterfall / 要件定義](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/requirements/): 人間とAIの役割分担と受け入れ基準
-- [waterfall / 設計](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/design/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / 設計（フロー・インタラクション）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/design/): 人間とAIの役割分担と受け入れ基準
 - [waterfall / 実装](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/implementation/): 人間とAIの役割分担と受け入れ基準
 - [waterfall / テスト](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/testing/): 人間とAIの役割分担と受け入れ基準
-- [waterfall / リリース・デプロイ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/deployment/): 人間とAIの役割分担と受け入れ基準
-- [waterfall / 運用・保守](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/maintenance/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / リリース](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/deployment/): 人間とAIの役割分担と受け入れ基準
+- [waterfall / 運用・改善](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/waterfall/maintenance/): 人間とAIの役割分担と受け入れ基準
 
 ## Patterns
 - [Agent（エージェント）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/agent/): 目標を渡すと AI 自らが計画・ツール実行・反復を行うパターン。管理コストとセット

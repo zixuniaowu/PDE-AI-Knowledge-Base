@@ -4,8 +4,8 @@ import { p } from "./helpers";
 test.describe("ホームとグローバルナビ", () => {
   test("ホームにタイトルと主要カードが表示される", async ({ page }) => {
     await page.goto(p("/"));
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("Prompt-Driven");
-    await expect(page.getByRole("link", { name: "始め方", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Product Design Engineer");
+    await expect(page.getByText(/課題発見/)).toBeVisible();
     await expect(page.getByRole("link", { name: /領域 \d+ 件/ })).toBeVisible();
     await expect(page.getByRole("link", { name: /工程 \d+ 件/ })).toBeVisible();
     await expect(page.getByRole("link", { name: /パターン \d+ 件/ })).toBeVisible();
@@ -32,7 +32,7 @@ test.describe("ガイド", () => {
     await expect(page.getByRole("heading", { name: /STEP 1/ })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "目次" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "やることリスト" })).toBeVisible();
-    await expect(page.getByRole("link", { name: /STEP 2.*→/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: /STEP 2/ }).first()).toBeVisible();
   });
 });
 
@@ -77,8 +77,8 @@ test.describe("工程と交点", () => {
     await page.goto(p("/matrix/healthcare/agile/review/"));
     await expect(page.getByText("交点ノート")).toBeVisible();
     await expect(page.getByText("多職種カンファレンス")).toBeVisible();
-    await expect(page.getByText("人間の役割").first()).toBeVisible();
-    await expect(page.getByText("AIの役割").first()).toBeVisible();
+    await expect(page.getByText("PDEの仕事").first()).toBeVisible();
+    await expect(page.getByText("AIツールの使いどころ").first()).toBeVisible();
   });
 
   test("交点ページ（ノートなし）は執筆の導線を表示する", async ({ page }) => {

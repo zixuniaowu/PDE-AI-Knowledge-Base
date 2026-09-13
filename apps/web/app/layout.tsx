@@ -8,18 +8,18 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "PDE — Prompt-Driven Engineering Knowledge Base",
+    default: "PDE — Product Design Engineer Knowledge Base",
     template: "%s | PDE",
   },
   description:
-    "あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。領域×工程のマトリクスで人とAIの協働を整理します。",
+    "PDE（Product Design Engineer）のための実践ナレッジベース。製品の課題を考え、インタラクションを設計し、AI と一緒にプロダクションコードを書く。領域×工程のマトリクスで整理します。",
   manifest: "/manifest.json",
   openGraph: {
     type: "website",
     siteName: "PDE Knowledge Base",
-    title: "PDE — Prompt-Driven Engineering Knowledge Base",
+    title: "PDE — Product Design Engineer Knowledge Base",
     description:
-      "あらゆる領域と開発プロセスにAIを組み込むための実践ナレッジベース。",
+      "PDE（Product Design Engineer）のための実践ナレッジベース。一人で課題発見から設計・実装・リリースまで。",
     url: siteUrl,
   },
   twitter: {
@@ -81,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <footer className="site-footer">
           <div className="container">
-            PDE — Prompt-Driven Engineering Knowledge Base · Code: MIT / Content: CC BY 4.0 ·
+            PDE — Product Design Engineer Knowledge Base · Code: MIT / Content: CC BY 4.0 ·
             <Link href="https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/blob/main/CONTRIBUTING.md">
               貢献する
             </Link>{" "}

@@ -74,18 +74,18 @@ export default async function IntersectionPage({
       )}
 
       <h2>
-        <span className="badge badge-human">人間</span> 人間の役割
+        <span className="badge badge-human">PDE</span> PDEの仕事
       </h2>
       <Prose
-        markdown={sections["人間の役割"] ?? "（この工程の定義を待っています）"}
+        markdown={sections["PDEの仕事"] ?? "（この工程の定義を待っています）"}
         linkBase={`/process/${method}`}
       />
 
       <h2>
-        <span className="badge badge-ai">AI</span> AIの役割
+        <span className="badge badge-ai">AI</span> AIツールの使いどころ
       </h2>
       <Prose
-        markdown={sections["AIの役割"] ?? "（この工程の定義を待っています）"}
+        markdown={sections["AIツールの使いどころ"] ?? "（この工程の定義を待っています）"}
         linkBase={`/process/${method}`}
       />
 

@@ -29,7 +29,7 @@ updated: 2026-09-12
 ## 各領域での応用
 
 - 教育: [授業教材](../domains/education/use-cases/lesson-material-draft.md)（目標 → 構成 → 本文 → 演習問題）
-- マーケティング: [コンテンツ制作](../domains/education/use-cases/grading-assistant.md)と同様の段階分割
+- マーケティング: [コンテンツ制作](../domains/marketing/use-cases/content-drafting.md)の段階分割
 - 製造: 手順書（ヒアリング整理 → ドラフト → 安全確認 → 統一フォーマット化）
 
 ## 落とし穴

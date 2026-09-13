@@ -76,14 +76,20 @@ AI 出力と正解を比較し、各項目を 1〜5 で採点してください�
 # promptfooconfig.yaml
 prompts: [prompts/grading_v2.txt]
 providers: [anthropic:messages:claude-sonnet]
-tests: file://tests/golden20.yaml
+tests: file://tests/golden20.json  # ゴールデンデータ（JSON 20 件）
 assert:
   - type: llm-rubric
     value: 引用はすべて入力文書に実在し、アクション抽出の漏れがない
   - type: javascript
     value: output.includes('"判定"')
-thresholdScore: 0.8
-# CI: npx promptfoo eval --config promptfooconfig.yaml
+# 実行: npx promptfoo eval --config promptfooconfig.yaml
+# 閾値は CI 側で合格判定に使う（例: 失敗数 0 で合格。パーセントは assert 単位で指定）
 ```
 
 プロンプトやモデルを変更したら必ずこの評価を再実行する（[Self-check](./self-check.md) や[月次サンプリング](./human-in-the-loop.md)と組み合わせる）。
+
+## judge が高得点 / 低得点をつける出力の実例
+
+✅ **4〜5 点の出力**: 正解アクション「A 氏に議事録配布（期限 10/15）」を漏れなく拾い、引用が入力の該当行と一致
+
+❌ **1〜2 点の出力**: 「A 氏が対応」のような担当不明の抽出、または引用が入力に存在しない（実在しない引用は 1 点固定とルーブリックに明記）

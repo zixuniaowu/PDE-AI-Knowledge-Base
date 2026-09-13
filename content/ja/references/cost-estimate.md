@@ -63,3 +63,15 @@ updated: 2026-09-13
 
 - 必ず「**1 処理あたりの単価**」と「**固定費**」を分けて提示する。顧客が怖れるのは従量の暴走なので、上限の設定箇所（Console のどの画面か）まで答える
 - 見積もりが 2 倍以上ブレる要素: 入力トークン（文書が長い）、再試行、同時実行。**再試行とタイムアウトのコストも見積もりに含める**
+
+## 出典（2026-09-13 取得・使用前に再確認）
+
+| 単価 | 出典 |
+|---|---|
+| Claude Sonnet $3/$15 per MTok | https://docs.anthropic.com（Pricing） |
+| GPT-4o $2.50/$10 per MTok | https://openai.com/api/pricing/ |
+| Amazon Transcribe $0.024/分 | https://aws.amazon.com/transcribe/pricing/ |
+| Azure AI Search Basic 約 $75/月 | https://azure.microsoft.com/pricing/details/search/ |
+| Document Intelligence 約 $1.50/1,000 ページ | https://azure.microsoft.com/pricing/details/ai-document-intelligence/ |
+
+数値は地域・契約・モデル改定で変わる。**提案書に載せる際は、その日の価格ページの URL と取得日を一緒に記録する。**

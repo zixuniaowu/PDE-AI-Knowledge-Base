@@ -30,7 +30,7 @@
 │   ├── process/             #    工程（waterfall/ agile/ の各フェーズ）
 │   ├── patterns/            #    実装パターン（RAG, Agent, Few-shot…）
 │   ├── intersections/       #    領域 × 工程 の交点ノート
-│   └── references/          #    用語集 / プロンプト小技集
+│   └── references/          #    用語集 / 小技集 / 市場需要 / クラウド連携 / 業務プロセス / コスト見積 / PoC 合意書
 ├── packages/content-core/   # コンテンツ読み込み・バリデーション共通ライブラリ
 ├── apps/web/                # Next.js 製 Webサイト（静的エクスポート + PWA）
 ├── apps/mobile/             # Expo 製モバイルアプリ

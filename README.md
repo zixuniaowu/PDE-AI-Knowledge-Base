@@ -54,8 +54,18 @@ pnpm install
 pnpm dev                 # Webサイト起動 (http://localhost:3000)
 pnpm validate:content    # コンテンツのスキーマ検証
 pnpm test                # content-core のユニットテスト
-pnpm build:mobile-content  # モバイル用JSON と検索インデックスを生成
+pnpm test:e2e            # Playwright E2E（ビルド→実ブラウザで検証）
+pnpm build:mobile-content  # モバイル用JSON / 検索インデックス / RSS / llms.txt を生成
 ```
+
+## テスト
+
+品質は 3 層で自動検証されます（CI で実行）。
+
+1. **コンテンツ検証**: frontmatter のスキーマ・参照整合（リンク先の存在）・テンプレートの存在
+2. **ユニットテスト**: スキーマの挙動と、実際のコンテンツに対する整合チェック
+3. **E2E（Playwright）**: ビルド済みサイトを実ブラウザで操作し、全ページ種別の描画・ナビゲーション・検索・404・RSS/llms.txt を検証。主要ページからの内部リンクを全件クロールして死活確認します
+
 
 ## 領域の専門家として参加するには
 

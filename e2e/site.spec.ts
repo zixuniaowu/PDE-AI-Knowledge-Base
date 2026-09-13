@@ -45,6 +45,16 @@ test.describe("ガイド", () => {
     await expect(page.getByText("108.1 万円").first()).toBeVisible();
   });
 
+  test("ホームにスキル需要→準備マップがある", async ({ page }) => {
+    await page.goto(p("/"));
+    await expect(page.getByText("市場が求めるスキル → 準備すべきもの")).toBeVisible();
+    await expect(page.getByText("案件の必須事項から逆算する")).toBeVisible();
+    await expect(page.getByText("ほぼ全案件").first()).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /クラウド別 AI サービスマップ/ }).first()
+    ).toBeVisible();
+  });
+
   test("FDE とはページに概念図（mermaid SVG）が描画される", async ({ page }) => {
     await page.goto(p("/guide/what-is-pde/"));
     await expect(page.locator(".mermaid-figure svg").first()).toBeVisible({ timeout: 15000 });

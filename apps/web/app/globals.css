@@ -127,6 +127,47 @@ main.container {
   padding-bottom: 32px;
 }
 
+/* ── requirements map ───────────────────── */
+.req-list {
+  display: grid;
+  gap: 12px;
+}
+.req-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: grid;
+  gap: 8px;
+}
+.req-skill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.req-skill strong {
+  font-size: 15px;
+}
+.req-prep {
+  font-size: 14px;
+  color: var(--text-sub);
+}
+.req-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+a.req-links,
+.req-links a {
+  font-size: 12.5px;
+}
+@media (max-width: 640px) {
+  .req-item {
+    padding: 14px;
+  }
+}
+
 /* ── charts ─────────────────────────────── */
 .chart {
   display: grid;

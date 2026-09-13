@@ -49,29 +49,6 @@ export default function Home() {
       </section>
 
       <section>
-        <p className="section-label" style={{ marginTop: 8 }}>
-          この KB の 3 つの使い方
-        </p>
-        <div className="grid grid-3">
-          <Link href="/guide" className="card" style={{ borderTop: "3px solid var(--accent)" }}>
-            <span className="icon">🎓</span>
-            <h3>学ぶ — FDE になる</h3>
-            <p>6 ステップのガイドと小技集で、出発点別の転身ルートを歩く。</p>
-          </Link>
-          <Link href="/references/market-demand" className="card" style={{ borderTop: "3px solid var(--human)" }}>
-            <span className="icon">💼</span>
-            <h3>働く — 市場とキャリア</h3>
-            <p>案件 147 件・単価 51〜200 万円/月の実データ。就業形態と必要スキル。</p>
-          </Link>
-          <Link href="/process" className="card" style={{ borderTop: "3px solid var(--ai)" }}>
-            <span className="icon">📚</span>
-            <h3>参照する — 実践知識</h3>
-            <p>工程 11・領域 10・パターン 9・クラウド連携・業務プロセスの型。</p>
-          </Link>
-        </div>
-      </section>
-
-      <section>
         <p className="section-label">FDE の市場（2026-09-13 時点の調査）</p>
         <StatChips
           items={[
@@ -139,32 +116,108 @@ export default function Home() {
       </section>
 
       <section>
-        <p className="section-label">今日から使う</p>
-        <div className="grid grid-2">
-          <Link href="/references/prompt-tips" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
-            <span className="icon">⚡</span>
-            <h3>プロンプト小技集 20 選</h3>
-            <p>コピペで今日から使える具体的テクニック。「まず確認させてから作業させる」「根拠の引用を必須にする」など。</p>
-          </Link>
-          <Link href="/references/market-demand" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
-            <span className="icon">📈</span>
-            <h3>FDE の市場需要分析</h3>
-            <p>フリーランススタートに 147 件・単価 51〜200 万円/月。業界別の実案件データ。2026-09 時点の調査。</p>
-          </Link>
-          <Link href="/references/cloud-ai-services" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
-            <span className="icon">☁️</span>
-            <h3>クラウド別 AI サービスマップ</h3>
-            <p>顧客が AWS / Azure / GCP / SAP でも対応できる、シナリオ別サービス対応表と参照アーキテクチャ。</p>
-          </Link>
-          <Link href="/references/business-processes" className="card" style={{ borderLeft: "4px solid var(--accent)" }}>
-            <span className="icon">🗂️</span>
-            <h3>業務プロセスと AI の接点</h3>
-            <p>販売・購買・在庫・生産・経理・人事。ERP 流の業務分解で、AI の入り方と成果指標を整理。</p>
-          </Link>
+        <p className="section-label">市場が求めるスキル → 準備すべきもの</p>
+        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>
+          案件の必須事項から逆算する、FDE の準備リスト
+        </h2>
+        <p className="lead" style={{ marginBottom: 16 }}>
+          上の案件データを分解すると、市場が求めているのは 8 種類のスキルです。
+          それぞれ「何を準備すればよいか」と、この KB の該当ページを示します。
+        </p>
+        <div className="req-list">
+          {[
+            {
+              skill: "業務の整理と、要件・成果指標への落とし込み",
+              freq: "ほぼ全案件",
+              prep: "6 大業務プロセスの型で As-Is を書き、痛みを成果指標に紐づける",
+              links: [
+                { t: "業務プロセスと AI の接点", h: "/references/business-processes" },
+                { t: "要件定義の進め方", h: "/process/waterfall/requirements" },
+              ],
+            },
+            {
+              skill: "LLM アプリ開発（LangChain / LangGraph / RAG / Dify）",
+              freq: "頻出",
+              prep: "RAG・Agent・構造化出力の基本型。PoC はマネージド RAG から始める",
+              links: [
+                { t: "RAG", h: "/patterns/rag" },
+                { t: "Agent", h: "/patterns/agent" },
+                { t: "構造化出力", h: "/patterns/structured-output" },
+              ],
+            },
+            {
+              skill: "AI コーディングツール（Claude Code / Cursor / Copilot）",
+              freq: "頻出",
+              prep: "「依頼 → 検証 → 修正」のループと、プロンプトの型 20 選",
+              links: [
+                { t: "実装の進め方", h: "/process/waterfall/implementation" },
+                { t: "STEP 3: 作業ループ", h: "/guide/step-3-build-the-loop" },
+                { t: "小技集", h: "/references/prompt-tips" },
+              ],
+            },
+            {
+              skill: "フルスタック開発（Python / TypeScript / React / Next.js）",
+              freq: "頻出",
+              prep: "生成コードをレビュー・修正できる実装視点。領域ごとの作例",
+              links: [
+                { t: "領域のユースケース", h: "/domains" },
+                { t: "テスト工程", h: "/process/waterfall/testing" },
+              ],
+            },
+            {
+              skill: "クラウド（AWS / GCP / Azure）での開発・運用",
+              freq: "頻出",
+              prep: "顧客の既存クラウドに寄せたサービス選定、コスト・権限設計",
+              links: [{ t: "クラウド別 AI サービスマップ", h: "/references/cloud-ai-services" }],
+            },
+            {
+              skill: "非機能要件（精度 / セキュリティ / 性能 / コスト）",
+              freq: "製造・SI 系中心",
+              prep: "評価設計とガードレール、コスト上限の実装",
+              links: [
+                { t: "評価パターン", h: "/patterns/evaluation" },
+                { t: "テスト工程", h: "/process/waterfall/testing" },
+              ],
+            },
+            {
+              skill: "本番リリースと現場定着の推進",
+              freq: "頻出",
+              prep: "出荷前の受け入れ基準設計と、定着を見る運用の型",
+              links: [
+                { t: "リリース", h: "/process/waterfall/deployment" },
+                { t: "運用・改善", h: "/process/waterfall/maintenance" },
+                { t: "STEP 4", h: "/guide/step-4-acceptance" },
+              ],
+            },
+            {
+              skill: "顧客折衝・非エンジニアへの説明力",
+              freq: "ほぼ全案件",
+              prep: "聞く型、合意形成の記録、組織の中での線引き",
+              links: [
+                { t: "STEP 5: 組織の中で働く", h: "/guide/step-5-team" },
+                { t: "要件定義", h: "/process/waterfall/requirements" },
+              ],
+            },
+          ].map((r, i) => (
+            <div key={i} className="req-item">
+              <div className="req-skill">
+                <span className="badge">{r.freq}</span>
+                <strong>{r.skill}</strong>
+              </div>
+              <div className="req-prep">{r.prep}</div>
+              <div className="req-links">
+                {r.links.map((l) => (
+                  <Link key={l.h} href={l.h} className="badge">
+                    {l.t} →
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <p className="section-label">ざっと見る</p>
+      <p className="section-label">ナレッジベース全体</p>
       <div className="grid grid-3">
         <Link href="/guide" className="card">
           <span className="icon">🧭</span>

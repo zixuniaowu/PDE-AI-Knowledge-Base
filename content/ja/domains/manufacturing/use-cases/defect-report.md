@@ -62,3 +62,9 @@ updated: 2026-09-12
 - 決裁者: 影響度・対応方針は品質保証責任者。横展開の判断は品質会議
 
 コストの試算方法は[コスト見積もり](/references/cost-estimate.md)を参照。
+
+## FDE 実装メモ
+
+- ツール構成: 現場の自由記述 → Bedrock / Azure OpenAI で構造化（マスタ選択制 JSON）→ BigQuery / Athena で週次集計 → 傾向サマリー生成
+- 連携: SAP QM（品質通知）/ 品質管理システムが正本。原文引用リンクを必ず保持
+- コスト: 報告 1 件あたり数百〜1,000 トークン（[コスト見積もり](/references/cost-estimate.md)）

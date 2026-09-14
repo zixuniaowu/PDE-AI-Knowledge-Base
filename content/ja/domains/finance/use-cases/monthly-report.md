@@ -59,3 +59,9 @@ updated: 2026-09-12
 - 決裁者: レポートの確定は経理責任者。J-SOX 対象なら監査法人との事前合意も
 
 コストの試算方法は[コスト見積もり](/references/cost-estimate.md)を参照。
+
+## FDE 実装メモ
+
+- ツール構成: 数値表はスプレッドシート/会計システムから CSV で受領 → Bedrock / Azure OpenAI で解説ドラフト → スキーマ検証（出典付き数値のみ許可）
+- 連携: 会計システム API（freee 等）/ CSV バッチ。請求書照合は Document Intelligence 系 OCR
+- コスト: 1 レポート 5,000〜20,000 トークン（[コスト見積もり](/references/cost-estimate.md)）

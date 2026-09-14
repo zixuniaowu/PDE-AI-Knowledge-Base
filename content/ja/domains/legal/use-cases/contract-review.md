@@ -62,3 +62,9 @@ updated: 2026-09-12
 - 決裁者: リスク判断は法務担当、締結承認は決裁権限規程の金額基準による稟議・取締役会
 
 コストの試算方法は[コスト見積もり](/references/cost-estimate.md)を参照。
+
+## FDE 実装メモ
+
+- ツール構成: 契約 PDF → Document Intelligence で条項構造化 → RAG（雛形・過去契約）→ Azure OpenAI / Bedrock で差分整理（条項番号付き JSON）
+- 連携: CLM（楽楽契約・ココペリ等）への人間確定登録が出口。検収・IP・反社条項の論点リストをテンプレ内蔵
+- コスト: 契約 20 ページあたり約 $0.14 + AI Search 固定費（[コスト見積もり](/references/cost-estimate.md)）

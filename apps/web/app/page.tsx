@@ -55,35 +55,45 @@ export default function Home() {
 
   return (
     <div>
-      <section className="hero">
-        <h1>
-          FDE — Forward Deployed Engineer
-          <br />
-          Knowledge Base
-        </h1>
-        <p className="lead">
-          FDE（Forward Deployed Engineer／前沿部署エンジニア）は、
-          <strong>顧客・事業部の現場に入り、AI を実際の業務に組み込み、成果指標が動く状態まで責任を持つエンジニア</strong>。
-          企業の AI 導入で最も不足している役割です。このナレッジベースは、FDE の実践知を
-          <strong>領域 × 工程</strong>のマトリクスで整理します。
-        </p>
-        <div className="hero-stats">
-          {heroStats.map((s) => (
-            <div key={s.l} className="hero-stat">
-              <span className="hero-stat-value">{s.v}</span>
-              <span className="hero-stat-label">{s.l}</span>
-            </div>
-          ))}
+      <section className="hero-dark">
+        <div className="container">
+          <p className="hero-kicker">FDE — FORWARD DEPLOYED ENGINEER KNOWLEDGE BASE</p>
+          <h1>
+            現場に入り、AI を
+            <br />
+            業務で使える形に。
+          </h1>
+          <p className="hero-sub">
+            FDE（Forward Deployed Engineer／前沿部署エンジニア）は、顧客の課題を要件化し、
+            AI で実装し、<strong>成果指標が動くまで現場に定着させる</strong>責任を持つ、
+            いま最も不足している職種。その実践知を 190 ページに整理しました。
+          </p>
+          <div className="hero-cta">
+            <Link href="/guide" className="btn-primary">
+              6 ステップで始める
+            </Link>
+            <a href="/references/market-demand" className="btn-ghost">
+              FDE の市場を見る
+            </a>
+          </div>
+          <div className="hero-stats">
+            {heroStats.map((s) => (
+              <div key={s.l} className="hero-stat">
+                <span className="hero-stat-value">{s.v}</span>
+                <span className="hero-stat-label">{s.l}</span>
+              </div>
+            ))}
+          </div>
+          <form action="search/" method="get" className="home-search">
+            <input
+              type="search"
+              name="q"
+              placeholder="ナレッジを検索（例: RAG, 採点, 現場定着, 単価）"
+              aria-label="サイト内検索"
+            />
+            <button type="submit">検索</button>
+          </form>
         </div>
-        <form action="search/" method="get" className="home-search">
-          <input
-            type="search"
-            name="q"
-            placeholder="ナレッジを検索（例: RAG, 採点, 現場定着, 単価）"
-            aria-label="サイト内検索"
-          />
-          <button type="submit">検索</button>
-        </form>
       </section>
 
       <section>

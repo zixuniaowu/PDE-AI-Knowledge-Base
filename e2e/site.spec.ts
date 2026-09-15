@@ -4,7 +4,7 @@ import { p } from "./helpers";
 test.describe("ホームとグローバルナビ", () => {
   test("ホームにタイトルと主要カードが表示される", async ({ page }) => {
     await page.goto(p("/"));
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("Forward Deployed Engineer");
+    await expect(page.locator(".hero-kicker")).toContainText("FORWARD DEPLOYED ENGINEER");
     await expect(page.getByText(/課題ヒアリング/)).toBeVisible();
     await expect(page.getByRole("link", { name: /領域 \d+ 件/ })).toBeVisible();
     await expect(page.getByRole("link", { name: /工程 \d+ 件/ })).toBeVisible();
@@ -37,7 +37,9 @@ test.describe("ガイド", () => {
 
   test("ホームにヒーロー統計・検索フォーム・最新更新がある", async ({ page }) => {
     await page.goto(p("/"));
-    await expect(page.getByText("FDE 案件（主要 2 サイト）")).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("現場に入り");
+    await expect(page.locator(".hero-kicker")).toContainText("FORWARD DEPLOYED ENGINEER");
+    await expect(page.getByRole("link", { name: "6 ステップで始める" })).toBeVisible();
     await expect(page.getByPlaceholder(/ナレッジを検索/)).toBeVisible();
     await expect(page.getByText("最新の更新")).toBeVisible();
     expect(await page.locator(".recent-item").count()).toBeGreaterThanOrEqual(6);

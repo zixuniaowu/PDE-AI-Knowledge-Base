@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { listDomains, listGuides, listPatterns, listPhases } from "@pde/content-core";
+import {
+  listDomains,
+  listGuides,
+  listPatterns,
+  listPhases,
+  listIntersections,
+  listUseCases,
+} from "@pde/content-core";
 import { JobCountChart, RateHistogram, StatChips } from "@/components/charts";
 import { HomeMap } from "@/components/HomeMap";
 
@@ -18,6 +25,34 @@ export default function Home() {
     "現場定着",
   ];
 
+  const heroStats = [
+    { v: "253 件", l: "FDE 案件（主要 2 サイト）" },
+    { v: "51〜200 万円", l: "月額単価レンジ" },
+    { v: "10 × 11", l: "領域 × 工程 のマトリクス" },
+    { v: "190 ページ", l: "ナレッジ公開中" },
+  ];
+
+  const recent = [
+    ...guides.map((g) => ({ title: g.data.title, url: `/guide/${g.data.id}`, updated: g.data.updated, kind: "ガイド" })),
+    ...listPatterns().map((p) => ({ title: p.data.title, url: `/patterns/${p.data.id}`, updated: p.data.updated, kind: "パターン" })),
+    ...listDomains().flatMap((d) =>
+      listUseCases(d.id).map((uc) => ({
+        title: `${d.name} / ${uc.data.title}`,
+        url: `/domains/${d.id}/${uc.data.id}`,
+        updated: uc.data.updated,
+        kind: d.name,
+      }))
+    ),
+    ...listPhases().map((p) => ({
+      title: p.data.title,
+      url: `/process/${p.data.method}/${p.data.id}`,
+      updated: p.data.updated,
+      kind: p.data.method,
+    })),
+  ]
+    .sort((a, b) => b.updated.localeCompare(a.updated))
+    .slice(0, 6);
+
   return (
     <div>
       <section className="hero">
@@ -29,9 +64,26 @@ export default function Home() {
         <p className="lead">
           FDE（Forward Deployed Engineer／前沿部署エンジニア）は、
           <strong>顧客・事業部の現場に入り、AI を実際の業務に組み込み、成果指標が動く状態まで責任を持つエンジニア</strong>。
-          企業の AI 導入で最も不足している役割です（フリーランス案件だけでも 147 件・単価 51〜200 万円/月）。
-          このナレッジベースは、FDE の実践知を<strong>領域 × 工程</strong>のマトリクスで整理します。
+          企業の AI 導入で最も不足している役割です。このナレッジベースは、FDE の実践知を
+          <strong>領域 × 工程</strong>のマトリクスで整理します。
         </p>
+        <div className="hero-stats">
+          {heroStats.map((s) => (
+            <div key={s.l} className="hero-stat">
+              <span className="hero-stat-value">{s.v}</span>
+              <span className="hero-stat-label">{s.l}</span>
+            </div>
+          ))}
+        </div>
+        <form action="search/" method="get" className="home-search">
+          <input
+            type="search"
+            name="q"
+            placeholder="ナレッジを検索（例: RAG, 採点, 現場定着, 単価）"
+            aria-label="サイト内検索"
+          />
+          <button type="submit">検索</button>
+        </form>
       </section>
 
       <section>
@@ -244,6 +296,19 @@ export default function Home() {
           <p>領域・工程・パターン・ガイドを横断検索。</p>
         </Link>
       </div>
+
+      <section>
+        <p className="section-label">最新の更新</p>
+        <div className="recent-list">
+          {recent.map((r) => (
+            <Link key={r.url} href={r.url} className="recent-item">
+              <span className="badge">{r.kind}</span>
+              <span className="recent-title">{r.title}</span>
+              <span className="recent-date">{r.updated}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <p className="section-label">参加する</p>
       <div className="grid grid-2">

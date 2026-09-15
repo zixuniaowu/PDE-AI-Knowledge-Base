@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Fuse from "fuse.js";
 
@@ -15,9 +16,11 @@ interface Entry {
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function SearchClient() {
+  const params = useSearchParams();
+  const initialQuery = params.get("q") ?? "";
   const [entries, setEntries] = useState<Entry[] | null>(null);
   const [error, setError] = useState(false);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {

@@ -35,6 +35,22 @@ test.describe("ガイド", () => {
     await expect(page.getByRole("link", { name: /STEP 2/ }).first()).toBeVisible();
   });
 
+  test("ホームにヒーロー統計・検索フォーム・最新更新がある", async ({ page }) => {
+    await page.goto(p("/"));
+    await expect(page.getByText("FDE 案件（主要 2 サイト）")).toBeVisible();
+    await expect(page.getByPlaceholder(/ナレッジを検索/)).toBeVisible();
+    await expect(page.getByText("最新の更新")).toBeVisible();
+    expect(await page.locator(".recent-item").count()).toBeGreaterThanOrEqual(6);
+  });
+
+  test("ホームの検索フォームから直接検索できる", async ({ page }) => {
+    await page.goto(p("/"));
+    await page.getByPlaceholder(/ナレッジを検索/).fill("採点");
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/search/);
+    await expect(page.getByRole("link", { name: /採点支援ツール/ }).first()).toBeVisible();
+  });
+
   test("ホームに市場分析の統計グラフと出所リンクがある", async ({ page }) => {
     await page.goto(p("/"));
     await expect(page.getByText("FDE の市場（2026-09-13 時点の調査）")).toBeVisible();
@@ -57,8 +73,8 @@ test.describe("ガイド", () => {
 
   test("FDE とはページに概念図（mermaid SVG）が描画される", async ({ page }) => {
     await page.goto(p("/guide/what-is-pde/"));
-    await expect(page.locator(".mermaid-figure svg").first()).toBeVisible({ timeout: 15000 });
-    expect(await page.locator(".mermaid-figure svg").count()).toBeGreaterThanOrEqual(2);
+    await expect(page.locator(".mermaid-figure svg")).toHaveCount(2, { timeout: 15000 });
+    await expect(page.locator(".mermaid-figure svg").first()).toBeVisible();
   });
 });
 

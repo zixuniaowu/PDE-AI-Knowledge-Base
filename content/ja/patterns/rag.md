@@ -4,7 +4,7 @@ type: pattern
 title: RAG（検索拡張生成）
 summary: 社内文書や専門知識を検索してから回答を生成させる基本パターン
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-12
 ---
 

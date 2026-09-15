@@ -4,7 +4,7 @@ type: pattern
 title: Human-in-the-loop（人間の関与点の設計）
 summary: AI の自動処理のどの地点で人間が判断するかを明示的に設計する、FDE の基本パターン
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-12
 ---
 

@@ -4,7 +4,7 @@ type: reference
 title: FDE の市場需要分析
 summary: 企業の AI 導入を担う FDE（Forward Deployed Engineer）が、市場でどう求められているか。2026-09 時点の調査メモ
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-13
 ---
 

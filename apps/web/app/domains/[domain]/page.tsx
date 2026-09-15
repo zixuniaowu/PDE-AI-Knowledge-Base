@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDomain, listDomains, listUseCases } from "@pde/content-core";
+import { getDomain, listDomains, listIntersections, listUseCases } from "@pde/content-core";
 import { Prose } from "@/components/Prose";
 import { Meta, StatusBadge } from "@/components/Badges";
 
@@ -15,6 +15,7 @@ export default async function DomainPage({ params }: { params: { domain: string 
 
   const doc = getDomain(domain);
   const useCases = listUseCases(domain);
+  const notes = listIntersections().filter((ix) => ix.data.domain === domain);
 
   return (
     <article>
@@ -48,6 +49,29 @@ export default async function DomainPage({ params }: { params: { domain: string 
         {useCases.length === 0 && (
           <p style={{ color: "var(--text-faint)" }}>
             まだユースケースがありません。テンプレートから最初の 1 件を書いてみませんか？
+          </p>
+        )}
+      </div>
+
+      <h2>この領域の交点ノート</h2>
+      <p style={{ color: "var(--text-sub)", fontSize: 14 }}>
+        この領域 × 工程の組合せごとの実践ノート。
+      </p>
+      <div className="grid grid-2">
+        {notes.map((ix) => (
+          <Link
+            key={ix.data.id}
+            href={`/matrix/${domain}/${ix.data.method}/${ix.data.phase}`}
+            className="card"
+          >
+            <span className="badge badge-reviewed">📝 交点ノート</span>
+            <h3>{ix.data.title}</h3>
+            <p>{`${ix.data.method} / ${ix.data.phase}`}</p>
+          </Link>
+        ))}
+        {notes.length === 0 && (
+          <p style={{ color: "var(--text-faint)" }}>
+            まだ交点ノートがありません。[マトリクス] から最初の 1 件を書けます。
           </p>
         )}
       </div>

@@ -4,7 +4,7 @@ type: reference
 title: 業務プロセスと AI の接点（ERP 流の分解）
 summary: 販売・購買・在庫・生産・経理・人事労務。基幹業務をプロセス単位に分解し、AI が入る箇所・成果指標・システム連携を整理する。SAP / 国産 ERP の世界観に沿って
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-13
 ---
 

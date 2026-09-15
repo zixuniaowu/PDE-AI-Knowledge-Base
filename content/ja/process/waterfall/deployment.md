@@ -5,7 +5,7 @@ method: waterfall
 order: 5
 title: リリース
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-13
 ---
 

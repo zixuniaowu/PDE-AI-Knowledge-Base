@@ -4,7 +4,7 @@ type: reference
 title: AI 導入のコスト見積もり（実単価計算済み）
 summary: FDE が顧客提案で使える「処理 1 件あたりの内訳」計算。3 シナリオの実例と上限設定の手順
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-13
 ---
 

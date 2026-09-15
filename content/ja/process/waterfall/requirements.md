@@ -5,7 +5,7 @@ method: waterfall
 order: 1
 title: 要件定義
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-13
 ---
 

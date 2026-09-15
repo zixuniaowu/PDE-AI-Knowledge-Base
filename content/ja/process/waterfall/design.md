@@ -5,7 +5,7 @@ method: waterfall
 order: 2
 title: 設計（フロー・インタラクション）
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-13
 ---
 

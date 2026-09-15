@@ -4,7 +4,7 @@ type: pattern
 title: Evaluation（評価とガードレール）
 summary: AI の出力品質を「検証可能な形」で測り、自動チェックと下限値で守る
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-12
 ---
 

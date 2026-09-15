@@ -5,7 +5,7 @@ method: waterfall
 order: 4
 title: テスト
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-13
 ---
 

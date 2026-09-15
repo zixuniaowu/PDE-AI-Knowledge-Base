@@ -4,7 +4,7 @@ type: pattern
 title: Few-shot（例示による誘導）
 summary: 良い出力例をいくつか見せるだけで、形式・トーン・粒度を揃える最も手軽なパターン
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-12
 ---
 

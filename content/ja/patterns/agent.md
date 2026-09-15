@@ -4,7 +4,7 @@ type: pattern
 title: Agent（エージェント）
 summary: 目標を渡すと AI 自らが計画・ツール実行・反復を行うパターン。管理コストとセット
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-12
 ---
 

@@ -112,3 +112,31 @@ if (errors.length > 0) {
 
 console.log("\n✅ コンテンツ検証 OK\n");
 for (const [k, v] of Object.entries(counts)) console.log(`  ${k}: ${v}`);
+
+// ── 簡体字（中国語简体）の混入チェック ────────────────────────
+// 機械翻訳由来の事故防止。简体固有の字形のみを検出（日本語で使う字は対象外）。
+const SIMPLIFIED_ONLY = /[设构验东贝页风问阅仅价传伤严业举义乐习书买亿众优让谢质责贵费资赏赠输进远违连迟选递络归泽泄净动华协单历厅县购储处备复奖宁实宠导对总织结绝细终经绩续维缩级纪红约纯纳纸纷线]/g;
+
+const contentFiles: string[] = [];
+function walk(dir: string) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) walk(p);
+    else if (/\.(md|json)$/.test(e.name)) contentFiles.push(p);
+  }
+}
+walk(root);
+const hits: string[] = [];
+for (const f of contentFiles) {
+  const lines = fs.readFileSync(f, "utf8").split("\n");
+  lines.forEach((line, idx) => {
+    const m = line.match(SIMPLIFIED_ONLY);
+    if (m) hits.push(`${path.relative(root, f)}:${idx + 1}: ${m.join("")} — ${line.trim().slice(0, 60)}`);
+  });
+}
+if (hits.length > 0) {
+  console.error("\n❌ 简体字（中国語简体）の混入を検出しました:");
+  for (const h of hits) console.error("  " + h);
+  process.exit(1);
+}
+console.log("  简体字混入: なし");

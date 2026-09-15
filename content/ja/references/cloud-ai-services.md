@@ -4,7 +4,7 @@ type: reference
 title: クラウド別 AI 導入サービスマップ（AWS / Azure / GCP / SAP）
 summary: 顧客がどのクラウドでも対応できる、シナリオ別サービス対応表と参照アーキテクチャ。SAP・国産 ERP 連携まで
 owners: ["@zixuniaowu"]
-status: draft
+status: reviewed
 updated: 2026-09-13
 ---
 

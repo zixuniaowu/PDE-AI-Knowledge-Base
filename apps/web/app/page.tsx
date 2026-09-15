@@ -58,11 +58,7 @@ export default function Home() {
       <section className="hero-dark">
         <div className="container">
           <p className="hero-kicker">FDE — FORWARD DEPLOYED ENGINEER KNOWLEDGE BASE</p>
-          <h1>
-            現場に入り、AI を
-            <br />
-            業務で使える形に。
-          </h1>
+          <h1>現場に入り、AI を業務で使える形に。</h1>
           <p className="hero-sub">
             FDE（Forward Deployed Engineer／前沿部署エンジニア）は、顧客の課題を要件化し、
             AI で実装し、<strong>成果指標が動くまで現場に定着させる</strong>責任を持つ、
@@ -84,15 +80,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <form action="search/" method="get" className="home-search">
-            <input
-              type="search"
-              name="q"
-              placeholder="ナレッジを検索（例: RAG, 採点, 現場定着, 単価）"
-              aria-label="サイト内検索"
-            />
-            <button type="submit">検索</button>
-          </form>
         </div>
       </section>
 

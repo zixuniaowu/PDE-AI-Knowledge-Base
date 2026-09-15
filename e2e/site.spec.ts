@@ -40,18 +40,10 @@ test.describe("ガイド", () => {
     await expect(page.getByRole("heading", { level: 1 })).toContainText("現場に入り");
     await expect(page.locator(".hero-kicker")).toContainText("FORWARD DEPLOYED ENGINEER");
     await expect(page.getByRole("link", { name: "6 ステップで始める" })).toBeVisible();
-    await expect(page.getByPlaceholder(/ナレッジを検索/)).toBeVisible();
     await expect(page.getByText("最新の更新")).toBeVisible();
     expect(await page.locator(".recent-item").count()).toBeGreaterThanOrEqual(6);
   });
 
-  test("ホームの検索フォームから直接検索できる", async ({ page }) => {
-    await page.goto(p("/"));
-    await page.getByPlaceholder(/ナレッジを検索/).fill("採点");
-    await page.keyboard.press("Enter");
-    await expect(page).toHaveURL(/search/);
-    await expect(page.getByRole("link", { name: /採点支援ツール/ }).first()).toBeVisible();
-  });
 
   test("ホームに市場分析の統計グラフと出所リンクがある", async ({ page }) => {
     await page.goto(p("/"));

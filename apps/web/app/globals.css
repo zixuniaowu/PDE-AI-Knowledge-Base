@@ -203,18 +203,6 @@ main.container {
 .hero-dark .hero-stat-label {
   color: #cbd5e1;
 }
-.hero-dark .home-search input {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #fff;
-}
-.hero-dark .home-search input::placeholder {
-  color: rgba(255, 255, 255, 0.55);
-}
-.hero-dark .home-search button {
-  background: #38bdf8;
-  color: #0b1120;
-}
 
 /* ── hero stats & home search & recent ──── */
 .hero-stats {
@@ -240,34 +228,6 @@ main.container {
 .hero-stat-label {
   font-size: 12px;
   color: var(--text-sub);
-}
-.home-search {
-  display: flex;
-  gap: 8px;
-  max-width: 640px;
-}
-.home-search input {
-  flex: 1;
-  padding: 11px 16px;
-  font-size: 15px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
-  color: var(--text);
-}
-.home-search input:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: -1px;
-}
-.home-search button {
-  padding: 0 22px;
-  font-size: 14px;
-  font-weight: 700;
-  border: none;
-  border-radius: 10px;
-  background: var(--accent);
-  color: #fff;
-  cursor: pointer;
 }
 .recent-list {
   display: grid;

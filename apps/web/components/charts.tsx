@@ -276,11 +276,11 @@ export function WeeklyDemandBars({ snapshots }: { snapshots: MarketSnapshot[] })
       <g transform={`translate(${W - padR - 330}, ${padT - 14})`}>
         <rect x={0} y={-9} width={13} height={13} rx={4} fill="var(--accent)" />
         <text x={18} y={2} fontSize={11.5} fill="var(--text-sub)">
-          ボード（自動）
+          フリーランスボード（毎週自動収集）
         </text>
-        <rect x={128} y={-9} width={13} height={13} rx={4} fill="var(--human-soft)" stroke="var(--human)" strokeWidth={1.4} />
-        <text x={146} y={2} fontSize={11.5} fill="var(--text-sub)">
-          2 サイト合計（手動）
+        <rect x={238} y={-9} width={13} height={13} rx={4} fill="var(--human-soft)" stroke="var(--human)" strokeWidth={1.4} />
+        <text x={256} y={2} fontSize={11.5} fill="var(--text-sub)">
+          全ソース合計（手動調査の週）
         </text>
       </g>
     </svg>

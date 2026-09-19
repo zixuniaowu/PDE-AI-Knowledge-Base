@@ -78,6 +78,25 @@ export default function Home() {
       </section>
 
       <section>
+        <p className="section-label">FDE の市場（週次で追跡）</p>
+        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>データソースと収集の仕組み</h2>
+        <p className="lead" style={{ marginBottom: 12 }}>
+          情報源は <strong>フリーランススタート</strong>（要認証のため月 1 回手動計上）と{" "}
+          <strong>フリーランスボード</strong>（毎週月曜日に GitHub Actions が自動収集）。
+          蓄積したスナップショットが下のグラフと魚骨図を週ごとに伸ばしていきます。
+        </p>
+        <MarketSourcesTable snapshots={snapshots} />
+        <StatChips
+          items={[
+            { value: `${latestTotal?.total ?? "—"} 件`, label: `FDE 案件・2 サイト合計（${latestTotal?.date ?? "—"} 手動調査）` },
+            { value: `${latestBoard?.freelanceBoard ?? "—"} 件`, label: `ボード自動収集（${latestBoard?.date ?? "—"} 時点）` },
+            { value: "13 件", label: "レバテック自動収集（9/19 時点）" },
+            { value: "108.1 万円", label: "平均月額単価（ボード公表）" },
+            { value: "51〜200 万円", label: "月額単価レンジ" },
+          ]}
+        />
+
+      <section>
         <p className="section-label">案件データから抽出した知識グラフ</p>
         <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>
           招聘案件が要求するスキルの全体像
@@ -115,24 +134,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        <p className="section-label">FDE の市場（週次で追跡）</p>
-        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>データソースと収集の仕組み</h2>
-        <p className="lead" style={{ marginBottom: 12 }}>
-          情報源は <strong>フリーランススタート</strong>（要認証のため月 1 回手動計上）と{" "}
-          <strong>フリーランスボード</strong>（毎週月曜日に GitHub Actions が自動収集）。
-          蓄積したスナップショットが下のグラフと魚骨図を週ごとに伸ばしていきます。
-        </p>
-        <MarketSourcesTable snapshots={snapshots} />
-        <StatChips
-          items={[
-            { value: `${latestTotal?.total ?? "—"} 件`, label: `FDE 案件・2 サイト合計（${latestTotal?.date ?? "—"} 手動調査）` },
-            { value: `${latestBoard?.freelanceBoard ?? "—"} 件`, label: `ボード自動収集（${latestBoard?.date ?? "—"} 時点）` },
-            { value: "13 件", label: "レバテック自動収集（9/19 時点）" },
-            { value: "108.1 万円", label: "平均月額単価（ボード公表）" },
-            { value: "51〜200 万円", label: "月額単価レンジ" },
-          ]}
-        />
 
         <h3 style={{ margin: "24px 0 8px", fontSize: 16 }}>週別 FDE 案件数（直近 6 週）</h3>
         <div className="trend-wrap">

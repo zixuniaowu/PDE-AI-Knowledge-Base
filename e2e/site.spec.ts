@@ -10,7 +10,7 @@ test.describe("ホームとグローバルナビ", () => {
   });
 
   test("全ページでヘッダーとフッターが表示される", async ({ page }) => {
-    for (const path of ["/guide/", "/domains/", "/process/", "/patterns/", "/matrix/"]) {
+    for (const path of ["/guide/", "/domains/", "/process/", "/patterns/", "/matrix/", "/vendors/"]) {
       await page.goto(p(path));
       await expect(page.getByRole("link", { name: "FDE", exact: true })).toBeVisible();
       await expect(page.getByText("Code: MIT / Content: CC BY 4.0")).toBeVisible();
@@ -50,6 +50,13 @@ test.describe("ガイド", () => {
       page.getByRole("link", { name: "フリーランススタート" }).first()
     ).toBeVisible();
     await expect(page.getByText("108.1 万円").first()).toBeVisible();
+  });
+
+  test("ベンダー動向ページに大手 IT 企業のカードがある", async ({ page }) => {
+    await page.goto(p("/vendors/"));
+    await expect(page.getByRole("heading", { name: "大手 IT ベンダーの AI 推進状況" })).toBeVisible();
+    expect(await page.locator("article.card").count()).toBeGreaterThanOrEqual(8);
+    await expect(page.getByText("cotomi").first()).toBeVisible();
   });
 
   test("ホームに知識グラフ（スキルの点と線）がある", async ({ page }) => {

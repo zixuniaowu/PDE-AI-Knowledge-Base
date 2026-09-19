@@ -43,6 +43,7 @@ export const viewport: Viewport = {
 
 const nav = [
   { href: "/references/market-demand", label: "需要分析" },
+  { href: "/vendors", label: "ベンダー動向" },
   { href: "/guide", label: "始め方" },
   { href: "/domains", label: "領域" },
   { href: "/process", label: "工程" },

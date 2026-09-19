@@ -1,0 +1,131 @@
+{
+  "description": "大手 IT ベンダー（SIer・コンサル・外資 IT）の生成 AI 推進状況の追跡データ。apps/web/app/vendors が読み込む。出典リンク付きで追記・更新する。",
+  "updatedAt": "2026-09-19",
+  "categories": [
+    { "id": "mega-si", "name": "メガ SIer" },
+    { "id": "global", "name": "外資 IT・コンサル" },
+    { "id": "independent", "name": "独立系・その他" }
+  ],
+  "vendors": [
+    {
+      "id": "ntt-data",
+      "name": "NTT データ",
+      "category": "mega-si",
+      "aiBrand": ["生成 AI 全社活用推進", "コンサルティング機能の強化"],
+      "initiatives": [
+        "全社員向けに生成 AI ツールを展開し、提案・開発・保守の各工程での活用を推進",
+        "業界特化の AI を組み合わせたシステム構築（SI 案件への生成 AI 組込）を主力化",
+        "コンサル子会社と連携した上流（要件定義・AI 活用戦略）からの受注を強化"
+      ],
+      "hiring": "AI アーキテクト / 生成 AI エンジニアの採用を拡大。FDE そのものという職種名はないが、顧客現場に入る AI 推進人材の需要が増加",
+      "sources": [
+        { "label": "NTT データ ニュースリリース", "url": "https://www.nttdata.com/jp/ja/news/" }
+      ]
+    },
+    {
+      "id": "fujitsu",
+      "name": "富士通",
+      "category": "mega-si",
+      "aiBrand": ["Fujitsu Uvance", "Fujitsu Kozuchi（AI 意思決定プラットフォーム）", "自社 LLM「Takane」"],
+      "initiatives": [
+        "Uvance を軸に AI を含む DX 事業を集約し、製造・流通・金融向けの AI ソリューションを展開",
+        "国産 LLM「Takane」や AI 開発プラットフォーム「Kozuchi」を提供し、SI 案件に自社 AI を組み込む戦略",
+        "社内でも生成 AI を全社展開（間接業務の効率化）"
+      ],
+      "hiring": "AI・データエンジニアの採用枠を拡大。Uvance 関連のドメイン専門職（製造・医療など）× AI の複合人材を重視",
+      "sources": [
+        { "label": "富士通 ニュースリリース", "url": "https://www.fujitsu.com/jp/about/resources/news/" }
+      ]
+    },
+    {
+      "id": "nec",
+      "name": "NEC",
+      "category": "mega-si",
+      "aiBrand": ["国産 LLM「cotomi」", "NEC 意思決定 AI"],
+      "initiatives": [
+        "自社開発の国産 LLM「cotomi」を行政・金融・製造の SI 案件に展開（データを外部に出さない国産 LLM の需要を取り込む）",
+        "AI ガバナンス（説明可能性・公平性）を強みにした提案",
+        "社内にも生成 AI 活用を展開し、開発生産性の向上を推進"
+      ],
+      "hiring": "AI/データサイエンティストに加え、公的セクター向けの AI 推進人材を重視",
+      "sources": [
+        { "label": "NEC ニュースリリース", "url": "https://jpn.nec.com/press/" }
+      ]
+    },
+    {
+      "id": "hitachi",
+      "name": "日立製作所",
+      "category": "mega-si",
+      "aiBrand": ["Lumada", "生成 AI 活用推進体制"],
+      "initiatives": [
+        "Lumada（IoT・AI データ事業）を社会インフラ（鉄道・エネルギー・ビル）向けに展開",
+        "社内横断の生成 AI 活用推進組織を設置し、開発・間接業務への適用を進める",
+        "IT × OT（制御技術）の強みを AI 案件の差別化に使用"
+      ],
+      "hiring": "IT × OT の複合人材、生成 AI を社会インフラに適用できるエンジニアを重視",
+      "sources": [
+        { "label": "日立 ニュースリリース", "url": "https://www.hitachi.co.jp/New/" }
+      ]
+    },
+    {
+      "id": "ibm",
+      "name": "日本 IBM",
+      "category": "global",
+      "aiBrand": ["watsonx（AI プラットフォーム）"],
+      "initiatives": [
+        "watsonx（基盤モデル / ガバナンス / RAG）を中核に、企業 AI 導入コンサル + 実装を一括受注",
+        "金融・行政などガバナンス重視の顧客に向けて、AI の説明可能性・出所管理を差別化",
+        "自社開発部門の開発工程にも生成 AI を導入（コード生成・テスト）"
+      ],
+      "hiring": "watsonx を扱えるコンサル / 実装エンジニアの採用。英語ドキュメントを読める人材に有利",
+      "sources": [
+        { "label": "日本 IBM ニュース", "url": "https://www.ibm.com/jp-ja/news" }
+      ]
+    },
+    {
+      "id": "accenture",
+      "name": "アクセンチュア",
+      "category": "global",
+      "aiBrand": ["生成 AI リスキリング全社展開", "AI 専門組織"],
+      "initiatives": [
+        "全社員を対象とする生成 AI 研修に大規模投資し、「AI を使えるコンサル/エンジニア」を量産",
+        "業界ごとの AI ソリューション（例：金融・小売向け）をパッケージ化して受注",
+        "提案から実装まで AI を使った高速納品を差別化にする"
+      ],
+      "hiring": "コンサル × 実装の兼務人材（FDE に近い職種）を採用。アウトプットベースの評価",
+      "sources": [
+        { "label": "アクセンチュア ニュース", "url": "https://www.accenture.com/jp-ja/about/newsroom" }
+      ]
+    },
+    {
+      "id": "ctc",
+      "name": "伊藤忠テクノロジー（CTC）",
+      "category": "independent",
+      "aiBrand": ["NVIDIA 連携による生成 AI 基盤構築"],
+      "initiatives": [
+        "NVIDIA と連携し、日本語 LLM 学習・運用基盤の構築支援を展開",
+        "顧客環境に合わせたオンプレミス生成 AI（データを外に出せない業界向け）を受注",
+        "社内でも AI コーディングツール活用を推進"
+      ],
+      "hiring": "GPU クラスタ / MLOps のインフラエンジニア、生成 AI PoC を牽引できる SE を採用",
+      "sources": [
+        { "label": "CTC ニュースリリース", "url": "https://www.ctc-g.co.jp/news/" }
+      ]
+    },
+    {
+      "id": "tcs",
+      "name": "TCS（タタ・コンサルタンシー・サービシズ）",
+      "category": "independent",
+      "aiBrand": ["AI.STRUCT? — 全社 AI プラットフォーム展開"],
+      "initiatives": [
+        "オフショア開発力 × 生成 AI による開発効率化を武器に、グローバル企業の AI 導入を受注",
+        "日本市場では製造・金融の大規模案件を中心に展開",
+        "社内研修で生成 AI 利用を標準化（若手から AI ツールを使う体制）"
+      ],
+      "hiring": "日本語 + AI 開発ができるブリッジ人材の需要が高い。オフショア管理 × AI ツール導入の経験を重視",
+      "sources": [
+        { "label": "TCS ニュースルーム", "url": "https://www.tcs.com/what-we-do/industries" }
+      ]
+    }
+  ]
+}

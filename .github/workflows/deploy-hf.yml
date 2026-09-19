@@ -7,6 +7,8 @@ on:
 
 jobs:
   deploy-hf:
+    # HF_TOKEN シークレットが無い場合はスキルップ（Pages デプロイのみで運用）
+    if: ${{ secrets.HF_TOKEN != '' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

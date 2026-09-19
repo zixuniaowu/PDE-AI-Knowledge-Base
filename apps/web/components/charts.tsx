@@ -145,6 +145,9 @@ export interface MarketSnapshot {
   freelanceBoard?: number;
   total?: number;
   note?: string;
+  /** ソース id ごとの計測値（freelance-board / levtech / freelance-start） */
+  sources?: Record<string, number>;
+  boardRateMedian?: number;
 }
 
 /** 週（月曜開始）の開始日を YYYY-MM-DD で返す */

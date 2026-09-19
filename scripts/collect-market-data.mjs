@@ -3,6 +3,7 @@
  * data/market-history.json に追記する。
  *
  * - フリーランスボード: 自動取得（案件数「全N件」+ 単価サンプルの中央値）
+ * - レバテックフリーランス: 自動取得（キーワード一覧ページの公表件数）
  * - フリーランススタート: ボット対策のため自動取得不可 → --manual で手動記録
  *
  * 使い方:
@@ -16,6 +17,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 
 const FB_URL = "https://freelance-board.com/jobs/fde";
 const FS_URL = "https://freelance-start.com/jobs/job_category-47";
+const LEVTECH_URL = "https://freelance.levtech.jp/word/list/150732/";
 const DATA_FILE = "data/market-history.json";
 const UA =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36";
@@ -62,6 +64,25 @@ async function fetchBoard() {
     rateMedian: median(rates),
     rateSamples: rates.length,
   };
+}
+
+async function fetchLevtech() {
+  const res = await fetch(LEVTECH_URL, {
+    headers: { "user-agent": UA },
+    signal: AbortSignal.timeout(20000),
+  });
+  if (!res.ok) {
+    console.warn(`⚠ レバテック: HTTP ${res.status} — 取得失敗`);
+    return null;
+  }
+  const html = await res.text();
+  const i = html.indexOf("該当件数");
+  if (i < 0) {
+    console.warn("⚠ レバテック: 該当件数が見つからない（ページ構造変更の可能性）");
+    return null;
+  }
+  const m = html.slice(i, i + 600).match(/>\s*([0-9,]+)\s*</);
+  return m ? Number(m[1].replace(/,/g, "")) : null;
 }
 
 async function fetchStart() {
@@ -112,23 +133,32 @@ if (has("--manual")) {
   const board = await fetchBoard();
   console.log("… フリーランススタートを取得中（自動取得不可の場合は手動記録を推奨）");
   const start = await fetchStart().catch(() => null);
+  console.log("… レバテックフリーランスを取得中");
   if (!board && !start) {
     console.error("❌ どのソースからも取得できませんでした。--manual で手動記録してください。");
     process.exit(1);
   }
   const total = (board?.count ?? 0) + (start ?? 0) || null;
+  const levtech = await fetchLevtech();
+  const sources = {
+    ...(start !== null && start !== undefined && { "freelance-start": start }),
+    ...(board?.count != null && { "freelance-board": board.count }),
+    ...(levtech !== null && { levtech }),
+  };
+  const autoTotal = Object.values(sources).reduce((a, b) => a + b, 0);
   snapshot = {
     date,
     manual: false,
-    ...(start !== null && { freelanceStart: start }),
+    sources,
+    ...(start !== null && start !== undefined && { freelanceStart: start }),
     ...(board?.count != null && { freelanceBoard: board.count }),
-    ...(total != null && { total }),
+    ...(autoTotal > 0 && { total: autoTotal }),
     ...(board?.rateMedian != null && { boardRateMedian: board.rateMedian }),
     note: board?.rateMedian
-      ? `自動収集。ボード単価サンプル ${board.rateSamples} 件の中央値 ${board.rateMedian} 万円`
-      : "自動収集",
+      ? `自動収集（${Object.keys(sources).join(" + ")} = ${autoTotal} 件）。ボード単価サンプル ${board.rateSamples} 件の中央値 ${board.rateMedian} 万円`
+      : `自動収集（${Object.keys(sources).join(" + ")}）`,
   };
-  if (start === null) {
+  if (start === null || start === undefined) {
     snapshot.note += "／フリーランススタートは要認証のため未計上（次回手動で補完推奨）";
   }
 }

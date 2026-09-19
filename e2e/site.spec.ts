@@ -65,6 +65,8 @@ test.describe("ガイド", () => {
     await expect(bars.first()).toBeVisible();
     expect(await bars.count()).toBeGreaterThanOrEqual(1);
     await expect(page.getByText("週別 FDE 案件数（直近 6 週）")).toBeVisible();
+    await expect(page.locator(".market-sources tbody tr")).toHaveCount(4);
+    await expect(page.getByText("レバテックフリーランス")).toBeVisible();
     const fish = page.locator(".fishbone circle");
     await expect(fish.first()).toBeVisible();
     expect(await fish.count()).toBeGreaterThanOrEqual(1);

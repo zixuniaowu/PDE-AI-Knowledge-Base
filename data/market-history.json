@@ -25,10 +25,14 @@
     {
       "date": "2026-09-19",
       "manual": false,
+      "sources": {
+        "freelance-board": 111,
+        "levtech": 13
+      },
       "freelanceBoard": 111,
-      "total": 111,
+      "total": 124,
       "boardRateMedian": 155,
-      "note": "自動収集。ボード単価サンプル 6 件の中央値 155 万円／フリーランススタートは要認証のため未計上（次回手動で補完推奨）"
+      "note": "自動収集（freelance-board + levtech = 124 件）。ボード単価サンプル 6 件の中央値 155 万円／フリーランススタートは要認証のため未計上（次回手動で補完推奨）"
     }
   ]
 }

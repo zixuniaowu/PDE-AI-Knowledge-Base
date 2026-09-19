@@ -13,6 +13,7 @@ import type { MarketSnapshot } from "@/components/charts";
 import { HomeMap } from "@/components/HomeMap";
 import { KnowledgeGraph } from "@/components/KnowledgeGraph";
 import { DemandFishbone } from "@/components/DemandFishbone";
+import { MarketSourcesTable } from "@/components/MarketSources";
 
 export default function Home() {
   const domains = listDomains();
@@ -122,10 +123,12 @@ export default function Home() {
           <strong>フリーランスボード</strong>（毎週月曜日に GitHub Actions が自動収集）。
           蓄積したスナップショットが下のグラフと魚骨図を週ごとに伸ばしていきます。
         </p>
+        <MarketSourcesTable snapshots={snapshots} />
         <StatChips
           items={[
             { value: `${latestTotal?.total ?? "—"} 件`, label: `FDE 案件・2 サイト合計（${latestTotal?.date ?? "—"} 手動調査）` },
             { value: `${latestBoard?.freelanceBoard ?? "—"} 件`, label: `ボード自動収集（${latestBoard?.date ?? "—"} 時点）` },
+            { value: "13 件", label: "レバテック自動収集（9/19 時点）" },
             { value: "108.1 万円", label: "平均月額単価（ボード公表）" },
             { value: "51〜200 万円", label: "月額単価レンジ" },
           ]}

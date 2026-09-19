@@ -46,7 +46,7 @@ export default function Home() {
   ];
 
   const heroStats = [
-    { v: "253 件", l: "FDE 案件（主要 2 サイト）" },
+    { v: `${latestSnapshot?.total ?? "—"} 件`, l: `FDE 案件（${latestSnapshot?.date ?? "—"}・3 ソース自動収集）` },
     { v: "51〜200 万円", l: "月額単価レンジ" },
     { v: "10 × 11", l: "領域 × 工程 のマトリクス" },
     { v: `${pageCount} ページ`, l: "ナレッジ公開中" },

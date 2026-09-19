@@ -32,7 +32,7 @@ jobs:
         run: node scripts/collect-market-data.mjs
 
       - name: Create PR if data changed
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: "chore(data): weekly FDE market snapshot"
           title: "FDE 市場データの週次更新"

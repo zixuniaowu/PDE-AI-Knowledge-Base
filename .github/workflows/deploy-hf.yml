@@ -1,0 +1,57 @@
+name: Deploy to Hugging Face Spaces
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy-hf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build static site
+        run: pnpm build:web
+
+      - name: Add Space README (sdk: static)
+        run: |
+          cat > apps/web/out/README.md <<EOF
+          ---
+          title: FDE Knowledge Base
+          emoji: 📚
+          colorFrom: blue
+          colorTo: indigo
+          sdk: static
+          pinned: false
+          ---
+          # FDE — Forward Deployed Engineer Knowledge Base
+          EOF
+
+      - name: Deploy to Hugging Face Spaces
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install -U huggingface_hub
+          python3 - <<EOF
+          from huggingface_hub import HfApi
+          api = HfApi(token="${HF_TOKEN}")
+          repo_id = "${HF_SPACE:-zixuniaowu/fde-kb}"
+          api.create_repo(repo_id=repo_id, repo_type="space", space_sdk="static", exist_ok=True)
+          api.upload_folder(
+              repo_id=repo_id,
+              repo_type="space",
+              folder_path="apps/web/out",
+          )
+          print(f"deployed: https://{repo_id.replace('/', '-')}.hf.space/")
+          EOF

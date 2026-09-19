@@ -48,7 +48,7 @@ jobs:
           python3 - <<EOF
           from huggingface_hub import HfApi
           api = HfApi(token="${HF_TOKEN}")
-          repo_id = "${HF_SPACE:-zixuniaowu/fde-kb}"
+          repo_id = "${HF_SPACE:-jackywangsh/fde-kb}"
           api.create_repo(repo_id=repo_id, repo_type="space", space_sdk="static", exist_ok=True)
           api.upload_folder(
               repo_id=repo_id,

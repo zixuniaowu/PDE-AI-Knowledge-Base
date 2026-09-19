@@ -34,7 +34,7 @@ EOF
 python3 - <<EOF
 from huggingface_hub import HfApi
 api = HfApi()
-api.create_repo(repo_id="${REPO_ID}", repo_type="space", space_sdk="static", exist_ok=True)
+api.create_repo(repo_id="${REPO_ID}", repo_type="space", space_sdk="static", space_hardware="cpu-basic", exist_ok=True)
 print(f"space ok: https://huggingface.co/spaces/${REPO_ID}")
 EOF
 

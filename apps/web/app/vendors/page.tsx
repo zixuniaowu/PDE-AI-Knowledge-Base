@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import vendorsData from "../../../../data/it-vendors.json";
+import { Mermaid } from "@/components/Mermaid";
 
 export const metadata: Metadata = {
   title: "大手 IT ベンダーの AI 推進状況",
@@ -29,15 +31,27 @@ interface VendorsData {
   vendors: Vendor[];
 }
 
+const sanitize = (id: string) => id.replace(/-/g, "_");
+
+function buildMermaid(data: VendorsData): string {
+  const lines: string[] = ["graph LR"];
+  for (const cat of data.categories) {
+    lines.push(`  subgraph ${sanitize(cat.id)}["${cat.name}"]`);
+    for (const v of data.vendors.filter((x) => x.category === cat.id)) {
+      lines.push(`    ${sanitize(v.id)}["${v.name}"]`);
+    }
+    lines.push("  end");
+  }
+  for (const v of data.vendors) {
+    v.aiBrand.forEach((b, i) => {
+      lines.push(`  ${sanitize(v.id)} --> ${sanitize(v.id)}_b${i}["${b}"]`);
+    });
+  }
+  return lines.join("\n");
+}
+
 export default function VendorsPage() {
   const data = vendorsData as VendorsData;
-  const catName = (id: string) =>
-    data.categories.find((c) => c.id === id)?.name ?? id;
-
-  const counts = data.categories.map((c) => ({
-    ...c,
-    n: data.vendors.filter((v) => v.category === c.id).length,
-  }));
 
   return (
     <div>
@@ -48,68 +62,69 @@ export default function VendorsPage() {
         追跡します（最終更新: {data.updatedAt}）。
       </p>
 
-      <div className="stat-chips" style={{ margin: "16px 0 8px" }}>
-        {counts.map((c) => (
-          <div key={c.id} className="stat-chip">
-            <span className="stat-value">{c.n} 社</span>
-            <span className="stat-label">{c.name}</span>
-          </div>
-        ))}
-      </div>
+      <section style={{ marginBottom: 32 }}>
+        <p className="section-label">全体マップ（ベンダー × AI ブランド）</p>
+        <div className="mermaid-figure">
+          <Mermaid chart={buildMermaid(data)} />
+        </div>
+        <p className="chart-note">
+          線 = 各社が掲げる AI ブランド・施策。出典リンクは下の対照表にあります。
+        </p>
+      </section>
 
-      <div className="notice" style={{ margin: "12px 0 24px" }}>
-        各社の情報は公開情報（ニュースリリース等）からの要約です。出典リンクから最新の公式発表を確認し、
-        <code>data/it-vendors.json</code> を更新してください。内容の正確性は出典が担保します。
-      </div>
-
-      {data.categories.map((cat) => {
-        const vendors = data.vendors.filter((v) => v.category === cat.id);
-        if (vendors.length === 0) {
-          return null;
-        }
-        return (
-          <section key={cat.id} style={{ marginBottom: 40 }}>
-            <p className="section-label">{cat.name}</p>
-            <div className="grid grid-2">
-              {vendors.map((v) => (
-                <article key={v.id} className="card" style={{ display: "block" }}>
-                  <h3>{v.name}</h3>
-                  {v.aiBrand.length > 0 && (
-                    <p style={{ margin: "4px 0 8px" }}>
-                      {v.aiBrand.map((b) => (
-                        <span key={b} className="badge badge-ai" style={{ marginRight: 6 }}>
-                          {b}
-                        </span>
-                      ))}
-                    </p>
-                  )}
-                  <ul style={{ margin: "8px 0 10px", paddingLeft: 18, fontSize: 14 }}>
+      <section>
+        <p className="section-label">対照表</p>
+        <table className="market-sources">
+          <thead>
+            <tr>
+              <th>ベンダー</th>
+              <th>AI ブランド</th>
+              <th>主な施策</th>
+              <th>採用・案件</th>
+              <th>出典</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.vendors.map((v) => (
+              <tr key={v.id}>
+                <td>
+                  <strong>{v.name}</strong>
+                  <div className="ms-date">{data.categories.find((c) => c.id === v.category)?.name}</div>
+                </td>
+                <td>
+                  {v.aiBrand.map((b) => (
+                    <span key={b} className="badge badge-ai" style={{ marginRight: 4, display: "inline-block", marginBottom: 2 }}>
+                      {b}
+                    </span>
+                  ))}
+                </td>
+                <td>
+                  <ul style={{ margin: 0, paddingLeft: 16, fontSize: 12.5 }}>
                     {v.initiatives.map((ini, i) => (
-                      <li key={i} style={{ marginBottom: 4 }}>
-                        {ini}
-                      </li>
+                      <li key={i}>{ini}</li>
                     ))}
                   </ul>
-                  <p style={{ fontSize: 13.5, color: "var(--text-sub)", margin: "0 0 8px" }}>
-                    <strong>採用・案件:</strong> {v.hiring}
-                  </p>
-                  <p style={{ fontSize: 12.5, margin: 0 }}>
-                    出典:{" "}
-                    {v.sources.map((src, i) => (
-                      <span key={src.url}>
-                        {i > 0 && " / "}
-                        <a href={src.url} target="_blank" rel="noopener noreferrer">
-                          {src.label}
-                        </a>
-                      </span>
-                    ))}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </section>
-        );
-      })}
+                </td>
+                <td style={{ fontSize: 12.5 }}>{v.hiring}</td>
+                <td style={{ fontSize: 12 }}>
+                  {v.sources.map((src) => (
+                    <div key={src.url}>
+                      <a href={src.url} target="_blank" rel="noopener noreferrer">
+                        {src.label}
+                      </a>
+                    </div>
+                  ))}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="chart-note" style={{ marginTop: 10 }}>
+          各社の情報は公開情報（ニュースリリース等）からの要約。最新の公式発表を確認し、
+          <code>data/it-vendors.json</code> を更新してください。
+          関連: <Link href="/references/market-demand">需要分析</Link>
+        </p>
+      </section>
     </div>
   );
 }

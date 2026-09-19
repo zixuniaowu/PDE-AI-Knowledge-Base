@@ -52,10 +52,11 @@ test.describe("ガイド", () => {
     await expect(page.getByText("108.1 万円").first()).toBeVisible();
   });
 
-  test("ベンダー動向ページに大手 IT 企業のカードがある", async ({ page }) => {
+  test("ベンダー動向ページに全体マップと対照表がある", async ({ page }) => {
     await page.goto(p("/vendors/"));
     await expect(page.getByRole("heading", { name: "大手 IT ベンダーの AI 推進状況" })).toBeVisible();
-    expect(await page.locator("article.card").count()).toBeGreaterThanOrEqual(8);
+    await expect(page.locator(".mermaid-figure svg").first()).toBeVisible({ timeout: 15000 });
+    expect(await page.locator(".market-sources tbody tr").count()).toBeGreaterThanOrEqual(8);
     await expect(page.getByText("cotomi").first()).toBeVisible();
   });
 

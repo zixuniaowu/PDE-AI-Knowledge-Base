@@ -21,8 +21,7 @@ export default function Home() {
 
   // 月次バッチ（scripts/collect-market-data.mjs）が蓄積するスナップショット
   const snapshots: MarketSnapshot[] = historyData.snapshots;
-  const latestBoard = [...snapshots].reverse().find((s) => s.freelanceBoard != null);
-  const latestTotal = snapshots.find((s) => s.total != null);
+  const latestSnapshot = [...snapshots].pop();
 
   // 独自ルートを持つコンテンツページ + 自動生成の交点ページ + インデックス系ページ
   //（交点ノートは交点ページに合成されるため、独自ルートを持たない=カウントしない）
@@ -89,30 +88,22 @@ export default function Home() {
         <MarketSourcesTable snapshots={snapshots} />
         <StatChips
           items={[
-            { value: `${latestTotal?.total ?? "—"} 件`, label: `FDE 案件・2 サイト合計（${latestTotal?.date ?? "—"} 手動調査）` },
-            { value: `${latestBoard?.freelanceBoard ?? "—"} 件`, label: `ボード自動収集（${latestBoard?.date ?? "—"} 時点）` },
-            { value: "13 件", label: "レバテック自動収集（9/19 時点）" },
-            { value: "108.1 万円", label: "平均月額単価（ボード公表）" },
+            { value: `${latestSnapshot?.total ?? "—"} 件`, label: `FDE 案件（${latestSnapshot?.date ?? "—"}・3 ソース合計）` },
+            { value: `${latestSnapshot?.boardRateMedian ?? "—"} 万円`, label: "ボード単価サンプル中央値" },
             { value: "51〜200 万円", label: "月額単価レンジ" },
           ]}
         />
 
       <section>
-        <p className="section-label">案件データから抽出した知識グラフ</p>
-        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>
-          招聘案件が要求するスキルの全体像
-        </h2>
+        <p className="section-label">知識グラフ</p>
+        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>案件必須スキルの知識グラフ</h2>
         <p className="lead" style={{ marginBottom: 16 }}>
-          FDE 案件 253 件の必須スキルをグラフ化したもの。丸の大きさ = 案件での重要度（登場頻度）、
-          線 = 関連性、点線 = スキル間の「壁」。<strong>丸はドラッグで動かせます</strong>（クリックで対応ページへ）。
+          週次収集した案件データから抽出（図内の凡例に操作方法を記載）。詳細は
+          <Link href="/references/market-demand">需要分析</Link>参照。
         </p>
         <div className="kg-wrap">
           <KnowledgeGraph />
         </div>
-        <p className="chart-note">
-          出所: フリーランススタート / フリーランスボードの FDE 案件必須スキルの分析（2026-09-13 調査・253 件）。
-          詳細は<Link href="/references/market-demand">需要分析</Link>参照。
-        </p>
       </section>
 
       <section>

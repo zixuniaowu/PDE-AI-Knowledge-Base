@@ -4,87 +4,101 @@
 [![Deploy](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/deploy.yml/badge.svg)](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/actions/workflows/deploy.yml)
 ![License](https://img.shields.io/badge/license-MIT%20%2B%20CC--BY%204.0-blue)
 
-> **FDE（Forward Deployed Engineer／前沿部署エンジニア）** は、顧客・事業部の現場に入り、AI を実際の業務に組み込み、**成果指標が動く状態まで責任を持つエンジニア**。アルゴリズムエンジニアは業務を知らず、業務の専門家は AI を知らない——この断絶を埋める、企業の AI 導入で最も不足している役割です（国内フリーランス案件 147 件・単価 51〜200 万円/月、2026-09 時点）。
+> **FDE（Forward Deployed Engineer／前沿部署エンジニア）** は、顧客・事業部の現場に入り、AI を実際の業務に組み込み、**成果指標が動く状態まで責任を持つエンジニア**。アルゴリズムエンジニアは業務を知らず、業務の専門家は AI を知らない——この断絶を埋める、企業の AI 導入で最も不足している役割です。
 
-このナレッジベースは、FDE として働く人・なろうとする人・FDE を採用する組織のために、実践知を 2 つの軸で整理します:
+**公開サイト**: https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/
 
-- **[工程（process）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/process/)**: ウォーターフォール / アジャイルの各工程を、FDE が AI ツールとどう回すか（実プロンプト・実ツール構成付き）
-- **[領域（domain）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/domains/)**: 業界（教育・医療・製造・法務…）ごとの AI 導入実戦知識
+![ホーム](docs/images/home-hero.png)
 
-さらに [パターン](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/patterns/)（RAG・Agent・Few-shot などの実装型）、[始め方ガイド](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/guide/)、[プロンプト小技集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/prompt-tips/)、[市場需要分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/market-demand/)を収録しています。
+## このリポジトリでできること
 
-## ライブデモ
+### 1. FDE 需要の週次ダッシュボード（3 ソース完全自動収集）
 
-`main` への push で GitHub Pages に自動デプロイされます:
-**https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/**
+主要フリーランスプラットフォーム 3 サイト（フリーランススタート / フリーランスボード / レバテック）の FDE 案件を、**毎週月曜に GitHub Actions が自動収集**します。単価分布・スキル頻度も合わせて追跡。
 
-## リポジトリ構成
+![データソース](docs/images/home-sources.png)
+
+フリーランススタートはボット対策（HTTP 202）があるため、ヘッドレスブラウザ（Playwright）で取得——**手動集計は不要**です。
+
+### 2. 案件必須スキルの知識グラフ（ドラッグ操作できる）
+
+案件 274 件の必須スキルをグラフ化。丸の大きさ = 案件での重要度、線 = 関連性。ドラッグで動かせ、クリックで対応ナレッジへ飛べます。
+
+![知識グラフ](docs/images/home-graph.png)
+
+### 3. 需要の推移（魚骨図 + 週次バー）
+
+毎週 1 ノードずつ伸びる魅骨図と、直近 6 週の案件数バーで、市場の趨勄を継続的に可視化します。
+
+![週次バー](docs/images/market-weekly.png)
+
+![魚骨図](docs/images/market-fishbone.png)
+
+### 4. 大手 IT ベンダーの AI 推進マップ
+
+NTT データ・富士通・NEC・日立・IBM・アクセンチュアなど 8 社の AI ブランド・施策・採用動向を追跡（[zixuniaowu/pathe](https://github.com/zixuniaowu/pathe) のように、出典リンク付きで更新）。
+
+![ベンダー](docs/images/vendors.png)
+
+### 5. UML 図中心のナレッジ本体
+
+- **工程**: ウォーターフォールは **V モデル図**、アジャイルはループ図で構造を表現
+- **パターン 9 型**: RAG・Agent・Human-in-the-loop などを**シーケンス図 / 状態図**で解説
+- **始め方 6 ステップ**: 題材選定の決定木、作業ループ図など図で読める
+
+![V モデル](docs/images/vmodel.png)
+
+### 6. OSS 実験記録 — 理論の実証
+
+実 OSS（unjs/pathe）で**バグ修正と機能追加を実際に実施**し、「FDE が何を判断し、AI がどこまで担えたか」をシーケンス図に整理した記録。
+
+![OSS 実験](docs/images/oss-experiment.png)
+
+## アーキテクチャ: Content as Data
 
 ```
-.
-├── content/{locale}/        # ★ コンテンツ本体（Markdown + frontmatter）
-│   ├── guide/               #    FDE の始め方（ステップガイド）
-│   ├── domains/<id>/        #    領域ごとの実戦知識（meta.json + index.md + use-cases/）
-│   ├── process/             #    工程（waterfall/ agile/ の各フェーズ）
-│   ├── patterns/            #    実装パターン（RAG, Agent, Few-shot…）
-│   ├── intersections/       #    領域 × 工程 の交点ノート
-│   └── references/          #    用語集 / 小技集 / 市場需要 / クラウド連携 / 業務プロセス / コスト見積 / PoC 合意書
-├── packages/content-core/   # コンテンツ読み込み・バリデーション共通ライブラリ
-├── apps/web/                # Next.js 製 Webサイト（静的エクスポート + PWA）
-├── apps/mobile/             # Expo 製モバイルアプリ
-├── scripts/                 # 検証 / インデックス・RSS・llms.txt 生成
-├── e2e/                     # Playwright E2E テスト
-├── docs/                    # アーキテクチャ、コンテンツモデル、RFC
-└── .github/                 # CODEOWNERS / テンプレート / CI / デプロイ
+content/ja/**/*.md + data/*.json ──▶ @pde/content-core（Zod 検証）
+        │                                    │
+        ▼                                    ▼
+  apps/web（Next.js 静的Export）      apps/mobile（Expo）
+  → GitHub Pages 自動デプロイ          → 同一データを読むビュー
 ```
+
+- 追加はテンプレコピーだけ（コード変更不要）。**3 層テスト**（スキーマ検証 / 単体 / E2E + スクリーンショット）で守る
+- 検索インデックス・RSS・llms.txt もビルド時に生成
 
 ## クイックスタート
 
 ```bash
 pnpm install
-pnpm dev                 # Webサイト起動 (http://localhost:3000)
-pnpm validate:content    # コンテンツのスキーマ検証
-pnpm test                # content-core のユニットテスト
-pnpm test:e2e            # Playwright E2E（ビルド → 実ブラウザで検証）
-pnpm build:mobile-content  # モバイル用JSON / RSS / llms.txt を生成
+pnpm dev                  # Web（http://localhost:3000）
+pnpm validate:content     # コンテンツスキーマ検証
+pnpm test                 # content-core ユニットテスト
+pnpm build:web            # 静的生成（apps/web/out）
+pnpm build:mobile-content # モバイル用 JSON / RSS / llms.txt 生成
+pnpm test:e2e             # Playwright E2E（chromium）
+pnpm shot                 # スクリーンショット + ランタイムエラー検出
+node scripts/collect-market-data.mjs  # 市場データの週次収集
 ```
 
-## テスト
+## リポジトリ構成
 
-品質は 3 層で自動検証されます（CI で実行）:
+```
+content/ja/        # ★ ナレッジ本体（guide / domains / process / patterns / references / intersections）
+data/              # 市場スナップショット・ベンダー追跡データ（週次/月次バッチが更新）
+apps/web/          # Next.js 14 静的サイト（GitHub Pages）
+apps/mobile/       # Expo アプリ（同一データを読む）
+packages/content-core/  # コンテンツ読込 + Zod スキーマ
+scripts/           # 検証 / 市場データ収集 / スクリーンショット / 静的配信
+e2e/               # Playwright（29 テスト：全ページ・図・リンク巡検・RSS）
+docs/              # アーキテクチャ・コンテンツモデル・RFC・スクリーンショット
+```
 
-1. **コンテンツ検証**: frontmatter のスキーマ・参照整合（リンク先の存在）・テンプレートの存在
-2. **ユニットテスト**: スキーマの挙動と、実際のコンテンツに対する整合チェック
-3. **E2E（Playwright）**: ビルド済みサイトを実ブラウザで操作し、全ページ種別の描画・ナビゲーション・404・RSS/llms.txt を検証。主要ページからの内部リンクを全件クロールします。`E2E_BASE_URL` で本番環境への実行も可能
+## 参加する
 
-## FDE・領域の専門家として参加するには
-
-コードは書けなくて大丈夫。すべてのコンテンツは Markdown です。
-
-1. [CONTRIBUTING.md](./CONTRIBUTING.md) を読む
-2. テンプレートをコピーして自分の領域・自分の工程の知見を追加
-3. PR を出す → その領域の CODEOWNERS がレビューします
-
-新しい領域の提案は [Issue テンプレート](./.github/ISSUE_TEMPLATE/)、設計変更は [RFC プロセス](./docs/rfc/) を利用します。
-
-## 設計思想（拡張モデル）
-
-詳細は [docs/architecture.md](./docs/architecture.md) 参照。
-
-- **Content as Data**: コンテンツは Markdown + frontmatter。Web も Mobile も同じデータを読む「レンダラー」
-- **追加はコピーで**: 領域/工程/パターンの追加はテンプレートコピー + PR だけ。コード変更不要
-- **静的ファースト**: SSG で GitHub Pages に自動デプロイ。PWA でオフライン閲覧可
-- **スケールするレビュー**: 領域ごとの CODEOWNERS で、各専門家が自分の領域の品質を守る
-- **テストで守る**: スキーマ・参照整合・E2E の 3 層を CI で強制
-
-## ロードマップ
-
-- [x] v0.1 基盤: monorepo / コンテンツモデル / Web / Mobile 骨子 / CI / コントリビューション体制
-- [x] v0.2 コンテンツ拡充 / 全文検索 / 交点ページ / 自動デプロイ / ユニットテスト
-- [x] v0.3 領域 10 件・パターン 9 件・RSS・llms.txt・E2E
-- [x] v0.4 **FDE（Forward Deployed Engineer）視点への全面刷新**: 定義・工程 11 フェーズ・ガイド・用語集
-- [x] v0.5 領域ユースケースの FDE 視点化（実ツール構成 22/22）、交点ノート 41 件、法規・保存・正本・決裁ブロック、コスト見積・PoC 合意書
-- [ ] v0.6 多言語（en / zh）、モバイルアプリの正式リリース（EAS）
+- ナレッジ追加は[CONTRIBUTING.md](./CONTRIBUTING.md) → テンプレコピーして Markdown を書くだけ。CODEOWNERS がレビューします
+- 新しい領域の提案は[Issue テンプレート](./.github/ISSUE_TEMPLATE/)、設計変更は[RFC](./docs/rfc/) を利用
+- 詳細は[docs/architecture.md](./docs/architecture.md)（設計思想）・[docs/content-model.md](./docs/content-model.md)（スキーマ仕様）
 
 ## ライセンス
 

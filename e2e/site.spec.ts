@@ -44,7 +44,7 @@ test.describe("ガイド", () => {
 
   test("ホームに市場分析の統計グラフと出所リンクがある", async ({ page }) => {
     await page.goto(p("/"));
-    await expect(page.getByText("FDE の市場（月次で追跡）")).toBeVisible();
+    await expect(page.getByText("FDE の市場（週次で追跡）")).toBeVisible();
     expect(await page.locator(".chart-slice").count()).toBeGreaterThanOrEqual(5);
     await expect(
       page.getByRole("link", { name: "フリーランススタート" }).first()
@@ -66,7 +66,7 @@ test.describe("ガイド", () => {
     expect(await bars.count()).toBeGreaterThanOrEqual(1);
     await expect(page.getByText("週別 FDE 案件数（直近 6 週）")).toBeVisible();
     await expect(page.locator(".market-sources tbody tr")).toHaveCount(4);
-    await expect(page.getByText("レバテックフリーランス")).toBeVisible();
+    await expect(page.getByText("レバテックフリーランス").first()).toBeVisible();
     const fish = page.locator(".fishbone circle");
     await expect(fish.first()).toBeVisible();
     expect(await fish.count()).toBeGreaterThanOrEqual(1);

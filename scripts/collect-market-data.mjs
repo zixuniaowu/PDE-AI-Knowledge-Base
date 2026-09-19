@@ -4,7 +4,7 @@
  *
  * - フリーランスボード: 自動取得（案件数「全N件」+ 単価サンプルの中央値）
  * - レバテックフリーランス: 自動取得（キーワード一覧ページの公表件数）
- * - フリーランススタート: ボット対策のため自動取得不可 → --manual で手動記録
+ * - フリーランススタート: ボット対策（HTTP 202）のため Playwright（ヘッドレスブラウザ）で取得
  *
  * 使い方:
  *   node scripts/collect-market-data.mjs                     # 自動収集（今日の日付）
@@ -85,17 +85,36 @@ async function fetchLevtech() {
   return m ? Number(m[1].replace(/,/g, "")) : null;
 }
 
+// フリーランススタートは HTTP 202（ボット対策）を返すため、ヘッドレスブラウザで取得する
 async function fetchStart() {
   const res = await fetch(FS_URL, {
     headers: { "user-agent": UA },
     signal: AbortSignal.timeout(20000),
   });
-  if (!res.ok) {
-    return null; // ボット対策により 202/403 を返すことがある
+  if (res.ok) {
+    const html = await res.text();
+    const m = html.match(/全([0-9,]+)件/);
+    if (m) return Number(m[1].replace(/,/g, ""));
   }
-  const html = await res.text();
-  const m = html.match(/([0-9,]+)\s*件/);
-  return m ? Number(m[1].replace(/,/g, "")) : null;
+  // フェッチで取れない場合 → Playwright フォールバック
+  try {
+    const { chromium } = await import("@playwright/test");
+    const browser = await chromium.launch();
+    const page = await (await browser.newContext()).newPage();
+    await page.goto(FS_URL, {
+      waitUntil: "domcontentloaded",
+      timeout: 40000,
+      headers: { "accept-language": "ja-JP,ja;q=0.9" },
+    });
+    await page.waitForTimeout(4000);
+    const text = await page.evaluate(() => document.body.innerText);
+    await browser.close();
+    const m = text.match(/全([0-9,]+)件中/);
+    return m ? Number(m[1].replace(/,/g, "")) : null;
+  } catch (e) {
+    console.warn(`⚠ フリーランススタート: ブラウザ取得失敗 — ${String(e).slice(0, 80)}`);
+    return null;
+  }
 }
 
 function loadHistory() {

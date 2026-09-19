@@ -25,9 +25,9 @@ const SOURCES = [
     id: "freelance-start",
     name: "フリーランススタート",
     url: "https://freelance-start.com/jobs/job_category-47",
-    method: "手動",
-    cadence: "週次調査時に手動計上",
-    note: "ボット対策のため自動取得不可（HTTP 202）",
+    method: "自動",
+    cadence: "毎週月曜（GitHub Actions・ヘッドレスブラウザ）",
+    note: "ボット対策（HTTP 202）があるためヘッドレスブラウザで取得",
   },
   {
     id: "others",

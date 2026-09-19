@@ -81,8 +81,8 @@ export default function Home() {
         <p className="section-label">FDE の市場（週次で追跡）</p>
         <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>データソースと収集の仕組み</h2>
         <p className="lead" style={{ marginBottom: 12 }}>
-          情報源は <strong>フリーランススタート</strong>（要認証のため月 1 回手動計上）と{" "}
-          <strong>フリーランスボード</strong>（毎週月曜日に GitHub Actions が自動収集）。
+          情報源は <strong>フリーランススタート / フリーランスボード / レバテックフリーランス</strong> の 3 サイト。
+          すべて<strong>毎週月曜日に GitHub Actions が自動収集</strong>（フリーランススタートはボット対策があるためヘッドレスブラウザで取得）。
           蓄積したスナップショットが下のグラフと魚骨図を週ごとに伸ばしていきます。
         </p>
         <MarketSourcesTable snapshots={snapshots} />

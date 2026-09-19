@@ -65,7 +65,6 @@ content/{locale}/
 | apps/mobile | Expo | `pnpm build:mobile-content` が生成する JSON をバンドル |
 
 - Web は静的エクスポートなのでホスティングは任意の静的 CDN。basePath は `FDE_BASE_PATH` で制御
-- 検索: ビルド時に `search-index.json` を生成し、クライアントサイド（Fuse.js）で横断検索
 - PWA: service worker によるオフライン閲覧（ページは network-first、静的アセットは cache-first）
 - モバイルは JSON 経由にすることで、コードからコンテンツを完全に分離
 

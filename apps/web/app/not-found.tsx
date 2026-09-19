@@ -18,9 +18,9 @@ export default function NotFound() {
           <h3>始め方</h3>
           <p>6 ステップのガイドへ</p>
         </Link>
-        <Link href="/search" className="card">
-          <h3>検索</h3>
-          <p>キーワードで探す</p>
+        <Link href="/matrix" className="card">
+          <h3>マトリクス</h3>
+          <p>領域 × 工程の一覧へ</p>
         </Link>
       </div>
     </div>

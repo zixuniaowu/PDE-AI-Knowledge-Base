@@ -4,17 +4,37 @@ import {
   listGuides,
   listPatterns,
   listPhases,
-  listIntersections,
+  listReferences,
   listUseCases,
 } from "@pde/content-core";
-import { JobCountChart, RateHistogram, StatChips } from "@/components/charts";
+import historyData from "../../../data/market-history.json";
+import { RatePie, StatChips, WeeklyDemandBars } from "@/components/charts";
+import type { MarketSnapshot } from "@/components/charts";
 import { HomeMap } from "@/components/HomeMap";
+import { KnowledgeGraph } from "@/components/KnowledgeGraph";
+import { DemandFishbone } from "@/components/DemandFishbone";
 
 export default function Home() {
   const domains = listDomains();
   const phases = listPhases();
-  const patterns = listPatterns();
-  const guides = listGuides();
+
+  // 月次バッチ（scripts/collect-market-data.mjs）が蓄積するスナップショット
+  const snapshots: MarketSnapshot[] = historyData.snapshots;
+  const latestBoard = [...snapshots].reverse().find((s) => s.freelanceBoard != null);
+  const latestTotal = snapshots.find((s) => s.total != null);
+
+  // 独自ルートを持つコンテンツページ + 自動生成の交点ページ + インデックス系ページ
+  //（交点ノートは交点ページに合成されるため、独自ルートを持たない=カウントしない）
+  const useCaseCount = domains.reduce((n, d) => n + listUseCases(d.id).length, 0);
+  const pageCount =
+    listGuides().length +
+    domains.length +
+    useCaseCount +
+    phases.length +
+    listPatterns().length +
+    listReferences().length +
+    domains.length * phases.length +
+    8;
 
   const flow = [
     "課題ヒアリング",
@@ -29,49 +49,22 @@ export default function Home() {
     { v: "253 件", l: "FDE 案件（主要 2 サイト）" },
     { v: "51〜200 万円", l: "月額単価レンジ" },
     { v: "10 × 11", l: "領域 × 工程 のマトリクス" },
-    { v: "190 ページ", l: "ナレッジ公開中" },
+    { v: `${pageCount} ページ`, l: "ナレッジ公開中" },
   ];
-
-  const recent = [
-    ...guides.map((g) => ({ title: g.data.title, url: `/guide/${g.data.id}`, updated: g.data.updated, kind: "ガイド" })),
-    ...listPatterns().map((p) => ({ title: p.data.title, url: `/patterns/${p.data.id}`, updated: p.data.updated, kind: "パターン" })),
-    ...listDomains().flatMap((d) =>
-      listUseCases(d.id).map((uc) => ({
-        title: `${d.name} / ${uc.data.title}`,
-        url: `/domains/${d.id}/${uc.data.id}`,
-        updated: uc.data.updated,
-        kind: d.name,
-      }))
-    ),
-    ...listPhases().map((p) => ({
-      title: p.data.title,
-      url: `/process/${p.data.method}/${p.data.id}`,
-      updated: p.data.updated,
-      kind: p.data.method,
-    })),
-  ]
-    .sort((a, b) => b.updated.localeCompare(a.updated))
-    .slice(0, 6);
 
   return (
     <div>
       <section className="hero-dark">
         <div className="container">
           <p className="hero-kicker">FDE — FORWARD DEPLOYED ENGINEER KNOWLEDGE BASE</p>
-          <h1>現場に入り、AI を業務で使える形に。</h1>
+          <h1>
+            現場に入り、<span className="hero-nowrap">AI を業務で使える形に。</span>
+          </h1>
           <p className="hero-sub">
             FDE（Forward Deployed Engineer／前沿部署エンジニア）は、顧客の課題を要件化し、
             AI で実装し、<strong>成果指標が動くまで現場に定着させる</strong>責任を持つ、
-            いま最も不足している職種。その実践知を 190 ページに整理しました。
+            いま最も不足している職種。その実践知を {pageCount} ページに整理しました。
           </p>
-          <div className="hero-cta">
-            <Link href="/guide" className="btn-primary">
-              6 ステップで始める
-            </Link>
-            <a href="/references/market-demand" className="btn-ghost">
-              FDE の市場を見る
-            </a>
-          </div>
           <div className="hero-stats">
             {heroStats.map((s) => (
               <div key={s.l} className="hero-stat">
@@ -84,43 +77,78 @@ export default function Home() {
       </section>
 
       <section>
+        <p className="section-label">案件データから抽出した知識グラフ</p>
+        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>
+          招聘案件が要求するスキルの全体像
+        </h2>
+        <p className="lead" style={{ marginBottom: 16 }}>
+          FDE 案件 253 件の必須スキルをグラフ化したもの。丸の大きさ = 案件での重要度（登場頻度）、
+          線 = 関連性、点線 = スキル間の「壁」。<strong>丸はドラッグで動かせます</strong>（クリックで対応ページへ）。
+        </p>
+        <div className="kg-wrap">
+          <KnowledgeGraph />
+        </div>
+        <p className="chart-note">
+          出所: フリーランススタート / フリーランスボードの FDE 案件必須スキルの分析（2026-09-13 調査・253 件）。
+          詳細は<Link href="/references/market-demand">需要分析</Link>参照。
+        </p>
+      </section>
+
+      <section>
         <div className="home-map-wrap">
           <HomeMap />
+        </div>
+        <div className="home-map-mobile">
+          <p className="section-label">FDE の仕事は、この 6 ステップを AI と一緒に回すこと</p>
+          <ol className="steps-mini">
+            {flow.map((s, i) => (
+              <li key={s}>
+                <span className="steps-mini-num">{i + 1}</span>
+                {s}
+              </li>
+            ))}
+          </ol>
+          <Link href="/matrix" className="btn-primary home-map-mobile-cta">
+            領域 × 工程 のマトリクスを見る
+          </Link>
         </div>
       </section>
 
       <section>
-        <p className="section-label">FDE の市場（2026-09-13 時点の調査）</p>
+        <p className="section-label">FDE の市場（週次で追跡）</p>
+        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>データソースと収集の仕組み</h2>
+        <p className="lead" style={{ marginBottom: 12 }}>
+          情報源は <strong>フリーランススタート</strong>（要認証のため月 1 回手動計上）と{" "}
+          <strong>フリーランスボード</strong>（毎週月曜日に GitHub Actions が自動収集）。
+          蓄積したスナップショットが下のグラフと魚骨図を週ごとに伸ばしていきます。
+        </p>
         <StatChips
           items={[
-            { value: "253 件", label: "FDE 案件（2 サイト合計）" },
-            { value: "108.1 万円", label: "平均月額単価（フリーランスボード公表）" },
-            { value: "200 万円", label: "最高月額単価（フリーランススタート）" },
-            { value: "73 件", label: "フルリモート案件（フリーランススタート）" },
+            { value: `${latestTotal?.total ?? "—"} 件`, label: `FDE 案件・2 サイト合計（${latestTotal?.date ?? "—"} 手動調査）` },
+            { value: `${latestBoard?.freelanceBoard ?? "—"} 件`, label: `ボード自動収集（${latestBoard?.date ?? "—"} 時点）` },
+            { value: "108.1 万円", label: "平均月額単価（ボード公表）" },
+            { value: "51〜200 万円", label: "月額単価レンジ" },
           ]}
         />
-        <h3 style={{ margin: "20px 0 8px", fontSize: 16 }}>サイト別 FDE 案件数</h3>
-        <JobCountChart
-          data={[
-            {
-              label: "フリーランススタート",
-              url: "https://freelance-start.com/jobs/job_category-47",
-              count: 147,
-              maxLabel: "（51〜200 万円/月）",
-            },
-            {
-              label: "フリーランスボード",
-              url: "https://freelance-board.com/jobs/fde",
-              count: 106,
-              maxLabel: "（平均 108.1 万円/月）",
-            },
-          ]}
-        />
-        <p style={{ fontSize: 13, color: "var(--text-faint)", margin: "4px 0 20px" }}>
-          ※ レバテックフリーランス等も FDE 案件を掲載（要認証のため件数未計上）。数値は日々変動します。
+
+        <h3 style={{ margin: "24px 0 8px", fontSize: 16 }}>週別 FDE 案件数（直近 6 週）</h3>
+        <div className="trend-wrap">
+          <WeeklyDemandBars snapshots={snapshots} />
+        </div>
+        <p className="chart-note">
+          未収集の週は空欄。週次バッチが 1 本ずつ埋めていきます。
         </p>
-        <h3 style={{ margin: "0 0 8px", fontSize: 16 }}>FDE 案件の月額単価分布</h3>
-        <RateHistogram
+
+        <h3 style={{ margin: "24px 0 8px", fontSize: 16 }}>需要の推移タイムライン（魚骨図）</h3>
+        <p className="lead" style={{ marginBottom: 12 }}>
+          背骨 = 時間（週次）、丸 = その週のボード案件数、骨 = 計測結果。今週から始めて毎週延伸します。
+        </p>
+        <div className="fishbone-wrap">
+          <DemandFishbone snapshots={snapshots} />
+        </div>
+
+        <h3 style={{ margin: "24px 0 8px", fontSize: 16 }}>FDE 案件の月額単価分布</h3>
+        <RatePie
           rates={[
             92.5, 105, 120, 88, 110, 90, 90, 100, 100, 120, 65, 110, 85, 145, 115, 135, 85, 95,
             95, 80, 155, 125, 85, 135, 100, 165, 165, 165, 155, 80,
@@ -155,174 +183,6 @@ export default function Home() {
           </a>
         </p>
       </section>
-
-      <section>
-        <p className="section-label">市場が求めるスキル → 準備すべきもの</p>
-        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>
-          案件の必須事項から逆算する、FDE の準備リスト
-        </h2>
-        <p className="lead" style={{ marginBottom: 16 }}>
-          上の案件データを分解すると、市場が求めているのは 8 種類のスキルです。
-          それぞれ「何を準備すればよいか」と、この KB の該当ページを示します。
-        </p>
-        <div className="req-list">
-          {[
-            {
-              skill: "業務の整理と、要件・成果指標への落とし込み",
-              freq: "ほぼ全案件",
-              prep: "6 大業務プロセスの型で As-Is を書き、痛みを成果指標に紐づける",
-              links: [
-                { t: "業務プロセスと AI の接点", h: "/references/business-processes" },
-                { t: "要件定義の進め方", h: "/process/waterfall/requirements" },
-              ],
-            },
-            {
-              skill: "LLM アプリ開発（LangChain / LangGraph / RAG / Dify）",
-              freq: "頻出",
-              prep: "RAG・Agent・構造化出力の基本型。PoC はマネージド RAG から始める",
-              links: [
-                { t: "RAG", h: "/patterns/rag" },
-                { t: "Agent", h: "/patterns/agent" },
-                { t: "構造化出力", h: "/patterns/structured-output" },
-              ],
-            },
-            {
-              skill: "AI コーディングツール（Claude Code / Cursor / Copilot）",
-              freq: "頻出",
-              prep: "「依頼 → 検証 → 修正」のループと、プロンプトの型 20 選",
-              links: [
-                { t: "実装の進め方", h: "/process/waterfall/implementation" },
-                { t: "STEP 3: 作業ループ", h: "/guide/step-3-build-the-loop" },
-                { t: "小技集", h: "/references/prompt-tips" },
-              ],
-            },
-            {
-              skill: "フルスタック開発（Python / TypeScript / React / Next.js）",
-              freq: "頻出",
-              prep: "生成コードをレビュー・修正できる実装視点。領域ごとの作例",
-              links: [
-                { t: "領域のユースケース", h: "/domains" },
-                { t: "テスト工程", h: "/process/waterfall/testing" },
-              ],
-            },
-            {
-              skill: "クラウド（AWS / GCP / Azure）での開発・運用",
-              freq: "頻出",
-              prep: "顧客の既存クラウドに寄せたサービス選定、コスト・権限設計",
-              links: [{ t: "クラウド別 AI サービスマップ", h: "/references/cloud-ai-services" }],
-            },
-            {
-              skill: "非機能要件（精度 / セキュリティ / 性能 / コスト）",
-              freq: "製造・SI 系中心",
-              prep: "評価設計とガードレール、コスト上限の実装",
-              links: [
-                { t: "評価パターン", h: "/patterns/evaluation" },
-                { t: "テスト工程", h: "/process/waterfall/testing" },
-              ],
-            },
-            {
-              skill: "本番リリースと現場定着の推進",
-              freq: "頻出",
-              prep: "出荷前の受け入れ基準設計と、定着を見る運用の型",
-              links: [
-                { t: "リリース", h: "/process/waterfall/deployment" },
-                { t: "運用・改善", h: "/process/waterfall/maintenance" },
-                { t: "STEP 4", h: "/guide/step-4-acceptance" },
-              ],
-            },
-            {
-              skill: "顧客折衝・非エンジニアへの説明力",
-              freq: "ほぼ全案件",
-              prep: "聞く型、合意形成の記録、組織の中での線引き",
-              links: [
-                { t: "STEP 5: 組織の中で働く", h: "/guide/step-5-team" },
-                { t: "要件定義", h: "/process/waterfall/requirements" },
-              ],
-            },
-          ].map((r, i) => (
-            <div key={i} className="req-item">
-              <div className="req-skill">
-                <span className="badge">{r.freq}</span>
-                <strong>{r.skill}</strong>
-              </div>
-              <div className="req-prep">{r.prep}</div>
-              <div className="req-links">
-                {r.links.map((l) => (
-                  <Link key={l.h} href={l.h} className="badge">
-                    {l.t} →
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <p className="section-label">ナレッジベース全体</p>
-      <div className="grid grid-3">
-        <Link href="/guide" className="card">
-          <span className="icon">🧭</span>
-          <h3>始め方 {guides.length} ステップ</h3>
-          <p>デザイナーから、フロントエンドから、FDE への転身ルートと仕事の進め方。</p>
-        </Link>
-        <Link href="/domains" className="card">
-          <span className="icon">🗂</span>
-          <h3>領域 {domains.length} 件</h3>
-          <p>業界ごとの AI プロダクト実戦知識。FDE が領域に入るときの地図。</p>
-        </Link>
-        <Link href="/process" className="card">
-          <span className="icon">🔁</span>
-          <h3>工程 {phases.length} 件</h3>
-          <p>ウォーターフォール・アジャイルの各工程を、FDE が AI ツールとどう回すか。</p>
-        </Link>
-        <Link href="/patterns" className="card">
-          <span className="icon">✨</span>
-          <h3>パターン {patterns.length} 件</h3>
-          <p>RAG、Agent、Few-shot など、実装時に何度も使う型。</p>
-        </Link>
-        <Link href="/matrix" className="card">
-          <span className="icon">🧭</span>
-          <h3>
-            マトリクス {domains.length}×{phases.length}
-          </h3>
-          <p>領域 × 工程の交点ページ。白紙のマス = 新しく書くチャンス。</p>
-        </Link>
-        <Link href="/search" className="card">
-          <span className="icon">🔍</span>
-          <h3>検索</h3>
-          <p>領域・工程・パターン・ガイドを横断検索。</p>
-        </Link>
-      </div>
-
-      <section>
-        <p className="section-label">最新の更新</p>
-        <div className="recent-list">
-          {recent.map((r) => (
-            <Link key={r.url} href={r.url} className="recent-item">
-              <span className="badge">{r.kind}</span>
-              <span className="recent-title">{r.title}</span>
-              <span className="recent-date">{r.updated}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <p className="section-label">参加する</p>
-      <div className="grid grid-2">
-        <a
-          className="card"
-          href="https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/blob/main/CONTRIBUTING.md"
-        >
-          <span className="icon">✍️</span>
-          <h3>専門家として書く</h3>
-          <p>コード不要。テンプレートをコピーして Markdown を書くだけ。</p>
-        </a>
-        <a className="card" href="https://github.com/zixuniaowu/PDE-AI-Knowledge-Base">
-          <span className="icon">⭐</span>
-          <h3>GitHub</h3>
-          <p>ソースコードもコンテンツも全て公開。PR をお待ちしています。</p>
-        </a>
-      </div>
     </div>
   );
 }

@@ -1,9 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
+import { NavDropdown } from "@/components/NavDropdown";
 import { PwaRegister } from "@/components/PwaRegister";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
+/** ページの新しさを一目で判別するためのビルド識別子（キャッシュ問題の切り分け用）。
+ * dev ではサーバー起動時刻、production ビルドではビルド時刻になる。 */
+const BUILD_ID = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 16);
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -37,14 +42,12 @@ export const viewport: Viewport = {
 };
 
 const nav = [
+  { href: "/references/market-demand", label: "需要分析" },
   { href: "/guide", label: "始め方" },
   { href: "/domains", label: "領域" },
   { href: "/process", label: "工程" },
   { href: "/patterns", label: "パターン" },
-  { href: "/references/prompt-tips", label: "小技集" },
   { href: "/matrix", label: "マトリクス" },
-  { href: "/references/glossary", label: "用語集" },
-  { href: "/search", label: "検索" },
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -65,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {n.label}
               </Link>
             ))}
+            <NavDropdown />
             <a
               href="https://github.com/zixuniaowu/PDE-AI-Knowledge-Base"
               className="nav-link"
@@ -93,6 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="/llms.txt" target="_blank" rel="noopener noreferrer">
               llms.txt
             </a>
+            <span className="build-id"> · build {BUILD_ID}</span>
           </div>
         </footer>
       </body>

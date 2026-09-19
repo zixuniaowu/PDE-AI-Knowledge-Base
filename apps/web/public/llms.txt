@@ -78,11 +78,13 @@
 - [教育 × 要件定義（教育ニーズの整理）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/education/waterfall/requirements/)
 - [教育 × テスト（試験・到達度評価）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/education/waterfall/testing/)
 - [金融・経理 × レビュー（決算・報告のレビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/finance/agile/review/)
+- [金融・経理 × 設計（帳票と統制の設計）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/finance/waterfall/design/)
 - [金融・経理 × 運用（規程・制度の運用）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/finance/waterfall/maintenance/)
 - [金融・経理 × テスト（数値検証・突合）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/finance/waterfall/testing/)
 - [医療・看護 × レビュー（カンファレンス・引き継ぎ）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/healthcare/agile/review/)
 - [医療・看護 × 設計（患者教育・説明計画）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/healthcare/waterfall/design/)
 - [医療・看護 × 運用（記録と報告の運用）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/healthcare/waterfall/maintenance/)
+- [医療・看護 × 要件定義（記録業務の要件化）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/healthcare/waterfall/requirements/)
 - [医療・看護 × テスト（医療安全チェック）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/healthcare/waterfall/testing/)
 - [人事 × デイリー（採用進行のデイリー確認）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/hr/agile/daily-scrum/)
 - [人事 × レビュー（選考合議・評価レビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/hr/agile/review/)
@@ -93,6 +95,8 @@
 - [物流 × リリース（新ルート・拠点の立ち上げ）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/logistics/waterfall/deployment/)
 - [物流 × テスト（配送品質の検証）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/logistics/waterfall/testing/)
 - [製造 × リリース（生産立ち上げ・設備導入）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/manufacturing/waterfall/deployment/)
+- [製造 × 設計（生産方式と AI の設計）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/manufacturing/waterfall/design/)
+- [製造 × 運用（設備・品質の継続改善）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/manufacturing/waterfall/maintenance/)
 - [製造 × テスト（検査工程）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/manufacturing/waterfall/testing/)
 - [マーケティング × レビュー（公開レビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/marketing/agile/review/)
 - [マーケティング × リリース（公開・配信）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/marketing/waterfall/deployment/)
@@ -103,11 +107,20 @@
 - [営業 × 要件定義（顧客課題のヒアリング）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/sales/waterfall/requirements/)
 - [ソフトウェア開発 × レビュー（PR レビュー）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/agile/review/)
 - [ソフトウェア開発 × スプリントプランニング](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/agile/sprint-planning/)
+- [ソフトウェア開発 × リリース（客先テナントへのリリース）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/deployment/)
+- [ソフトウェア開発 × 設計（AI ネイティブな構成）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/design/)
 - [ソフトウェア開発 × 実装](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/implementation/)
+- [ソフトウェア開発 × 運用（モデル移行と依存管理）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/maintenance/)
+- [ソフトウェア開発 × 要件定義（PoC の要件化）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/requirements/)
+- [ソフトウェア開発 × テスト（AI 出力の品質評価）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/matrix/software-development/waterfall/testing/)
 
 ## References
-- [FDE の市場需要分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/market-demand/): 企業の AI 導入を担う FDE（Forward Deployed Engineer）が、市場でどう求められているか。2026-09 時点の調査メモ
+- [AI 導入のコスト見積もり（実単価計算済み）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/cost-estimate/): FDE が顧客提案で使える「処理 1 件あたりの内訳」計算。3 シナリオの実例と上限設定の手順
+- [FDE の市場需要分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/market-demand/): 招聘サイトの FDE 案件を継続的に追跡し、情報源・時系列のトレンド・求められる技術スタック・AI と人間の役割の境界を 1 枚にまとめた需要分析
+- [PoC 合意書（SOW）テンプレート](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/poc-agreement/): FDE 案件の最初の失敗は「合意なし PoC」。期間・合格閾値・データ提供範囲を先に文書化するテンプレート
 - [クラウド別 AI 導入サービスマップ（AWS / Azure / GCP / SAP）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/cloud-ai-services/): 顧客がどのクラウドでも対応できる、シナリオ別サービス対応表と参照アーキテクチャ。SAP・国産 ERP 連携まで
 - [すぐ使えるプロンプト小技集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/prompt-tips/): 今日からコピペで使える 20 の具体的テクニック。理論ではなく、貼って動く形で書いています
 - [業務プロセスと AI の接点（ERP 流の分解）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/business-processes/): 販売・購買・在庫・生産・経理・人事労務。基幹業務をプロセス単位に分解し、AI が入る箇所・成果指標・システム連携を整理する。SAP / 国産 ERP の世界観に沿って
+- [実演記録 — OSS で新機能追加とバグ対応をやってみる](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/oss-experiment/): unjs/pathe に実際に機能追加（#47）とバグ対応（#236）を試した記録。2 つのプロセスで FDE が何を判断し、AI がどこまで担えたかを図で整理する
+- [実戦テクニック](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/field-tips/): 実際の案件・自主制作で「効いた」と確認できた工夫を、小さく追記していく。プロンプトそのものの型はプロンプト小技集へ
 - [用語集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/glossary/): FDE で使う用語の最小セット。初めての人はここから

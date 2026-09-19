@@ -2,17 +2,15 @@ import { expect, test } from "@playwright/test";
 import { p } from "./helpers";
 
 test.describe("ホームとグローバルナビ", () => {
-  test("ホームにタイトルと主要カードが表示される", async ({ page }) => {
+  test("ホームにタイトルと全体マップが表示される", async ({ page }) => {
     await page.goto(p("/"));
     await expect(page.locator(".hero-kicker")).toContainText("FORWARD DEPLOYED ENGINEER");
-    await expect(page.getByText(/課題ヒアリング/)).toBeVisible();
-    await expect(page.getByRole("link", { name: /領域 \d+ 件/ })).toBeVisible();
-    await expect(page.getByRole("link", { name: /工程 \d+ 件/ })).toBeVisible();
-    await expect(page.getByRole("link", { name: /パターン \d+ 件/ })).toBeVisible();
+    await expect(page.getByText(/課題ヒアリング/).first()).toBeVisible();
+    await expect(page.locator(".hero-stat").first()).toBeVisible();
   });
 
   test("全ページでヘッダーとフッターが表示される", async ({ page }) => {
-    for (const path of ["/guide/", "/domains/", "/process/", "/patterns/", "/matrix/", "/search/"]) {
+    for (const path of ["/guide/", "/domains/", "/process/", "/patterns/", "/matrix/"]) {
       await page.goto(p(path));
       await expect(page.getByRole("link", { name: "FDE", exact: true })).toBeVisible();
       await expect(page.getByText("Code: MIT / Content: CC BY 4.0")).toBeVisible();
@@ -35,34 +33,55 @@ test.describe("ガイド", () => {
     await expect(page.getByRole("link", { name: /STEP 2/ }).first()).toBeVisible();
   });
 
-  test("ホームにヒーロー統計・検索フォーム・最新更新がある", async ({ page }) => {
+  test("ホームにヒーロー統計とナレッジ数がある", async ({ page }) => {
     await page.goto(p("/"));
     await expect(page.getByRole("heading", { level: 1 })).toContainText("現場に入り");
     await expect(page.locator(".hero-kicker")).toContainText("FORWARD DEPLOYED ENGINEER");
-    await expect(page.getByRole("link", { name: "6 ステップで始める" })).toBeVisible();
-    await expect(page.getByText("最新の更新")).toBeVisible();
-    expect(await page.locator(".recent-item").count()).toBeGreaterThanOrEqual(6);
+    await expect(page.getByText(/ナレッジ公開中/)).toBeVisible();
+    await expect(page.getByText(/\d+ ページ/).first()).toBeVisible();
   });
 
 
   test("ホームに市場分析の統計グラフと出所リンクがある", async ({ page }) => {
     await page.goto(p("/"));
-    await expect(page.getByText("FDE の市場（2026-09-13 時点の調査）")).toBeVisible();
-    expect(await page.locator(".chart-bar").count()).toBeGreaterThanOrEqual(7);
+    await expect(page.getByText("FDE の市場（月次で追跡）")).toBeVisible();
+    expect(await page.locator(".chart-slice").count()).toBeGreaterThanOrEqual(5);
     await expect(
       page.getByRole("link", { name: "フリーランススタート" }).first()
     ).toBeVisible();
     await expect(page.getByText("108.1 万円").first()).toBeVisible();
   });
 
-  test("ホームにスキル需要→準備マップがある", async ({ page }) => {
+  test("ホームに知識グラフ（スキルの点と線）がある", async ({ page }) => {
     await page.goto(p("/"));
-    await expect(page.getByText("市場が求めるスキル → 準備すべきもの")).toBeVisible();
-    await expect(page.getByText("案件の必須事項から逆算する")).toBeVisible();
-    await expect(page.getByText("ほぼ全案件").first()).toBeVisible();
-    await expect(
-      page.getByRole("link", { name: /クラウド別 AI サービスマップ/ }).first()
-    ).toBeVisible();
+    await expect(page.locator(".kg-graph circle").first()).toBeVisible();
+    expect(await page.locator(".kg-graph circle").count()).toBeGreaterThanOrEqual(20);
+    await expect(page.locator(".kg-graph a").first()).toBeVisible();
+  });
+
+  test("ホームに月別案件数バーと魚骨図がある", async ({ page }) => {
+    await page.goto(p("/"));
+    const bars = page.locator(".weekly-bars rect");
+    await expect(bars.first()).toBeVisible();
+    expect(await bars.count()).toBeGreaterThanOrEqual(1);
+    await expect(page.getByText("週別 FDE 案件数（直近 6 週）")).toBeVisible();
+    const fish = page.locator(".fishbone circle");
+    await expect(fish.first()).toBeVisible();
+    expect(await fish.count()).toBeGreaterThanOrEqual(1);
+  });
+
+  test("知識グラフのノードはドラッグで動かせる", async ({ page }) => {
+    await page.goto(p("/"));
+    const node = page.locator('.kg-graph circle[data-node="rag"]');
+    await node.scrollIntoViewIfNeeded();
+    const before = await node.boundingBox();
+    await page.mouse.move(before!.x + before!.width / 2, before!.y + before!.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(before!.x + 150, before!.y + 110, { steps: 10 });
+    await page.mouse.up();
+    const after = await node.boundingBox();
+    expect(Math.abs(after!.x - before!.x)).toBeGreaterThan(40);
+    expect(Math.abs(after!.y - before!.y)).toBeGreaterThan(20);
   });
 
   test("FDE とはページに概念図（mermaid SVG）が描画される", async ({ page }) => {
@@ -109,6 +128,14 @@ test.describe("工程と交点", () => {
     await expect(page.getByRole("link", { name: /1\. スプリントプランニング/ })).toBeVisible();
   });
 
+  test("工程一覧に waterfall の V モデル図がある", async ({ page }) => {
+    await page.goto(p("/process/"));
+    const v = page.locator(".vmodel-wrap svg");
+    await expect(v.first()).toBeVisible({ timeout: 15000 });
+    await expect(page.locator(".vmodel-wrap svg rect").nth(7)).toBeVisible();
+    await expect(page.getByText("UAT（受入テスト）").first()).toBeVisible();
+  });
+
   test("交点ページ（ノートあり）は交点ノートを表示する", async ({ page }) => {
     await page.goto(p("/matrix/healthcare/agile/review/"));
     await expect(page.getByText("交点ノート")).toBeVisible();
@@ -137,22 +164,20 @@ test.describe("パターン", () => {
   });
 });
 
-test.describe("検索", () => {
-  test("キーワードで検索して該当ページが出る", async ({ page }) => {
-    await page.goto(p("/search/"));
-    const input = page.getByPlaceholder(/キーワードで検索/);
-    await expect(input).toBeVisible();
-    await input.fill("採点");
-    await expect(page.getByRole("link", { name: /採点支援ツール（教育）/ }).first()).toBeVisible();
-  });
-});
-
 test.describe("リファレンス", () => {
   test("用語集が表示され、目次と内部リンクがある", async ({ page }) => {
     await page.goto(p("/references/glossary/"));
     await expect(page.getByRole("heading", { name: "用語集" })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "目次" })).toBeVisible();
     await expect(page.getByText("ハルシネーション").first()).toBeVisible();
+  });
+
+  test("需要分析ページに図（パイプライン・タイムライン等）がある", async ({ page }) => {
+    await page.goto(p("/references/market-demand/"));
+    await expect(page.getByRole("heading", { name: "FDE の市場需要分析" })).toBeVisible();
+    await expect
+      .poll(async () => page.locator(".mermaid-figure svg").count(), { timeout: 20000 })
+      .toBeGreaterThanOrEqual(4);
   });
 
   test("プロンプト小技集は 15 以上のコピペ例（コードブロック）を含む", async ({ page }) => {

@@ -114,12 +114,64 @@ a:hover {
   text-decoration: none;
 }
 
+/* 資料ドロップダウン（パネルは portal で body 直下・fixed） */
+.nav-drop {
+  position: relative;
+}
+.nav-drop-toggle {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+.nav-drop-caret {
+  font-size: 10px;
+  margin-left: 2px;
+}
+.nav-drop-panel {
+  position: fixed;
+  z-index: 60;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(2, 8, 23, 0.14);
+}
+.nav-drop-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 12px;
+  border-radius: 8px;
+}
+.nav-drop-item:hover {
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+.nav-drop-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+}
+.nav-drop-desc {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
 .site-footer {
   border-top: 1px solid var(--border);
   margin-top: 64px;
   padding: 28px 0 40px;
   color: var(--text-faint);
   font-size: 13px;
+}
+.build-id {
+  font-size: 11.5px;
+  opacity: 0.8;
 }
 
 main.container {
@@ -145,10 +197,13 @@ main.container {
 }
 .hero-dark h1 {
   color: #fff;
-  font-size: clamp(30px, 4.6vw, 50px);
+  font-size: clamp(26px, 4.6vw, 50px);
   line-height: 1.18;
   letter-spacing: -0.01em;
   margin: 0 0 18px;
+}
+.hero-nowrap {
+  white-space: nowrap;
 }
 .hero-sub {
   color: #cbd5e1;
@@ -271,6 +326,106 @@ main.container {
   padding: 12px 8px;
 }
 
+/* 狭い画面では全站マップの代わりに簡易版を出す（縮小表示は判読不能なため） */
+.home-map-mobile {
+  display: none;
+}
+@media (max-width: 899px) {
+  .home-map-wrap {
+    display: none;
+  }
+  .home-map-mobile {
+    display: block;
+  }
+}
+.steps-mini {
+  list-style: none;
+  margin: 12px 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.steps-mini li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 14.5px;
+}
+.steps-mini-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 800;
+}
+.home-map-mobile-cta {
+  display: inline-block;
+}
+
+/* 知識グラフ */
+.kg-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 12px 8px;
+}
+.kg-graph a {
+  cursor: pointer;
+}
+.kg-graph a:hover circle {
+  stroke-width: 2.5;
+}
+
+/* 魚骨図・トレンドグラフ */
+.fishbone-wrap,
+.trend-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 12px 8px;
+}
+
+/* ── V モデル図 ─────────────────────────── */
+.vmodel-wrap {
+  margin: 4px 0 20px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+.vmodel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin-top: 12px;
+}
+.vmodel-table th,
+.vmodel-table td {
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+.vmodel-table th {
+  background: var(--bg);
+  font-size: 12.5px;
+  color: var(--text-sub);
+}
+
 /* ── requirements map ───────────────────── */
 .req-list {
   display: grid;
@@ -370,6 +525,53 @@ a.chart-label:hover {
   font-size: 12.5px;
   color: var(--text-faint);
   margin: 0;
+}
+
+/* 円グラフ */
+.pie-wrap {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin: 8px 0 12px;
+}
+.pie-svg {
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+.pie-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.pie-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.pie-legend-label {
+  color: var(--text-sub);
+}
+.pie-legend-value {
+  font-weight: 700;
+  color: var(--text);
+  margin-left: auto;
+}
+.pie-legend-total {
+  font-size: 12.5px;
+  color: var(--text-faint);
+  margin-top: 2px;
+  padding-left: 24px;
 }
 .stat-chips {
   display: grid;

@@ -14,6 +14,7 @@
   },
   "scripts": {
     "dev": "pnpm --filter @pde/web dev",
+    "shot": "node scripts/screenshot.mjs",
     "build:web": "pnpm --filter @pde/web build",
     "typecheck": "pnpm -r typecheck",
     "test": "vitest run",

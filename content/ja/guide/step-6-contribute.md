@@ -27,6 +27,17 @@ STEP 1〜5 で作った自分のやり方は、個人の中に閉じれば技、
 
 - その領域の正確性に責任を持ち、他の人の PR をレビューする（[GOVERNANCE.md](https://github.com/zixuniaowu/PDE-AI-Knowledge-Base/blob/main/GOVERNANCE.md)）
 
+```mermaid
+flowchart LR
+    A["レベル A<br/>Issue で気づきを報告<br/>（5 分）"] --> B["レベル B<br/>領域・工程の知見を書く<br/>（1〜2 週間）"]
+    B --> C["レベル C<br/>領域オーナーになる"]
+    B --> PR["PR（draft で OK）"]
+    PR --> RV{"CI 検証 ＋<br/>オーナー / メンテナーのレビュー"}
+    RV -->|合格| Pub["公開 →<br/>他の人が育てられる"]
+    RV -.->|修正依頼| B
+    Pub -.->|使った人の気づき| A
+```
+
 ## 何を書くか: チェックリスト
 
 次の 3 つ以上に答えられるなら、書くべきことがあります:

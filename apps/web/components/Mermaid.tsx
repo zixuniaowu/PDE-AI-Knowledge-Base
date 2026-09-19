@@ -9,14 +9,48 @@ import { useEffect, useState } from "react";
 let queue: Promise<unknown> = Promise.resolve();
 let initialized = false;
 
+/** サイトのカラースキーム（:root CSS 変数）に合わせた mermaid テーマ */
+function mermaidTheme(): {
+  theme: "default" | "dark";
+  themeVariables: Record<string, string>;
+} {
+  const dark = typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (dark) {
+    return {
+      theme: "dark",
+      themeVariables: {
+        background: "#111a2e",
+        primaryColor: "#1e3a5f",
+        primaryTextColor: "#e2e8f0",
+        primaryBorderColor: "#60a5fa",
+        secondaryColor: "#2e2447",
+        secondaryTextColor: "#e2e8f0",
+        secondaryBorderColor: "#a78bfa",
+        tertiaryColor: "#164e5a",
+        tertiaryTextColor: "#e2e8f0",
+        tertiaryBorderColor: "#22d3ee",
+        lineColor: "#94a3b8",
+        textColor: "#e2e8f0",
+        mainBkg: "#1e3a5f",
+        nodeBorder: "#60a5fa",
+        fontSize: "14px",
+      },
+    };
+  }
+  return { theme: "default", themeVariables: { fontSize: "14px" } };
+}
+
 async function renderChart(chart: string): Promise<string> {
   const mermaid = (await import("mermaid")).default;
   if (!initialized) {
+    const { theme, themeVariables } = mermaidTheme();
     mermaid.initialize({
       startOnLoad: false,
-      theme: "default",
       securityLevel: "loose",
       fontFamily: "inherit",
+      flowchart: { useMaxWidth: true },
+      sequence: { useMaxWidth: true },
+      ...{ theme, themeVariables },
     });
     initialized = true;
   }

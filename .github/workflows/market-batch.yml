@@ -1,0 +1,36 @@
+name: Weekly market data batch
+
+on:
+  schedule:
+    - cron: "0 3 * * 1" # 每周一 12:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Collect market snapshot
+        run: node scripts/collect-market-data.mjs
+
+      - name: Create PR if data changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(data): weekly FDE market snapshot"
+          title: "FDE 市場データの週次更新"
+          body: |
+            週次バッチ（scripts/collect-market-data.mjs）が data/market-history.json を更新しました。
+            - 自動取得: フリーランスボード（案件数・単価サンプル）
+            - フリーランススタートは要認証のため、必要なら手動で --fs を追記してください
+          branch: batch/market-data
+          delete-branch: true
+          add-paths: data/market-history.json

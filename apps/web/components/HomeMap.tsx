@@ -64,7 +64,7 @@ export function HomeMap() {
 
   return (
     <svg
-      viewBox={`0 0 ${W} 660`}
+      viewBox={`0 0 ${W} 706`}
       role="img"
       aria-label="FDE ナレッジベースの全体構造"
       style={{ width: "100%", height: "auto", minWidth: 980 }}
@@ -101,11 +101,6 @@ export function HomeMap() {
           </g>
         );
       })}
-
-      {/* ── マトリクスの説明 ── */}
-      <text x={W / 2} y={matrixY - 40} textAnchor="middle" fontSize="14" fontWeight="700" fill="var(--text-sub)">
-        知識は「領域 × 工程」のマトリクスに整理され、各マスが 1 ページ
-      </text>
 
       {/* ── 工程のグループ見出し ── */}
       {methods.map((m) => {
@@ -196,12 +191,15 @@ export function HomeMap() {
         <text x={380} y={0} fontSize="12.5" fontWeight="700" fill="var(--text)">
           {domains.length} 領域 × {phases.length} 工程 = {total} ページ / ノート {noteKeys.size} 件
         </text>
+        <text x={0} y={20} fontSize={12} fill="var(--text-faint)">
+          ※ このマップは本サイトに投稿された知見の整理状況。招聘サイトのデータではなく、青いマス = すでに書かれた交点ノートです
+        </text>
       </g>
 
       {/* ── 下部: 参考資料の帯 ── */}
-      <g transform={`translate(0, ${matrixY + headH + domains.length * (cellH + gapY) + 52})`}>
+      <g transform={`translate(0, ${matrixY + headH + domains.length * (cellH + gapY) + 82})`}>
         {[
-          { t: "ガイド 7 ステップ", h: "/guide/", x: 90 },
+          { t: "始め方ガイド", h: "/guide/", x: 90 },
           { t: "市場需要分析", h: "/references/market-demand/", x: 330 },
           { t: "パターン 9 型", h: "/patterns/", x: 570 },
           { t: "クラウド別マップ", h: "/references/cloud-ai-services/", x: 790 },

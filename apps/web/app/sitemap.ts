@@ -25,7 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/process/", priority: 0.9 },
     { path: "/patterns/", priority: 0.8 },
     { path: "/matrix/", priority: 0.8 },
-    { path: "/search/", priority: 0.4 },
   ];
 
   for (const g of listGuides()) {

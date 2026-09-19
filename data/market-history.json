@@ -1,0 +1,34 @@
+{
+  "description": "FDE 案件数の時系列スナップショット。scripts/collect-market-data.mjs（月次バッチ）が追記し、ホームのトレンドグラフが読む。",
+  "snapshots": [
+    {
+      "date": "2026-09-13",
+      "manual": true,
+      "freelanceStart": 147,
+      "freelanceBoard": 106,
+      "total": 253,
+      "rateRange": [
+        51,
+        200
+      ],
+      "avgRate": 108.1,
+      "note": "初回手動調査。フリーランススタート 51〜200 万円/月・リモート 73 件／フリーランスボード 平均 108.1 万円（サイト公表値）"
+    },
+    {
+      "date": "2026-09-17",
+      "manual": false,
+      "freelanceBoard": 109,
+      "total": 109,
+      "boardRateMedian": 155,
+      "note": "自動収集。ボード単価サンプル 6 件の中央値 155 万円／フリーランススタートは要認証のため未計上（次回手動で補完推奨）"
+    },
+    {
+      "date": "2026-09-19",
+      "manual": false,
+      "freelanceBoard": 111,
+      "total": 111,
+      "boardRateMedian": 155,
+      "note": "自動収集。ボード単価サンプル 6 件の中央値 155 万円／フリーランススタートは要認証のため未計上（次回手動で補完推奨）"
+    }
+  ]
+}

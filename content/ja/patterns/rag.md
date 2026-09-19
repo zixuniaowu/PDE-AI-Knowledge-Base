@@ -14,11 +14,24 @@ LLM に直接質問すると、古い・汎用的・場合によっては誤っ�
 
 ## 仕組み
 
-```
-質問 ─▶ 検索（ベクトル/キーワード）─▶ 関連文書の断片
-                                        │
-                                        ▼
-              「この文脈に基づいて答えて」＋質問 ─▶ LLM ─▶ 根拠付き回答
+```mermaid
+sequenceDiagram
+    autonumber
+    actor U as ユーザー
+    participant App as アプリ（RAG）
+    participant R as 検索器<br/>（ベクトル + BM25）
+    participant D as 文書ストア
+    participant L as LLM
+
+    U->>App: 質問
+    App->>R: 質問を検索クエリに変換
+    R->>D: 関連断片を取得（top-k）
+    D-->>R: 候補チャンク
+    R-->>App: リランク後の断片 3 件
+    App->>L: 「この文脈に基づいて答えて」＋質問＋断片
+    L-->>App: 根拠（引用）付き回答
+    App-->>U: 回答 ＋ 出典
+    Note over U,L: 引用が入力文書に実在しない回答は棄却する（→ Evaluation）
 ```
 
 ## 適している場面

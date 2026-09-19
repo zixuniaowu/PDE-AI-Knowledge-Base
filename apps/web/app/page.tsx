@@ -81,8 +81,9 @@ export default function Home() {
         <p className="section-label">FDE の市場（週次で追跡）</p>
         <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>データソースと収集の仕組み</h2>
         <p className="lead" style={{ marginBottom: 12 }}>
-          情報源は <strong>フリーランススタート / フリーランスボード / レバテックフリーランス</strong> の 3 サイト。
-          すべて<strong>毎週月曜日に GitHub Actions が自動収集</strong>（フリーランススタートはボット対策があるためヘッドレスブラウザで取得）。
+          日本の主要 IT フリーランスプラットフォーム <strong>8 つのうち 3 つを毎週月曜日に自動収集</strong>しています
+          （フリーランススタート 150 + フリーランスボード 111 + レバテック 13 = <strong>274 件/週</strong>）。
+          PE-BANK は自動取得の結果 FDE 案件 0 件と確認済み。他 4 サイトは要認証等のため未対応（下表参照）。
           蓄積したスナップショットが下のグラフと魚骨図を週ごとに伸ばしていきます。
         </p>
         <MarketSourcesTable snapshots={snapshots} />

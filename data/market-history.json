@@ -35,6 +35,19 @@
       "total": 274,
       "boardRateMedian": 160,
       "note": "自動収集（freelance-start + freelance-board + levtech = 274 件）。ボード単価サンプル 8 件の中央値 160 万円"
+    },
+    {
+      "date": "2026-09-21",
+      "manual": false,
+      "sources": {
+        "freelance-start": 150,
+        "freelance-board": 111
+      },
+      "freelanceStart": 150,
+      "freelanceBoard": 111,
+      "total": 261,
+      "boardRateMedian": 160,
+      "note": "自動収集（freelance-start + freelance-board = 261 件）。ボード単価サンプル 8 件の中央値 160 万円"
     }
   ]
 }

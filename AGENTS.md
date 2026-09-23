@@ -45,6 +45,21 @@ Before reporting any change as done, run `pnpm exec playwright test` (25 tests: 
 - **Never run `pnpm build:web` while `pnpm dev` is running** — both write `apps/web/.next`, and the production build corrupts the dev incremental cache (browser shows `TypeError: ... reading 'call'` from webpack chunks). After any production build, `rm -rf apps/web/.next` and restart dev. Note E2E/typecheck do NOT catch this: they validate the static `out/` build, not the dev server.
 - **Restarting dev requires killing the whole process tree** (`pnpm dev` → `sh -c next dev` → `next dev` → `next-server`). Killing only `next-server` lets the parent respawn it — leftover trees share `.next` and corrupt each other's chunks. Kill by port (`kill -9 $(lsof -ti tcp:3000)`) plus `pkill -9 -f "next dev"`, then verify `ps` shows 0 processes and port 3000 is free before starting again. `pnpm shot` detects stale-chunk breakage (HTTP ≥400 on `_next` assets, requestfailed, pageerror) and fails on it.
 
+## Domain features (context for future work)
+
+- **市場追跡**: `scripts/collect-market-data.mjs` appends a snapshot to
+  `data/market-history.json` (weekly cron `.github/workflows/market-batch.yml`,
+  Monday 12:00 JST). Home charts + fishbone read the JSON at build time.
+  freelance-start requires the Playwright fallback (bot protection, HTTP 202);
+  levtech + freelance-board are plain fetch. Manual entry: `--manual --fs N ...`.
+- **ベンダー動向** (`/vendors`): renders `data/it-vendors.json` — add/update
+  vendors in the JSON only, no code changes. Linked from nav and llms.txt.
+- **HF Space deploy**: `deploy-hf.yml` uploads `apps/web/out` to
+  `jackywangsh/fde-knowledge-base` (Static Space) using secret `HF_TOKEN`.
+  GOTCHA: out/ contains a binary (opengraph-image, no extension) — plain git
+  push to HF is rejected ("contains binary files"); must upload via
+  huggingface_hub (hf_xet). Use scripts/deploy-hf.py / deploy-hf.sh.
+
 ## Env vars
 
 - `PDE_CONTENT_DIR` — override content root (otherwise content-core walks up from cwd to find `content/`; default locale `ja`).

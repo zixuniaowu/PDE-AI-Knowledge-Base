@@ -122,6 +122,9 @@ const llms = [
     (ix) => `- [${ix.data.title}](${siteUrl}/matrix/${ix.data.domain}/${ix.data.method}/${ix.data.phase}/)`
   ),
   "",
+  "## Vendor AI tracking",
+  `- [大手 IT ベンダーの AI 推進状況](${siteUrl}/vendors/): NTT データ・富士通・NEC・日立・IBM・アクセンチュアほかの生成 AI 推進状況`,
+  "",
   "## References",
   ...listReferences(root).map(
     (r) => `- [${r.data.title}](${siteUrl}/references/${r.data.id}/): ${r.data.summary}`

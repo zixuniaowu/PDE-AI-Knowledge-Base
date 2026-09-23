@@ -199,10 +199,11 @@ export function HomeMap() {
       {/* ── 下部: 参考資料の帯 ── */}
       <g transform={`translate(0, ${matrixY + headH + domains.length * (cellH + gapY) + 82})`}>
         {[
-          { t: "始め方ガイド", h: "/guide/", x: 90 },
-          { t: "市場需要分析", h: "/references/market-demand/", x: 330 },
-          { t: "パターン 9 型", h: "/patterns/", x: 570 },
-          { t: "クラウド別マップ", h: "/references/cloud-ai-services/", x: 790 },
+          { t: "始め方ガイド", h: "/guide/", x: 100 },
+          { t: "需要分析", h: "/references/market-demand/", x: 275 },
+          { t: "ベンダー動向", h: "/vendors/", x: 450 },
+          { t: "パターン 9 型", h: "/patterns/", x: 625 },
+          { t: "クラウド別マップ", h: "/references/cloud-ai-services/", x: 810 },
           { t: "業務プロセス", h: "/references/business-processes/", x: 1010 },
         ].map((c) => (
           <a key={c.h} href={c.h}>

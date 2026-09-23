@@ -157,7 +157,12 @@ flowchart TB
 - 境界の設計方法そのものは [Human-in-the-loop](/patterns/human-in-the-loop)、判断の線引きは [STEP 2](/guide/step-2-define-roles)、入力の安全側は [Confidential Inputs](/patterns/confidential-inputs) を参照
 - **AI の境界は固定ではない**。ツールの精度が上がれば「検証」は AI 側へ寄せられる。ただし「選定・指標・責任」は案件文が示すかぎり、常に人間側に残る
 
-## 6. 実戦テクニックと実演記録
+## 6. 大手 IT ベンダーの動向
+
+FDE の協働・競合相手となる大手 SIer・コンサルの生成 AI 推進状況は、
+[ベンダー動向](/vendors)タブで追跡しています。
+
+## 7. 実戦テクニックと実演記録
 
 実際の案件で効いた工夫は、[実戦テクニック](/references/field-tips)のページに逐次追記していく。理論（工程 × 人間と AI の分業）を実コードで検証した記録は、[実演記録 — OSS で新機能追加とバグ対応をやってみる](/references/oss-experiment)を参照。
 

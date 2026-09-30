@@ -100,6 +100,11 @@ docs/              # アーキテクチャ・コンテンツモデル・RFC・�
 - 新しい領域の提案は[Issue テンプレート](./.github/ISSUE_TEMPLATE/)、設計変更は[RFC](./docs/rfc/) を利用
 - 詳細は[docs/architecture.md](./docs/architecture.md)（設計思想）・[docs/content-model.md](./docs/content-model.md)（スキーマ仕様）
 
+## ロードマップ
+
+- [x] v0.1〜v0.5: 基盤 / コンテンツ拡充 / 需要分析ダッシュボード / ベンダー追跡 / UML 図中心のリニューアル
+- [ ] v0.6: 多言語（en / zh）、モバイルアプリの正式リリース（EAS）
+
 ## ライセンス
 
 - コード: MIT

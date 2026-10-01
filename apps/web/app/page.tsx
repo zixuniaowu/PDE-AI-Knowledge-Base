@@ -20,7 +20,7 @@ export default function Home() {
   const phases = listPhases();
 
   // 月次バッチ（scripts/collect-market-data.mjs）が蓄積するスナップショット
-  const snapshots: MarketSnapshot[] = historyData.snapshots;
+  const snapshots = historyData.snapshots as MarketSnapshot[];
   const latestSnapshot = [...snapshots].pop();
 
   // 独自ルートを持つコンテンツページ + 自動生成の交点ページ + インデックス系ページ

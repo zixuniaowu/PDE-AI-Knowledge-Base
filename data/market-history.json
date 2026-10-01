@@ -40,15 +40,14 @@
       "date": "2026-10-01",
       "manual": false,
       "sources": {
-        "freelance-start": 163,
-        "freelance-board": 124,
-        "levtech": 14
+        "freelance-start": 161,
+        "freelance-board": 123
       },
-      "freelanceStart": 163,
-      "freelanceBoard": 124,
-      "total": 301,
-      "boardRateMedian": 160,
-      "note": "自動収集（freelance-start + freelance-board + levtech = 301 件）。ボード単価サンプル 8 件の中央値 160 万円"
+      "freelanceStart": 161,
+      "freelanceBoard": 123,
+      "total": 284,
+      "boardRateMedian": 150,
+      "note": "自動収集（freelance-start + freelance-board = 284 件）。ボード単価サンプル 4 件の中央値 150 万円"
     }
   ]
 }

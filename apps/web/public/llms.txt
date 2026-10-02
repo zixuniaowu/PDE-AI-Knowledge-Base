@@ -118,8 +118,11 @@
 - [大手 IT ベンダーの AI 推進状況](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/vendors/): NTT データ・富士通・NEC・日立・IBM・アクセンチュアほかの生成 AI 推進状況
 
 ## References
+- [AI 活用の法規・ガイドラインマップ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/ai-regulation/): 企業が生成 AI を業務に使うとき横断的に確認すべき法規・ガイドライン。日本（AI 事業者ガイドライン・著作権 30 条の 4・個情法）と EU AI Act の要点マップ
 - [AI 導入のコスト見積もり（実単価計算済み）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/cost-estimate/): FDE が顧客提案で使える「処理 1 件あたりの内訳」計算。3 シナリオの実例と上限設定の手順
 - [FDE の市場需要分析](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/market-demand/): 招聘サイトの FDE 案件を継続的に追跡し、情報源・時系列のトレンド・求められる技術スタック・AI と人間の役割の境界を 1 枚にまとめた需要分析
+- [FDE を採用する企業へ](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/hiring-fde/): FDE を雇用・活用したい企業のための実務ガイド。雇用形態の選択、JD テンプレート、選基準、契約の型、期待値の設定
+- [LLMOps — 生成 AI アプリの運用工程](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/llmops/): 生成 AI アプリは「リリースして終わり」ではない。モデル更新で品質が変わる確率的システムを運用するための工程・監視・改善の型
 - [PoC 合意書（SOW）テンプレート](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/poc-agreement/): FDE 案件の最初の失敗は「合意なし PoC」。期間・合格閾値・データ提供範囲を先に文書化するテンプレート
 - [クラウド別 AI 導入サービスマップ（AWS / Azure / GCP / SAP）](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/cloud-ai-services/): 顧客がどのクラウドでも対応できる、シナリオ別サービス対応表と参照アーキテクチャ。SAP・国産 ERP 連携まで
 - [すぐ使えるプロンプト小技集](https://zixuniaowu.github.io/PDE-AI-Knowledge-Base/references/prompt-tips/): 今日からコピペで使える 20 の具体的テクニック。理論ではなく、貼って動く形で書いています

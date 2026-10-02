@@ -11,6 +11,21 @@ const ITEMS = [
     desc: "そのまま使える依頼の型 20+",
   },
   {
+    href: "/references/hiring-fde",
+    label: "企業の採用ガイド",
+    desc: "FDE を採用する企業のための実務",
+  },
+  {
+    href: "/references/llmops",
+    label: "LLMOps",
+    desc: "生成 AI アプリの運用工程",
+  },
+  {
+    href: "/references/ai-regulation",
+    label: "AI 法規マップ",
+    desc: "ガイドライン・著作権・個情法の要点",
+  },
+  {
     href: "/references/oss-experiment",
     label: "実演記録",
     desc: "OSS で検証した人 × AI の分業",

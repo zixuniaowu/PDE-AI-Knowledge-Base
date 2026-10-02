@@ -282,6 +282,10 @@ export function WeeklyDemandBars({ snapshots }: { snapshots: MarketSnapshot[] })
         <text x={256} y={2} fontSize={11.5} fill="var(--text-sub)">
           全ソース合計（手動調査の週）
         </text>
+        <line x1={452} y1={0} x2={478} y2={0} stroke="var(--human)" strokeWidth={2} strokeDasharray="7 5" />
+        <text x={484} y={2} fontSize={11.5} fill="var(--text-sub)">
+          移動平均
+        </text>
       </g>
     </svg>
   );
